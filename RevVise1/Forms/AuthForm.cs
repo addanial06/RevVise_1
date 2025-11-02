@@ -18,5 +18,19 @@ namespace RevVise1.Forms
             MessageBox.Show("Running");
             this.FormBorderStyle = FormBorderStyle.None;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void AuthForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
