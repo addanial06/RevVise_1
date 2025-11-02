@@ -1,9 +1,11 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using RevVise1.Forms;
 namespace RevVise1
 {
     internal static class Program
     {
+        public static bool isAuthenticated;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -16,7 +18,12 @@ namespace RevVise1
             //Application.Run(new AuthForm());
             AuthForm auth = new AuthForm();
             auth.ShowDialog();
-
+            if (isAuthenticated == true) 
+            {
+                MainForm main = new MainForm();
+                main.ShowDialog();
+            }
+            
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RevVise1.Forms
 {
@@ -19,18 +20,10 @@ namespace RevVise1.Forms
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-        }
-
-        private void AuthForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            Program.isAuthenticated = true;
+            this.Close();
         }
     }
 }

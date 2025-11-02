@@ -42,7 +42,7 @@
             button1.TabIndex = 0;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // Authentication
             // 
@@ -56,7 +56,6 @@
             Authentication.TabIndex = 1;
             Authentication.Text = "Authentication";
             Authentication.TextAlign = ContentAlignment.TopCenter;
-            Authentication.Click += label1_Click;
             // 
             // textBox1
             // 
@@ -87,7 +86,6 @@
             Controls.Add(button1);
             Name = "AuthForm";
             Text = "Form1";
-            Load += AuthForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
