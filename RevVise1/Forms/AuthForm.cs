@@ -25,5 +25,15 @@ namespace RevVise1.Forms
             Program.isAuthenticated = true;
             this.Close();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Authentication_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

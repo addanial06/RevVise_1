@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using RevVise1.Forms.Views;
 
 namespace RevVise1.Forms
 {
@@ -31,6 +32,13 @@ namespace RevVise1.Forms
                 this.WindowState = FormWindowState.Maximized;
             }
         }
+
+        private void ShowView(UserControl view)
+        {
+            contentPanel.Controls.Clear();
+            view.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(view);
+        }
         public MainForm()
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -50,8 +58,9 @@ namespace RevVise1.Forms
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dashboardView_Click(object sender, EventArgs e)
         {
+            ShowView(new DashboardView());
         }
 
         private void button5_Click(object sender, EventArgs e)
