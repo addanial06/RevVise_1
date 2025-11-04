@@ -39,58 +39,41 @@ namespace RevVise1.Forms
             view.Dock = DockStyle.Fill;
             contentPanel.Controls.Add(view);
         }
+
         public MainForm()
         {
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
+            splitContainer1.IsSplitterFixed = true;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-        }
-
+        // Event handlers for navigation buttons This Is The 4 BUtton On Main Form
         private void dashboardView_Click(object sender, EventArgs e)
         {
             ShowView(new DashboardView());
         }
+        private void settingView_Click(object sender, EventArgs e)
+        {
+            ShowView(new SettingView());
+        }
 
+        private void logView_Click(object sender, EventArgs e)
+        {
+            ShowView(new LogView());
+        }
+
+        private void catalogView_Click(object sender, EventArgs e)
+        {
+            ShowView(new CatalogView());
+        }
+
+        // end
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void catalogView_MouseHover(object sender, EventArgs e)
         {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblAppName_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

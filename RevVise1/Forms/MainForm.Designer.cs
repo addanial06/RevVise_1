@@ -13,7 +13,6 @@
         private System.Windows.Forms.Button logView;
         private System.Windows.Forms.Button settingView;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Panel contentPanel;
 
         protected override void Dispose(bool disposing)
         {
@@ -193,6 +192,7 @@
             catalogView.Text = "Catalog";
             catalogView.TextAlign = ContentAlignment.MiddleRight;
             catalogView.UseVisualStyleBackColor = false;
+            catalogView.Click += catalogView_Click;
             // 
             // logView
             // 
@@ -213,6 +213,7 @@
             logView.Text = "Logs";
             logView.TextAlign = ContentAlignment.MiddleRight;
             logView.UseVisualStyleBackColor = false;
+            logView.Click += logView_Click;
             // 
             // settingView
             // 
@@ -233,6 +234,7 @@
             settingView.Text = "Settings";
             settingView.TextAlign = ContentAlignment.MiddleRight;
             settingView.UseVisualStyleBackColor = false;
+            settingView.Click += settingView_Click;
             // 
             // exitButton
             // 
@@ -290,5 +292,6 @@
         #endregion
 
         private Label lblAppName;
+        private Panel contentPanel;
     }
 }

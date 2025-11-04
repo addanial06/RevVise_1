@@ -9,6 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\Views\AddVehicle.cs" />
+    <Compile Remove="Forms\Views\AddVehicle.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Forms\Views\AddVehicle.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Forms\Views\CatalogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Views\LogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Views\SettingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

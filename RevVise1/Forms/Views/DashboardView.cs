@@ -15,11 +15,26 @@ namespace RevVise1.Forms.Views
         public DashboardView()
         {
             InitializeComponent();
+            scrollPanel1.AutoScroll = true;
+            scrollPanel1.AutoScrollMargin = new Size(0, 20);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ShowView(UserControl view)
         {
+            view.Dock = DockStyle.Top;
+            scrollPanel1.Controls.Add(view);
+            scrollPanel1.ScrollControlIntoView(view);
+        }
 
+        int itemCount = 0;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowView(new Item(itemCount));
+
+            
+
+            itemCount++;
         }
     }
 }

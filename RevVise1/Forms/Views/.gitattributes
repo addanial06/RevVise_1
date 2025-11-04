@@ -1,0 +1,88 @@
+csharp RevVise1\Forms\Views\AddVehicleForm.cs
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using RevVise1.Models;
+
+namespace RevVise1.Forms.Views
+{
+    public class AddVehicleForm : Form
+    {
+        private TextBox txtModel;
+        private TextBox txtDescription;
+        private TextBox txtContact;
+        private DateTimePicker dtDate;
+        private Button btnOk;
+        private Button btnCancel;
+
+        public Vehicle? Vehicle { get; private set; }
+
+        public AddVehicleForm()
+        {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            Text = "Add Vehicle";
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition = FormStartPosition.CenterParent;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ClientSize = new Size(420, 260);
+
+            var lblModel = new Label { Text = "Model", Location = new Point(12, 15), AutoSize = true };
+            txtModel = new TextBox { Location = new Point(120, 12), Width = 280 };
+
+            var lblDescription = new Label { Text = "Description", Location = new Point(12, 55), AutoSize = true };
+            txtDescription = new TextBox { Location = new Point(120, 52), Width = 280 };
+
+            var lblContact = new Label { Text = "Contact", Location = new Point(12, 95), AutoSize = true };
+            txtContact = new TextBox { Location = new Point(120, 92), Width = 280 };
+
+            var lblDate = new Label { Text = "Date", Location = new Point(12, 135), AutoSize = true };
+            dtDate = new DateTimePicker { Location = new Point(120, 132), Width = 280, Format = DateTimePickerFormat.Short };
+
+            btnOk = new Button { Text = "OK", Location = new Point(220, 190), DialogResult = DialogResult.OK, Width = 80 };
+            btnCancel = new Button { Text = "Cancel", Location = new Point(310, 190), DialogResult = DialogResult.Cancel, Width = 80 };
+
+            btnOk.Click += BtnOk_Click;
+
+            Controls.AddRange(new Control[] { lblModel, txtModel, lblDescription, txtDescription, lblContact, txtContact, lblDate, dtDate, btnOk, btnCancel });
+
+            AcceptButton = btnOk;
+            CancelButton = btnCancel;
+        }
+
+        private void BtnOk_Click(object? sender, EventArgs e)
+        {
+            var model = txtModel.Text?.Trim() ?? string.Empty;
+            var description = txtDescription.Text?.Trim() ?? string.Empty;
+            var contact = txtContact.Text?.Trim() ?? string.Empty;
+
+            if (string.IsNullOrWhiteSpace(model))
+            {
+                MessageBox.Show("Model is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                MessageBox.Show("Description is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult = DialogResult.None;
+                return;
+            }
+
+            Vehicle = new Vehicle
+            {
+                Model = model,
+                Description = description,
+                Contact = contact,
+                Date = dtDate.Value.Date
+            };
+
+            DialogResult = DialogResult.OK;
+        }
+    }
+}

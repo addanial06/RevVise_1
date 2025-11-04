@@ -1,8 +1,6 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
-
-namespace RevVise1.Forms.Views
+﻿namespace RevVise1.Forms.Views
 {
-    partial class DashboardView
+    partial class LogView
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,9 +30,11 @@ namespace RevVise1.Forms.Views
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             dashboardLabel = new Label();
-            button1 = new Button();
-            scrollPanel1 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            dataGridView1 = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -46,14 +46,12 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Controls.Add(dashboardLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 1);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.Size = new Size(966, 152);
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(943, 156);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // dashboardLabel
@@ -62,43 +60,56 @@ namespace RevVise1.Forms.Views
             dashboardLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboardLabel.ForeColor = Color.DarkGray;
             dashboardLabel.Location = new Point(13, 10);
-            dashboardLabel.Name = "dashboardLabel";
+            dashboardLabel.Name = "logLabel";
             dashboardLabel.Size = new Size(258, 65);
             dashboardLabel.TabIndex = 0;
-            dashboardLabel.Text = "Dashboard";
+            dashboardLabel.Text = "Log";
             dashboardLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // tableLayoutPanel2
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(40, 96);
-            button1.Margin = new Padding(3, 3, 320, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Add ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            tableLayoutPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.33298F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 97.66702F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Controls.Add(dataGridView1, 1, 0);
+            tableLayoutPanel2.Location = new Point(0, 174);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.Padding = new Padding(10);
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(949, 513);
+            tableLayoutPanel2.TabIndex = 1;
             // 
-            // scrollPanel1
+            // dataGridView1
             // 
-            scrollPanel1.AutoScroll = true;
-            scrollPanel1.Location = new Point(16, 161);
-            scrollPanel1.Name = "scrollPanel1";
-            scrollPanel1.Padding = new Padding(10);
-            scrollPanel1.Size = new Size(930, 526);
-            scrollPanel1.TabIndex = 1;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(34, 13);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(881, 487);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // DashboardView
+            // LogView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(scrollPanel1);
+            Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
-            Name = "DashboardView";
+            Name = "LogView";
             Size = new Size(949, 690);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -107,7 +118,7 @@ namespace RevVise1.Forms.Views
 
         private TableLayoutPanel tableLayoutPanel1;
         private Label dashboardLabel;
-        private Panel scrollPanel1;
-        private Button button1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private DataGridView dataGridView1;
     }
 }
