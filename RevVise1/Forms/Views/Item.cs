@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace RevVise1.Forms.Views
 {
-    public partial class Item : UserControl
+   public partial class Item : UserControl
     {
 
         private Size size;
         bool itemExpand = false;
         bool itemExpand2 = false;
+
+        //for db maybe
+        //string modelTextString;
+        //string contactTextString;
+        //string vehicleTextString;
+        //string entryTextString;
 
         public Item(int id)
         {
@@ -27,7 +33,6 @@ namespace RevVise1.Forms.Views
 
             entryText.Location = new Point(modelLabel.Location.X, modelLabel.Location.Y + 30);
             entryLabel.Location = new Point(modelLabel.Location.X, modelLabel.Location.Y + 30);
-
 
 
             size = this.Size;
@@ -70,6 +75,7 @@ namespace RevVise1.Forms.Views
             vehicleLabel.Hide();
         }
 
+        // need to save to db but no db yet I donot know how to to this help Me P{lssss
         private void saveTexts()
         {
             modelLabel.Text = modelText.Text;
@@ -80,7 +86,7 @@ namespace RevVise1.Forms.Views
 
         private void Item_Click(object sender, EventArgs e)
         {
-            if (!itemExpand)
+            if (!itemExpand && !itemExpand2)
             {
                 this.Size = new Size(size.Width, size.Height * 5);
 
@@ -88,10 +94,12 @@ namespace RevVise1.Forms.Views
                 entryText.Enabled = false;
 
                 editButton.Enabled = false;
-                
+
                 itemExpand = true;
+
+                deleteButton.Visible = false;
             }
-            else
+            else if (itemExpand && !itemExpand2)
             {
                 this.Size = size;
 
@@ -100,6 +108,8 @@ namespace RevVise1.Forms.Views
                 editButton.Enabled = true;
 
                 itemExpand = false;
+
+                deleteButton.Visible = true;
             }
 
         }
@@ -129,6 +139,27 @@ namespace RevVise1.Forms.Views
                 showTextLabel();
 
                 itemExpand2 = false;
+            }
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void hover(object sender, EventArgs e)
+        {
+            if (!itemExpand2)
+            {
+                this.BackColor = Color.LightGray;
+            }
+        }
+
+        private void nothover(object sender, EventArgs e)
+        {
+            if (!itemExpand2)
+            {
+                this.BackColor = Color.White;
             }
         }
     }
