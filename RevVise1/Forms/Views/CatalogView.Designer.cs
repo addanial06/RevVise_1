@@ -31,16 +31,10 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             dashboardLabel = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            addEntry = new Button();
-            updateEntry = new Button();
-            deleteEntry = new Button();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            dataGridView1 = new DataGridView();
+            button1 = new Button();
+            panel1 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,14 +45,13 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 246F));
             tableLayoutPanel1.Controls.Add(dashboardLabel, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 1, 1);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
-            tableLayoutPanel1.Size = new Size(943, 160);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
+            tableLayoutPanel1.Size = new Size(943, 156);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // dashboardLabel
@@ -75,94 +68,41 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(updateEntry);
-            flowLayoutPanel1.Controls.Add(deleteEntry);
-            flowLayoutPanel1.Controls.Add(addEntry);
-            flowLayoutPanel1.Location = new Point(13, 117);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Location = new Point(13, 87);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(626, 30);
-            flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanel1.Size = new Size(508, 56);
+            flowLayoutPanel1.TabIndex = 1;
             // 
-            // flowLayoutPanel2
+            // button1
             // 
-            flowLayoutPanel2.Location = new Point(645, 117);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(285, 30);
-            flowLayoutPanel2.TabIndex = 3;
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 43);
+            button1.TabIndex = 0;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
-            // addEntry
+            // panel1
             // 
-            addEntry.Location = new Point(165, 3);
-            addEntry.Name = "addEntry";
-            addEntry.Size = new Size(75, 23);
-            addEntry.TabIndex = 1;
-            addEntry.Text = "Add";
-            addEntry.UseVisualStyleBackColor = true;
-            addEntry.Click += addEntry_Click;
-            // 
-            // updateEntry
-            // 
-            updateEntry.Location = new Point(3, 3);
-            updateEntry.Name = "updateEntry";
-            updateEntry.Size = new Size(75, 23);
-            updateEntry.TabIndex = 3;
-            updateEntry.Text = "Update";
-            updateEntry.UseVisualStyleBackColor = true;
-            // 
-            // deleteEntry
-            // 
-            deleteEntry.Location = new Point(84, 3);
-            deleteEntry.Name = "deleteEntry";
-            deleteEntry.Size = new Size(75, 23);
-            deleteEntry.TabIndex = 2;
-            deleteEntry.Text = "Delete";
-            deleteEntry.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.33298F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 97.66702F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Controls.Add(dataGridView1, 1, 0);
-            tableLayoutPanel2.Location = new Point(0, 174);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.Padding = new Padding(10);
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(949, 513);
-            tableLayoutPanel2.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(34, 13);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(881, 487);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            panel1.AutoScroll = true;
+            panel1.Location = new Point(3, 165);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(946, 525);
+            panel1.TabIndex = 1;
             // 
             // CatalogView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel2);
+            Controls.Add(panel1);
             Controls.Add(tableLayoutPanel1);
             Name = "CatalogView";
             Size = new Size(949, 690);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,12 +111,8 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Label dashboardLabel;
-        private TableLayoutPanel tableLayoutPanel2;
-        private DataGridView dataGridView1;
+        private Panel panel1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Button addEntry;
-        private Button updateEntry;
-        private Button deleteEntry;
+        private Button button1;
     }
 }

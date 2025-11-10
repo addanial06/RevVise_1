@@ -32,7 +32,6 @@ namespace RevVise1.Forms.Views
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             dashboardLabel = new Label();
-            button1 = new Button();
             scrollPanel1 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -46,7 +45,6 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Controls.Add(dashboardLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 1);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
@@ -67,18 +65,6 @@ namespace RevVise1.Forms.Views
             dashboardLabel.TabIndex = 0;
             dashboardLabel.Text = "Dashboard";
             dashboardLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(40, 96);
-            button1.Margin = new Padding(3, 3, 320, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Add ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // scrollPanel1
             // 
