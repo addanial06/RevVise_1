@@ -30,11 +30,13 @@ namespace RevVise1.Forms.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ShowView(new Item(itemCount));
-
-            
-
+            //ShowView(new Item());
             itemCount++;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

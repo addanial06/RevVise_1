@@ -49,8 +49,9 @@
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
-            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
             tableLayoutPanel1.Size = new Size(943, 156);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -60,8 +61,8 @@
             dashboardLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboardLabel.ForeColor = Color.DarkGray;
             dashboardLabel.Location = new Point(13, 10);
-            dashboardLabel.Name = "logLabel";
-            dashboardLabel.Size = new Size(258, 65);
+            dashboardLabel.Name = "dashboardLabel";
+            dashboardLabel.Size = new Size(107, 65);
             dashboardLabel.TabIndex = 0;
             dashboardLabel.Text = "Log";
             dashboardLabel.TextAlign = ContentAlignment.MiddleCenter;

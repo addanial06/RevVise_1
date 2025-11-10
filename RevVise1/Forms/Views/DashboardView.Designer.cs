@@ -32,11 +32,10 @@ namespace RevVise1.Forms.Views
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             dashboardLabel = new Label();
-            button1 = new Button();
-            scrollPanel1 = new Panel();
             greenBox = new Label();
             yellowBox = new Label();
             redBox = new Label();
+            scrollPanel1 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +49,6 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(dashboardLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 1);
             tableLayoutPanel1.Controls.Add(greenBox, 1, 0);
             tableLayoutPanel1.Controls.Add(yellowBox, 2, 0);
             tableLayoutPanel1.Controls.Add(redBox, 3, 0);
@@ -62,6 +60,7 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel1.Size = new Size(986, 162);
             tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // dashboardLabel
             // 
@@ -74,27 +73,6 @@ namespace RevVise1.Forms.Views
             dashboardLabel.TabIndex = 0;
             dashboardLabel.Text = "Dashboard";
             dashboardLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(40, 104);
-            button1.Margin = new Padding(3, 3, 320, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Add ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // scrollPanel1
-            // 
-            scrollPanel1.AutoScroll = true;
-            scrollPanel1.Location = new Point(16, 161);
-            scrollPanel1.Name = "scrollPanel1";
-            scrollPanel1.Padding = new Padding(10);
-            scrollPanel1.Size = new Size(930, 526);
-            scrollPanel1.TabIndex = 1;
             // 
             // greenBox
             // 
@@ -136,6 +114,15 @@ namespace RevVise1.Forms.Views
             redBox.TabIndex = 4;
             redBox.Text = "redBox";
             // 
+            // scrollPanel1
+            // 
+            scrollPanel1.AutoScroll = true;
+            scrollPanel1.Location = new Point(16, 161);
+            scrollPanel1.Name = "scrollPanel1";
+            scrollPanel1.Padding = new Padding(10);
+            scrollPanel1.Size = new Size(930, 526);
+            scrollPanel1.TabIndex = 1;
+            // 
             // DashboardView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -155,7 +142,6 @@ namespace RevVise1.Forms.Views
         private TableLayoutPanel tableLayoutPanel1;
         private Label dashboardLabel;
         private Panel scrollPanel1;
-        private Button button1;
         private Label greenBox;
         private Label yellowBox;
         private Label redBox;
