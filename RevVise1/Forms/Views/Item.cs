@@ -18,11 +18,16 @@ namespace RevVise1.Forms.Views
         bool itemExpand = false;
         bool itemExpand2 = false;
 
-        //for db maybe
-        //string modelTextString;
-        //string contactTextString;
-        //string vehicleTextString;
-        //string entryTextString;
+        // for db ?
+        int id;
+        String model;
+        String contact;
+        String vehicle;
+        String entry;
+        String status;
+        String dateIssuedValue;
+        String dateResolvedValue;
+
 
         public Item(int id)
         {
@@ -31,11 +36,11 @@ namespace RevVise1.Forms.Views
             this.Location.Y.Equals(id * this.Height);
             IDLabel.Text = id.ToString();
 
-            entryText.Location = new Point(modelLabel.Location.X, modelLabel.Location.Y + 30);
-            entryLabel.Location = new Point(modelLabel.Location.X, modelLabel.Location.Y + 30);
+            dateIssued.Text = DateTime.Now.ToShortDateString();
+            dateIssuedValue = DateTime.Now.ToShortDateString();
 
 
-            size = this.Size;
+            size = new Size(900, 55);
         }
 
         private void showTextBox()
@@ -43,8 +48,11 @@ namespace RevVise1.Forms.Views
             SuspendLayout();
             modelText.Visible = true;
             contactText.Visible = true;
-            vehicleText.Visible = true;
+            plateText.Visible = true;
             entryText.Visible = true;
+
+            entryTitle.Visible = true;
+            ownerDetailsText.Visible = true;
 
             ResumeLayout(false);
         }
@@ -53,7 +61,11 @@ namespace RevVise1.Forms.Views
         {
             modelLabel.Visible = true;
             contactLabel.Visible = true;
-            vehicleLabel.Visible = true;
+            plateLabel.Visible = true;
+            entryTitle.Visible = true;
+
+            ownerDetailsLabel.Visible = true;
+
         }
 
         private void hideTextBox()
@@ -61,8 +73,11 @@ namespace RevVise1.Forms.Views
             SuspendLayout();
             modelText.Hide();
             contactText.Hide();
-            vehicleText.Hide();
+            plateText.Hide();
             entryText.Hide();
+
+            entryTitle.Hide();
+            ownerDetailsText.Hide();
 
 
             ResumeLayout(false);
@@ -72,46 +87,20 @@ namespace RevVise1.Forms.Views
         {
             modelLabel.Hide();
             contactLabel.Hide();
-            vehicleLabel.Hide();
+            plateLabel.Hide();
+            entryTitle.Hide();
+
+            ownerDetailsLabel.Hide();
+
         }
 
-        // need to save to db but no db yet I donot know how to to this help Me P{lssss
         private void saveTexts()
         {
             modelLabel.Text = modelText.Text;
             contactLabel.Text = contactText.Text;
-            vehicleLabel.Text = vehicleText.Text;
+            plateLabel.Text = plateText.Text;
             entryLabel.Text = entryText.Text;
-        }
-
-        private void Item_Click(object sender, EventArgs e)
-        {
-            if (!itemExpand && !itemExpand2)
-            {
-                this.Size = new Size(size.Width, size.Height * 5);
-
-                entryLabel.Show();
-                entryText.Enabled = false;
-
-                editButton.Enabled = false;
-
-                itemExpand = true;
-
-                deleteButton.Visible = false;
-            }
-            else if (itemExpand && !itemExpand2)
-            {
-                this.Size = size;
-
-                entryLabel.Hide();
-                entryText.Enabled = true;
-                editButton.Enabled = true;
-
-                itemExpand = false;
-
-                deleteButton.Visible = true;
-            }
-
+            ownerDetailsLabel.Text = ownerDetailsText.Text;
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -121,9 +110,16 @@ namespace RevVise1.Forms.Views
                 this.Size = new Size(size.Width, size.Height * 5);
                 editButton.Text = "Save";
 
-                showTextBox();
-                hideTextLabel();
+                // saving
+                id = Int32.Parse(IDLabel.Text);
+                model = modelText.Text;
+                contact = contactText.Text;
+                vehicle = plateText.Text;
+                entry = entryText.Text;
+                status = statusLabel.Text;
 
+                hideTextLabel();
+                showTextBox();
 
 
                 itemExpand2 = true;
@@ -135,8 +131,11 @@ namespace RevVise1.Forms.Views
 
 
                 saveTexts();
+
                 hideTextBox();
                 showTextLabel();
+
+                entryTitle.Hide();
 
                 itemExpand2 = false;
             }
@@ -161,6 +160,54 @@ namespace RevVise1.Forms.Views
             {
                 this.BackColor = Color.White;
             }
+        }
+
+        private void clickItem(object sender, EventArgs e)
+        {
+            if (!itemExpand && !itemExpand2)
+            {
+                this.Size = new Size(size.Width, size.Height * 5);
+                entryTitle.Show();
+                entryLabel.Show();
+                entryText.Enabled = false;
+
+                editButton.Enabled = false;
+
+                itemExpand = true;
+            }
+            else if (itemExpand && !itemExpand2)
+            {
+                this.Size = size;
+                entryTitle.Hide();
+                entryLabel.Hide();
+                entryText.Enabled = true;
+                editButton.Enabled = true;
+
+                itemExpand = false;
+            }
+        }
+
+        private void resolveButton_Click(object sender, EventArgs e)
+        {
+            if (!dateResolved.Text.Equals("Unresolved"))
+            {
+                resolveButton.Text = "Resolve";
+
+                dateResolvedValue = "Unresolved";
+                statusLabel.Text = "Unresolved";
+                dateResolved.Text = "Unresolved";
+
+            }
+
+            else
+            {
+                resolveButton.Text = "Unresolve";
+
+                statusLabel.Text = "Resolved";
+                dateResolved.Text = DateTime.Now.ToShortDateString();
+                dateResolvedValue = DateTime.Now.ToShortDateString();
+            }
+
         }
     }
 }

@@ -29,17 +29,10 @@ namespace RevVise1.Forms.Views
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ShowView(new Item(itemCount));
+            Item item = new Item(itemCount);
+            ShowView(item);
+            item.Size = new Size(900, 55);
             itemCount++;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void addEntry_Click(object sender, EventArgs e)
-        {
         }
     }
 }
