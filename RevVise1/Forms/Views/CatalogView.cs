@@ -40,8 +40,6 @@ namespace RevVise1.Forms.Views
 
         private void addEntry_Click(object sender, EventArgs e)
         {
-            Item add = new Item();
-            add.Show();
         }
     }
 }
