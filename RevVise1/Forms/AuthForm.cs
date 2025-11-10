@@ -16,8 +16,7 @@ namespace RevVise1.Forms
         public AuthForm()
         {
             InitializeComponent();
-            MessageBox.Show("Running");
-            this.FormBorderStyle = FormBorderStyle.None;
+            //MessageBox.Show("Running");
         }
 
         private void button1_Click_1(object sender, EventArgs e)

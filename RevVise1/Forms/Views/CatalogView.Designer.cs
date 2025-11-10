@@ -86,6 +86,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.Location = new Point(3, 165);
             panel1.Name = "panel1";

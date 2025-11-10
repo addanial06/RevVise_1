@@ -30,18 +30,19 @@
         {
             LoginButton = new Button();
             LogoText = new Label();
-            UsernameField = new TextBox();
             PasswordField = new TextBox();
+            UsernameField = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            dataGridView1 = new DataGridView();
+            panel1 = new Panel();
+            panel2 = new Panel();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // LoginButton
             // 
             LoginButton.Anchor = AnchorStyles.Top;
-            LoginButton.Location = new Point(440, 408);
+            LoginButton.Location = new Point(38, 250);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(86, 27);
             LoginButton.TabIndex = 0;
@@ -55,7 +56,7 @@
             LogoText.AutoSize = true;
             LogoText.FlatStyle = FlatStyle.Popup;
             LogoText.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LogoText.Location = new Point(399, 138);
+            LogoText.Location = new Point(38, 108);
             LogoText.Margin = new Padding(3, 70, 3, 0);
             LogoText.Name = "LogoText";
             LogoText.Size = new Size(167, 50);
@@ -64,68 +65,76 @@
             LogoText.TextAlign = ContentAlignment.TopCenter;
             LogoText.Click += Authentication_Click;
             // 
-            // UsernameField
-            // 
-            UsernameField.Anchor = AnchorStyles.Top;
-            UsernameField.Location = new Point(385, 242);
-            UsernameField.Name = "UsernameField";
-            UsernameField.PlaceholderText = "Username";
-            UsernameField.Size = new Size(195, 23);
-            UsernameField.TabIndex = 2;
-            // 
             // PasswordField
             // 
             PasswordField.Anchor = AnchorStyles.Top;
-            PasswordField.Location = new Point(385, 310);
+            PasswordField.Location = new Point(38, 208);
             PasswordField.Name = "PasswordField";
             PasswordField.PlaceholderText = "Password";
             PasswordField.Size = new Size(195, 23);
             PasswordField.TabIndex = 3;
             // 
+            // UsernameField
+            // 
+            UsernameField.Anchor = AnchorStyles.Top;
+            UsernameField.Location = new Point(38, 179);
+            UsernameField.Name = "UsernameField";
+            UsernameField.PlaceholderText = "Username";
+            UsernameField.Size = new Size(195, 23);
+            UsernameField.TabIndex = 2;
+            // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(UsernameField, 1, 2);
-            tableLayoutPanel1.Controls.Add(PasswordField, 1, 3);
-            tableLayoutPanel1.Controls.Add(LogoText, 1, 1);
-            tableLayoutPanel1.Controls.Add(LoginButton, 1, 5);
-            tableLayoutPanel1.Controls.Add(dataGridView1, 0, 3);
-            tableLayoutPanel1.Location = new Point(12, 6);
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.33333F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.333333F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.333333F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.333333F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.333333F));
-            tableLayoutPanel1.Size = new Size(968, 545);
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1008, 602);
             tableLayoutPanel1.TabIndex = 4;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // dataGridView1
+            // panel1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 310);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(8, 8);
-            dataGridView1.TabIndex = 4;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(LogoText);
+            panel1.Controls.Add(LoginButton);
+            panel1.Controls.Add(UsernameField);
+            panel1.Controls.Add(PasswordField);
+            panel1.Location = new Point(507, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(498, 596);
+            panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(504, 602);
+            panel2.TabIndex = 1;
             // 
             // AuthForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(992, 563);
+            ControlBox = false;
             Controls.Add(tableLayoutPanel1);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "AuthForm";
-            Text = "Form1";
+            ShowIcon = false;
+            Text = "RevVise App";
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -133,9 +142,10 @@
 
         private Button LoginButton;
         private Label LogoText;
-        private TextBox UsernameField;
         private TextBox PasswordField;
+        private TextBox UsernameField;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView dataGridView1;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

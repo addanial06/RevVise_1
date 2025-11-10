@@ -12,6 +12,7 @@ namespace RevVise1.Forms.Views
 {
     public partial class DashboardView : UserControl
     {
+        RevDB db = new RevDB();
         public DashboardView()
         {
             InitializeComponent();

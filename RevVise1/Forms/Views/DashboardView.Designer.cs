@@ -69,10 +69,10 @@ namespace RevVise1.Forms.Views
             // scrollPanel1
             // 
             scrollPanel1.AutoScroll = true;
-            scrollPanel1.Location = new Point(16, 161);
+            scrollPanel1.Location = new Point(3, 161);
             scrollPanel1.Name = "scrollPanel1";
             scrollPanel1.Padding = new Padding(10);
-            scrollPanel1.Size = new Size(930, 526);
+            scrollPanel1.Size = new Size(943, 526);
             scrollPanel1.TabIndex = 1;
             // 
             // DashboardView

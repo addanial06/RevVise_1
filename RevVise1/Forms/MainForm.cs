@@ -46,7 +46,7 @@ namespace RevVise1.Forms
             InitializeComponent();
             splitContainer1.IsSplitterFixed = true;
         }
-        // Event handlers for navigation buttons This Is The 4 BUtton On Main Form
+        // Event handlers for navigation buttons
         private void dashboardView_Click(object sender, EventArgs e)
         {
             ShowView(new DashboardView());
