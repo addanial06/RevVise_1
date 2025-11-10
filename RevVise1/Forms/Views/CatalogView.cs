@@ -32,5 +32,16 @@ namespace RevVise1.Forms.Views
             ShowView(new Item(itemCount));
             itemCount++;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addEntry_Click(object sender, EventArgs e)
+        {
+            Item add = new Item();
+            add.Show();
+        }
     }
 }

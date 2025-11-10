@@ -54,6 +54,7 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel1.Size = new Size(986, 162);
             tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // dashboardLabel
             // 
