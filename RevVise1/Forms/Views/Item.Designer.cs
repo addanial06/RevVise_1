@@ -38,6 +38,7 @@
             vehicleText = new TextBox();
             entryText = new RichTextBox();
             entryLabel = new Label();
+            deleteButton = new Button();
             SuspendLayout();
             // 
             // IDLabel
@@ -81,7 +82,7 @@
             // 
             // editButton
             // 
-            editButton.Location = new Point(819, 8);
+            editButton.Location = new Point(800, 7);
             editButton.Name = "editButton";
             editButton.Size = new Size(75, 30);
             editButton.TabIndex = 4;
@@ -141,11 +142,22 @@
             entryLabel.Text = "entry 1a sdasd asd asd asd asd ";
             entryLabel.Visible = false;
             // 
+            // deleteButton
+            // 
+            deleteButton.Location = new Point(800, 50);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(75, 31);
+            deleteButton.TabIndex = 10;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += Delete_Click;
+            // 
             // Item
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.White;
+            Controls.Add(deleteButton);
             Controls.Add(entryLabel);
             Controls.Add(entryText);
             Controls.Add(vehicleText);
@@ -157,10 +169,12 @@
             Controls.Add(modelLabel);
             Controls.Add(IDLabel);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4);
+            Margin = new Padding(10);
             Name = "Item";
             Size = new Size(900, 43);
             Click += Item_Click;
+            MouseEnter += hover;
+            MouseLeave += nothover;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +191,6 @@
         private TextBox vehicleText;
         private RichTextBox entryText;
         private Label entryLabel;
+        private Button deleteButton;
     }
 }
