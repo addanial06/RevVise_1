@@ -32,11 +32,7 @@ namespace RevVise1.Forms.Views
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             dashboardLabel = new Label();
-            button1 = new Button();
             scrollPanel1 = new Panel();
-            greenBox = new Label();
-            yellowBox = new Label();
-            redBox = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,10 +46,6 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(dashboardLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 1);
-            tableLayoutPanel1.Controls.Add(greenBox, 1, 0);
-            tableLayoutPanel1.Controls.Add(yellowBox, 2, 0);
-            tableLayoutPanel1.Controls.Add(redBox, 3, 0);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
@@ -75,18 +67,6 @@ namespace RevVise1.Forms.Views
             dashboardLabel.Text = "Dashboard";
             dashboardLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(40, 104);
-            button1.Margin = new Padding(3, 3, 320, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Add ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // scrollPanel1
             // 
             scrollPanel1.AutoScroll = true;
@@ -95,46 +75,6 @@ namespace RevVise1.Forms.Views
             scrollPanel1.Padding = new Padding(10);
             scrollPanel1.Size = new Size(930, 526);
             scrollPanel1.TabIndex = 1;
-            // 
-            // greenBox
-            // 
-            greenBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            greenBox.AutoSize = true;
-            greenBox.BackColor = Color.PaleGreen;
-            greenBox.FlatStyle = FlatStyle.Flat;
-            greenBox.Location = new Point(524, 10);
-            greenBox.Margin = new Padding(0);
-            greenBox.Name = "greenBox";
-            greenBox.Padding = new Padding(40, 30, 40, 30);
-            greenBox.Size = new Size(143, 85);
-            greenBox.TabIndex = 2;
-            greenBox.Text = "Green Box";
-            // 
-            // yellowBox
-            // 
-            yellowBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            yellowBox.AutoSize = true;
-            yellowBox.BackColor = Color.Gold;
-            yellowBox.Location = new Point(667, 10);
-            yellowBox.Margin = new Padding(0);
-            yellowBox.Name = "yellowBox";
-            yellowBox.Padding = new Padding(40, 30, 40, 30);
-            yellowBox.Size = new Size(143, 85);
-            yellowBox.TabIndex = 3;
-            yellowBox.Text = "Yellow Box";
-            // 
-            // redBox
-            // 
-            redBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            redBox.AutoSize = true;
-            redBox.BackColor = Color.DarkRed;
-            redBox.Location = new Point(810, 10);
-            redBox.Margin = new Padding(0);
-            redBox.Name = "redBox";
-            redBox.Padding = new Padding(40, 30, 40, 30);
-            redBox.Size = new Size(143, 85);
-            redBox.TabIndex = 4;
-            redBox.Text = "redBox";
             // 
             // DashboardView
             // 
@@ -155,7 +95,6 @@ namespace RevVise1.Forms.Views
         private TableLayoutPanel tableLayoutPanel1;
         private Label dashboardLabel;
         private Panel scrollPanel1;
-        private Button button1;
         private Label greenBox;
         private Label yellowBox;
         private Label redBox;
