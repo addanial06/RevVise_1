@@ -17,7 +17,7 @@ namespace RevVise1.Forms.Views
         {
             InitializeComponent();
             panel1.AutoScroll = true;
-            panel1.AutoScrollMargin = new Size(0, 20);
+            //panel1.AutoScrollMargin = new Size(0, 20);
 
             preload();
         }
@@ -166,7 +166,7 @@ namespace RevVise1.Forms.Views
 
         private void resolvedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sortStrip.Items[0].Text = "Resolved";
+            sortStrip.Items[0].Text = "Status";
             motorDB = "motor_status";
             sortBy(order, motorDB, filter);
         }
@@ -205,7 +205,7 @@ namespace RevVise1.Forms.Views
 
         private void statusSort_Click(object sender, EventArgs e)
         {
-            sortStrip.Items[0].Text = "Resolved";
+            sortStrip.Items[0].Text = "Status";
             motorDB = "motor_status";
             sortBy(order, motorDB, filter);
             changeOrder();

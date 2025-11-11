@@ -40,6 +40,7 @@
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
             panel5 = new Panel();
+            searchLabel = new Label();
             sortStrip2 = new MenuStrip();
             sortStripMenu = new ToolStripMenuItem();
             panel4 = new Panel();
@@ -62,7 +63,6 @@
             owner2Sort = new Button();
             panel11 = new Panel();
             statusSort = new Button();
-            searchLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             sortStrip.SuspendLayout();
@@ -90,7 +90,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(939, 150);
+            tableLayoutPanel1.Size = new Size(931, 150);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -187,6 +187,16 @@
             panel5.Size = new Size(464, 25);
             panel5.TabIndex = 3;
             // 
+            // searchLabel
+            // 
+            searchLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            searchLabel.Location = new Point(0, 0);
+            searchLabel.Name = "searchLabel";
+            searchLabel.Size = new Size(42, 25);
+            searchLabel.TabIndex = 1;
+            searchLabel.Text = "Search";
+            searchLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // sortStrip2
             // 
             sortStrip2.BackColor = Color.LightGray;
@@ -261,28 +271,30 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Location = new Point(3, 193);
+            panel1.Location = new Point(3, 194);
             panel1.Margin = new Padding(3, 0, 3, 3);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(3, 0, 3, 3);
-            panel1.Size = new Size(939, 494);
+            panel1.Size = new Size(931, 452);
             panel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 0);
             tableLayoutPanel2.Controls.Add(panel1, 0, 2);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 1);
-            tableLayoutPanel2.Location = new Point(3, 0);
+            tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.Padding = new Padding(0, 0, 0, 3);
             tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 156F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 497F));
-            tableLayoutPanel2.Size = new Size(945, 690);
+            tableLayoutPanel2.Size = new Size(937, 652);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -306,7 +318,7 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(939, 31);
+            tableLayoutPanel3.Size = new Size(931, 31);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // panel6
@@ -319,6 +331,7 @@
             // 
             // idSort
             // 
+            idSort.BackColor = Color.LightGray;
             idSort.Dock = DockStyle.Fill;
             idSort.FlatStyle = FlatStyle.Popup;
             idSort.Location = new Point(0, 0);
@@ -326,7 +339,7 @@
             idSort.Size = new Size(44, 25);
             idSort.TabIndex = 0;
             idSort.Text = "ID";
-            idSort.UseVisualStyleBackColor = true;
+            idSort.UseVisualStyleBackColor = false;
             idSort.Click += idSort_Click;
             // 
             // panel7
@@ -335,118 +348,113 @@
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(53, 3);
             panel7.Name = "panel7";
-            panel7.Size = new Size(152, 25);
+            panel7.Size = new Size(151, 25);
             panel7.TabIndex = 1;
             // 
             // modelSort
             // 
+            modelSort.BackColor = Color.LightGray;
             modelSort.Dock = DockStyle.Fill;
             modelSort.FlatStyle = FlatStyle.Popup;
             modelSort.Location = new Point(0, 0);
             modelSort.Name = "modelSort";
-            modelSort.Size = new Size(152, 25);
+            modelSort.Size = new Size(151, 25);
             modelSort.TabIndex = 1;
             modelSort.Text = "Model";
             modelSort.TextAlign = ContentAlignment.MiddleLeft;
-            modelSort.UseVisualStyleBackColor = true;
+            modelSort.UseVisualStyleBackColor = false;
             modelSort.Click += modelSort_Click;
             // 
             // panel8
             // 
             panel8.Controls.Add(ownerSort);
             panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(211, 3);
+            panel8.Location = new Point(210, 3);
             panel8.Name = "panel8";
-            panel8.Size = new Size(152, 25);
+            panel8.Size = new Size(151, 25);
             panel8.TabIndex = 2;
             // 
             // ownerSort
             // 
+            ownerSort.BackColor = Color.LightGray;
             ownerSort.Dock = DockStyle.Fill;
             ownerSort.FlatStyle = FlatStyle.Popup;
             ownerSort.Location = new Point(0, 0);
             ownerSort.Name = "ownerSort";
-            ownerSort.Size = new Size(152, 25);
+            ownerSort.Size = new Size(151, 25);
             ownerSort.TabIndex = 1;
             ownerSort.Text = "Owner";
             ownerSort.TextAlign = ContentAlignment.MiddleLeft;
-            ownerSort.UseVisualStyleBackColor = true;
+            ownerSort.UseVisualStyleBackColor = false;
             ownerSort.Click += ownerSort_Click;
             // 
             // panel9
             // 
             panel9.Controls.Add(plateSort);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(369, 3);
+            panel9.Location = new Point(367, 3);
             panel9.Name = "panel9";
-            panel9.Size = new Size(152, 25);
+            panel9.Size = new Size(151, 25);
             panel9.TabIndex = 3;
             // 
             // plateSort
             // 
+            plateSort.BackColor = Color.LightGray;
             plateSort.Dock = DockStyle.Fill;
             plateSort.FlatStyle = FlatStyle.Popup;
             plateSort.Location = new Point(0, 0);
             plateSort.Name = "plateSort";
-            plateSort.Size = new Size(152, 25);
+            plateSort.Size = new Size(151, 25);
             plateSort.TabIndex = 1;
             plateSort.Text = "Plate No.";
             plateSort.TextAlign = ContentAlignment.MiddleLeft;
-            plateSort.UseVisualStyleBackColor = true;
+            plateSort.UseVisualStyleBackColor = false;
             plateSort.Click += plateSort_Click;
             // 
             // panel10
             // 
             panel10.Controls.Add(owner2Sort);
             panel10.Dock = DockStyle.Fill;
-            panel10.Location = new Point(527, 3);
+            panel10.Location = new Point(524, 3);
             panel10.Name = "panel10";
-            panel10.Size = new Size(152, 25);
+            panel10.Size = new Size(151, 25);
             panel10.TabIndex = 4;
             // 
             // owner2Sort
             // 
+            owner2Sort.BackColor = Color.LightGray;
             owner2Sort.Dock = DockStyle.Fill;
             owner2Sort.FlatStyle = FlatStyle.Popup;
             owner2Sort.Location = new Point(0, 0);
             owner2Sort.Name = "owner2Sort";
-            owner2Sort.Size = new Size(152, 25);
+            owner2Sort.Size = new Size(151, 25);
             owner2Sort.TabIndex = 1;
             owner2Sort.Text = "Owner2";
             owner2Sort.TextAlign = ContentAlignment.MiddleLeft;
-            owner2Sort.UseVisualStyleBackColor = true;
+            owner2Sort.UseVisualStyleBackColor = false;
             // 
             // panel11
             // 
             panel11.Controls.Add(statusSort);
             panel11.Dock = DockStyle.Fill;
-            panel11.Location = new Point(685, 3);
+            panel11.Location = new Point(681, 3);
             panel11.Name = "panel11";
-            panel11.Size = new Size(152, 25);
+            panel11.Size = new Size(151, 25);
             panel11.TabIndex = 5;
             // 
             // statusSort
             // 
+            statusSort.BackColor = Color.LightGray;
             statusSort.Dock = DockStyle.Fill;
             statusSort.FlatStyle = FlatStyle.Popup;
             statusSort.Location = new Point(0, 0);
             statusSort.Name = "statusSort";
-            statusSort.Size = new Size(152, 25);
+            statusSort.Size = new Size(151, 25);
             statusSort.TabIndex = 1;
             statusSort.Text = "Status";
             statusSort.TextAlign = ContentAlignment.MiddleLeft;
-            statusSort.UseVisualStyleBackColor = true;
+            statusSort.UseVisualStyleBackColor = false;
             statusSort.Click += statusSort_Click;
-            // 
-            // searchLabel
-            // 
-            searchLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            searchLabel.Location = new Point(0, 0);
-            searchLabel.Name = "searchLabel";
-            searchLabel.Size = new Size(42, 25);
-            searchLabel.TabIndex = 1;
-            searchLabel.Text = "Search";
-            searchLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // CatalogView
             // 
@@ -454,7 +462,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel2);
             Name = "CatalogView";
-            Size = new Size(948, 690);
+            Size = new Size(937, 655);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -474,6 +482,7 @@
             panel10.ResumeLayout(false);
             panel11.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -499,19 +508,19 @@
         private ToolStripMenuItem toolStripMenuItem5;
         private ToolStripMenuItem sortStripMenu;
         private ToolStripMenuItem plateStripMenuItem;
+        private Label searchLabel;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel6;
-        private Panel panel7;
-        private Panel panel8;
-        private Panel panel9;
-        private Panel panel10;
-        private Panel panel11;
         private Button idSort;
+        private Panel panel7;
         private Button modelSort;
+        private Panel panel8;
         private Button ownerSort;
+        private Panel panel9;
         private Button plateSort;
+        private Panel panel10;
         private Button owner2Sort;
+        private Panel panel11;
         private Button statusSort;
-        private Label searchLabel;
     }
 }

@@ -40,6 +40,7 @@ namespace RevVise1.Forms.Views
             this.Size = new Size(900, 55);
             this.Location.Y.Equals(id * this.Height);
 
+
             if (isPreload)
             {
                 IDLabel.Text = id.ToString();
@@ -103,17 +104,12 @@ namespace RevVise1.Forms.Views
 
         private void hideTextBox()
         {
-            SuspendLayout();
             modelText.Hide();
             ownerText.Hide();
             plateText.Hide();
             entryText.Hide();
-
             entryTitle.Hide();
             ownerDetailsText.Hide();
-
-
-            ResumeLayout(false);
         }
 
         private void hideTextLabel()
@@ -159,7 +155,7 @@ namespace RevVise1.Forms.Views
         {
             if (!itemExpand2)
             {
-                this.Size = new Size(size.Width, size.Height * 5);
+                this.Size = new Size(900, size.Height * 5);
                 editButton.Text = "Save";
                 hideTextLabel();
                 showTextBox();
@@ -247,17 +243,13 @@ namespace RevVise1.Forms.Views
             if (!dateResolved.Text.Equals("Unresolved"))
             {
                 resolveButton.Text = "Resolve";
-
-                dateResolvedValue = "Unresolved";
                 statusLabel.Text = "Unresolved";
                 dateResolved.Text = "Unresolved";
-
+                dateResolvedValue = "Unresolved";
             }
-
             else
             {
                 resolveButton.Text = "Unresolve";
-
                 statusLabel.Text = "Resolved";
                 dateResolved.Text = DateTime.Now.ToShortDateString();
                 dateResolvedValue = DateTime.Now.ToShortDateString();
