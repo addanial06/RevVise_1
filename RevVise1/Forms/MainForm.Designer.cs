@@ -10,7 +10,7 @@
         private System.Windows.Forms.Button catalogView;
         private System.Windows.Forms.Button logView;
         private System.Windows.Forms.Button settingView;
-        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button logoutButton;
 
         protected override void Dispose(bool disposing)
         {
@@ -32,7 +32,7 @@
             logView = new Button();
             catalogView = new Button();
             dashboardView = new Button();
-            exitButton = new Button();
+            logoutButton = new Button();
             contentPanel = new Panel();
             headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -110,7 +110,7 @@
             btnClose.TabIndex = 1;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += button5_Click;
+            btnClose.Click += exitClick;
             // 
             // splitContainer1
             // 
@@ -143,7 +143,7 @@
             tableLayoutPanel1.Controls.Add(logView, 0, 3);
             tableLayoutPanel1.Controls.Add(catalogView, 0, 2);
             tableLayoutPanel1.Controls.Add(dashboardView, 0, 1);
-            tableLayoutPanel1.Controls.Add(exitButton, 0, 7);
+            tableLayoutPanel1.Controls.Add(logoutButton, 0, 7);
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -243,26 +243,26 @@
             dashboardView.UseVisualStyleBackColor = false;
             dashboardView.Click += dashboardView_Click;
             // 
-            // exitButton
+            // logoutButton
             // 
-            exitButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            exitButton.AutoSize = true;
-            exitButton.BackColor = Color.FromArgb(70, 70, 90);
-            exitButton.BackgroundImageLayout = ImageLayout.None;
-            exitButton.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 90);
-            exitButton.FlatAppearance.BorderSize = 0;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Font = new Font("Segoe UI", 12F);
-            exitButton.ForeColor = Color.White;
-            exitButton.Location = new Point(0, 658);
-            exitButton.Margin = new Padding(0, 0, 0, 10);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(245, 41);
-            exitButton.TabIndex = 4;
-            exitButton.Text = "Exit";
-            exitButton.TextAlign = ContentAlignment.MiddleLeft;
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += button5_Click;
+            logoutButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            logoutButton.AutoSize = true;
+            logoutButton.BackColor = Color.FromArgb(70, 70, 90);
+            logoutButton.BackgroundImageLayout = ImageLayout.None;
+            logoutButton.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 90);
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.FlatStyle = FlatStyle.Flat;
+            logoutButton.Font = new Font("Segoe UI", 12F);
+            logoutButton.ForeColor = Color.White;
+            logoutButton.Location = new Point(0, 658);
+            logoutButton.Margin = new Padding(0, 0, 0, 10);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(245, 41);
+            logoutButton.TabIndex = 4;
+            logoutButton.Text = "Logout";
+            logoutButton.TextAlign = ContentAlignment.MiddleLeft;
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += logoutClick;
             // 
             // contentPanel
             // 
@@ -271,7 +271,7 @@
             contentPanel.Location = new Point(0, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(945, 709);
+            contentPanel.Size = new Size(957, 709);
             contentPanel.TabIndex = 0;
             // 
             // MainForm

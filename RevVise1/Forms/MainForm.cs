@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using RevVise1.Forms.Views;
 
 namespace RevVise1.Forms
@@ -13,6 +14,13 @@ namespace RevVise1.Forms
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
+        public MainForm()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            InitializeComponent();
+            splitContainer1.IsSplitterFixed = true;
+            ShowView(new DashboardView());
+        }
         private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -40,12 +48,6 @@ namespace RevVise1.Forms
             contentPanel.Controls.Add(view);
         }
 
-        public MainForm()
-        {
-            this.FormBorderStyle = FormBorderStyle.None;
-            InitializeComponent();
-            splitContainer1.IsSplitterFixed = true;
-        }
         // Event handlers for navigation buttons
         private void dashboardView_Click(object sender, EventArgs e)
         {
@@ -66,14 +68,16 @@ namespace RevVise1.Forms
             ShowView(new CatalogView());
         }
 
-        // end
-        private void button5_Click(object sender, EventArgs e)
+        private void exitClick(object sender, EventArgs e)
         {
+            Program.isAuthenticated = true; // will not go into login form idk What I Am Doing 
             this.Close();
         }
 
-        private void catalogView_MouseHover(object sender, EventArgs e)
+        private void logoutClick(object sender, EventArgs e)
         {
+            Program.isAuthenticated = false;
+            Close();
         }
     }
 }

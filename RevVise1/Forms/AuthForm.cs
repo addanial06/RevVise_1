@@ -20,16 +20,6 @@ namespace RevVise1.Forms
             //MessageBox.Show("Running");
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Authentication_Click(object sender, EventArgs e)
         {
 
@@ -42,7 +32,9 @@ namespace RevVise1.Forms
                 DataRow user = db.GetUser(usernameText.Text, passwordText.Text);
                 Session.startSession(Convert.ToInt32(user["user_id"]), user["username"].ToString(), user["role"].ToString());
                 MessageBox.Show("Login Successful.");
+
                 Program.isAuthenticated = true;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
