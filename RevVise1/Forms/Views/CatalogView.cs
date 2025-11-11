@@ -28,37 +28,38 @@ namespace RevVise1.Forms.Views
             panel1.ScrollControlIntoView(view);
         }
 
-        int itemCount = 0;
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void addButtonClick(object sender, EventArgs e)
         {
-            Item item = new Item(itemCount);
+            Item item = new Item();
             ShowView(item);
             item.Size = new Size(900, 55);
-            itemCount++;
         }
-        private void preload() 
+        private void preload()
         {
-            DataTable dt = db.getData("SELECT * FROM tbl_motor ORDER BY motor_id ASC");
+            DataTable dt = db.getData($"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'ORDER BY motor_id ASC");
 
             foreach (DataRow row in dt.Rows)
             {
                 int id = Convert.ToInt32(row["motor_id"]);
 
-                Item item = new Item(id,true);
+                Item item = new Item(id, true);
 
                 item.Model = row["motor_model"].ToString();
-                item.Contact = row["motor_owner"].ToString();
+                item.Owner = row["motor_owner"].ToString();
                 item.Plate = row["motor_plate"].ToString();
                 item.Entry = row["motor_entry"].ToString();
                 item.Status = row["motor_status"].ToString();
                 item.DateIssued = row["motor_dateIssued"].ToString();
                 item.DateResolved = row["motor_dateResolved"].ToString();
+                item.OwnerDetails = row["motor_ownerDetails"].ToString();
 
                 ShowView(item);
-
-                itemCount++;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

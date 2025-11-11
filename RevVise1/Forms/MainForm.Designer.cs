@@ -5,7 +5,6 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.TableLayoutPanel headerPanel;
         private System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button dashboardView;
         private System.Windows.Forms.Button catalogView;
@@ -29,11 +28,11 @@
             btnClose = new Button();
             splitContainer1 = new SplitContainer();
             tableLayoutPanel1 = new TableLayoutPanel();
-            exitButton = new Button();
             settingView = new Button();
             logView = new Button();
             catalogView = new Button();
             dashboardView = new Button();
+            exitButton = new Button();
             contentPanel = new Panel();
             headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -45,35 +44,36 @@
             // 
             // headerPanel
             // 
-            headerPanel.BackColor = Color.FromArgb(50, 50, 60);
-            headerPanel.ColumnCount = 4;
-            headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.25201F));
-            headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 77.7479858F));
+            headerPanel.BackColor = Color.FromArgb(45, 45, 55);
+            headerPanel.ColumnCount = 3;
+            headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             headerPanel.Controls.Add(lblAppName, 0, 0);
-            headerPanel.Controls.Add(btnMaximize, 2, 0);
-            headerPanel.Controls.Add(btnClose, 3, 0);
+            headerPanel.Controls.Add(btnMaximize, 1, 0);
+            headerPanel.Controls.Add(btnClose, 2, 0);
             headerPanel.Dock = DockStyle.Top;
             headerPanel.Location = new Point(0, 0);
             headerPanel.Margin = new Padding(0);
             headerPanel.Name = "headerPanel";
             headerPanel.RowCount = 1;
             headerPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            headerPanel.Size = new Size(1200, 34);
+            headerPanel.Size = new Size(1192, 39);
             headerPanel.TabIndex = 0;
             headerPanel.MouseDown += HeaderPanel_MouseDown;
             // 
             // lblAppName
             // 
-            lblAppName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblAppName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblAppName.BackColor = Color.FromArgb(45, 45, 55);
             lblAppName.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblAppName.ForeColor = Color.White;
             lblAppName.Location = new Point(0, 0);
             lblAppName.Margin = new Padding(0);
             lblAppName.Name = "lblAppName";
             lblAppName.Padding = new Padding(15, 0, 0, 0);
-            lblAppName.Size = new Size(249, 34);
+            lblAppName.Size = new Size(249, 39);
             lblAppName.TabIndex = 3;
             lblAppName.Text = "RevVise";
             lblAppName.TextAlign = ContentAlignment.MiddleLeft;
@@ -86,10 +86,10 @@
             btnMaximize.FlatStyle = FlatStyle.Flat;
             btnMaximize.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             btnMaximize.ForeColor = Color.White;
-            btnMaximize.Location = new Point(1119, 0);
+            btnMaximize.Location = new Point(1112, 0);
             btnMaximize.Margin = new Padding(0);
             btnMaximize.Name = "btnMaximize";
-            btnMaximize.Size = new Size(40, 34);
+            btnMaximize.Size = new Size(40, 39);
             btnMaximize.TabIndex = 2;
             btnMaximize.Text = "▢";
             btnMaximize.UseVisualStyleBackColor = false;
@@ -103,10 +103,10 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1159, 0);
+            btnClose.Location = new Point(1152, 0);
             btnClose.Margin = new Padding(0);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(41, 34);
+            btnClose.Size = new Size(40, 39);
             btnClose.TabIndex = 1;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 34);
+            splitContainer1.Location = new Point(0, 39);
             splitContainer1.Margin = new Padding(0);
             splitContainer1.Name = "splitContainer1";
             // 
@@ -126,57 +126,38 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.BackColor = Color.FromArgb(60, 60, 70);
+            splitContainer1.Panel2.BackColor = Color.White;
             splitContainer1.Panel2.Controls.Add(contentPanel);
-            splitContainer1.Size = new Size(1200, 716);
-            splitContainer1.SplitterDistance = 250;
+            splitContainer1.Size = new Size(1192, 709);
+            splitContainer1.SplitterDistance = 246;
             splitContainer1.SplitterWidth = 1;
             splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.BackColor = Color.FromArgb(55, 55, 65);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(exitButton, 0, 5);
             tableLayoutPanel1.Controls.Add(settingView, 0, 4);
             tableLayoutPanel1.Controls.Add(logView, 0, 3);
             tableLayoutPanel1.Controls.Add(catalogView, 0, 2);
             tableLayoutPanel1.Controls.Add(dashboardView, 0, 1);
+            tableLayoutPanel1.Controls.Add(exitButton, 0, 7);
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 404F));
-            tableLayoutPanel1.Size = new Size(249, 716);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.Size = new Size(245, 709);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // exitButton
-            // 
-            exitButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            exitButton.AutoSize = true;
-            exitButton.BackColor = Color.FromArgb(70, 70, 90);
-            exitButton.BackgroundImageLayout = ImageLayout.None;
-            exitButton.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 90);
-            exitButton.FlatAppearance.BorderSize = 0;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Font = new Font("Segoe UI", 12F);
-            exitButton.ForeColor = Color.White;
-            exitButton.Location = new Point(0, 250);
-            exitButton.Margin = new Padding(0, 0, 0, 10);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(249, 50);
-            exitButton.TabIndex = 4;
-            exitButton.Text = "Exit";
-            exitButton.TextAlign = ContentAlignment.MiddleRight;
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += button5_Click;
             // 
             // settingView
             // 
@@ -189,13 +170,13 @@
             settingView.FlatStyle = FlatStyle.Flat;
             settingView.Font = new Font("Segoe UI", 12F);
             settingView.ForeColor = Color.White;
-            settingView.Location = new Point(0, 190);
+            settingView.Location = new Point(0, 163);
             settingView.Margin = new Padding(0, 0, 0, 10);
             settingView.Name = "settingView";
-            settingView.Size = new Size(249, 50);
+            settingView.Size = new Size(245, 41);
             settingView.TabIndex = 3;
             settingView.Text = "Settings";
-            settingView.TextAlign = ContentAlignment.MiddleRight;
+            settingView.TextAlign = ContentAlignment.MiddleLeft;
             settingView.UseVisualStyleBackColor = false;
             settingView.Click += settingView_Click;
             // 
@@ -210,13 +191,13 @@
             logView.FlatStyle = FlatStyle.Flat;
             logView.Font = new Font("Segoe UI", 12F);
             logView.ForeColor = Color.White;
-            logView.Location = new Point(0, 130);
+            logView.Location = new Point(0, 112);
             logView.Margin = new Padding(0, 0, 0, 10);
             logView.Name = "logView";
-            logView.Size = new Size(249, 50);
+            logView.Size = new Size(245, 41);
             logView.TabIndex = 2;
             logView.Text = "Logs";
-            logView.TextAlign = ContentAlignment.MiddleRight;
+            logView.TextAlign = ContentAlignment.MiddleLeft;
             logView.UseVisualStyleBackColor = false;
             logView.Click += logView_Click;
             // 
@@ -231,13 +212,13 @@
             catalogView.FlatStyle = FlatStyle.Flat;
             catalogView.Font = new Font("Segoe UI", 12F);
             catalogView.ForeColor = Color.White;
-            catalogView.Location = new Point(0, 70);
+            catalogView.Location = new Point(0, 61);
             catalogView.Margin = new Padding(0, 0, 0, 10);
             catalogView.Name = "catalogView";
-            catalogView.Size = new Size(249, 50);
+            catalogView.Size = new Size(245, 41);
             catalogView.TabIndex = 1;
             catalogView.Text = "Catalog";
-            catalogView.TextAlign = ContentAlignment.MiddleRight;
+            catalogView.TextAlign = ContentAlignment.MiddleLeft;
             catalogView.UseVisualStyleBackColor = false;
             catalogView.Click += catalogView_Click;
             // 
@@ -255,12 +236,33 @@
             dashboardView.Location = new Point(0, 10);
             dashboardView.Margin = new Padding(0, 0, 0, 10);
             dashboardView.Name = "dashboardView";
-            dashboardView.Size = new Size(249, 50);
+            dashboardView.Size = new Size(245, 41);
             dashboardView.TabIndex = 0;
             dashboardView.Text = "Dashboard";
-            dashboardView.TextAlign = ContentAlignment.MiddleRight;
+            dashboardView.TextAlign = ContentAlignment.MiddleLeft;
             dashboardView.UseVisualStyleBackColor = false;
             dashboardView.Click += dashboardView_Click;
+            // 
+            // exitButton
+            // 
+            exitButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            exitButton.AutoSize = true;
+            exitButton.BackColor = Color.FromArgb(70, 70, 90);
+            exitButton.BackgroundImageLayout = ImageLayout.None;
+            exitButton.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 90);
+            exitButton.FlatAppearance.BorderSize = 0;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 12F);
+            exitButton.ForeColor = Color.White;
+            exitButton.Location = new Point(0, 658);
+            exitButton.Margin = new Padding(0, 0, 0, 10);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(245, 41);
+            exitButton.TabIndex = 4;
+            exitButton.Text = "Exit";
+            exitButton.TextAlign = ContentAlignment.MiddleLeft;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += button5_Click;
             // 
             // contentPanel
             // 
@@ -269,7 +271,7 @@
             contentPanel.Location = new Point(0, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(949, 716);
+            contentPanel.Size = new Size(945, 709);
             contentPanel.TabIndex = 0;
             // 
             // MainForm
@@ -277,7 +279,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 40, 50);
-            ClientSize = new Size(1200, 750);
+            ClientSize = new Size(1192, 748);
             Controls.Add(splitContainer1);
             Controls.Add(headerPanel);
             FormBorderStyle = FormBorderStyle.None;
@@ -298,5 +300,6 @@
         private Label lblAppName;
         private Panel contentPanel;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button btnClose;
     }
 }

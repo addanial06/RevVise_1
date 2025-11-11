@@ -13,6 +13,7 @@ namespace RevVise1.Forms
 {
     public partial class AuthForm : Form
     {
+        RevDB db = new RevDB();
         public AuthForm()
         {
             InitializeComponent();
@@ -21,8 +22,7 @@ namespace RevVise1.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Program.isAuthenticated = true;
-            this.Close();
+            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -33,6 +33,24 @@ namespace RevVise1.Forms
         private void Authentication_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void loginClick(object sender, EventArgs e)
+        {
+            if (db.dbLogin(usernameText.Text, passwordText.Text))
+            {
+                DataRow user = db.GetUser(usernameText.Text, passwordText.Text);
+                Session.startSession(Convert.ToInt32(user["user_id"]), user["username"].ToString(), user["role"].ToString());
+                MessageBox.Show("Login Successful.");
+                Program.isAuthenticated = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed.");
+                Program.isAuthenticated = false;
+            }
+            
         }
     }
 }

@@ -18,56 +18,60 @@ namespace RevVise1.Forms.Views
         private Size size;
         bool itemExpand = false;
         bool itemExpand2 = false;
+        bool isNewEntry = false;
 
-        // for db ?
+        int userId = Session.UserID;
         int id;
         String model;
-        String contact;
+        String owner;
         String plate;
         String entry;
         String status;
         String dateIssuedValue;
         String dateResolvedValue;
+        String ownerDetails;
         String SQL;
 
 
-        public Item(int id)
+        public Item(int id = 0, bool isPreload = false)
         {
             InitializeComponent();
 
-            this.Location.Y.Equals(id * this.Height);
-            IDLabel.Text = id.ToString();
-
-            id = Int32.Parse(IDLabel.Text);
-            model = modelText.Text;
-            contact = contactText.Text;
-            plate = plateText.Text;
-            entry = entryText.Text;
-            status = statusLabel.Text;
-            dateIssued.Text = DateTime.Now.ToShortDateString();
-            dateIssuedValue = DateTime.Now.ToShortDateString();
-
-            addEntry(id, model, contact, plate, entry, status, dateIssuedValue);
-
-            size = new Size(900, 55);
-        }
-
-        public Item(int id, bool isPreload)
-        {
-            InitializeComponent();
             this.Size = new Size(900, 55);
             this.Location.Y.Equals(id * this.Height);
-            IDLabel.Text = id.ToString();
 
-            id = Int32.Parse(IDLabel.Text);
-            model = modelText.Text;
-            contact = contactText.Text;
-            plate = plateText.Text;
-            entry = entryText.Text;
-            status = statusLabel.Text;
-            dateIssued.Text = DateTime.Now.ToShortDateString();
-            dateIssuedValue = DateTime.Now.ToShortDateString();
+            if (isPreload)
+            {
+                IDLabel.Text = id.ToString();
 
+                this.id = id;
+                model = modelText.Text;
+                owner = ownerText.Text;
+                plate = plateText.Text;
+                entry = entryText.Text;
+                status = statusLabel.Text;
+                dateIssued.Text = DateTime.Now.ToShortDateString();
+                dateIssuedValue = DateTime.Now.ToShortDateString();
+
+                isNewEntry = false;
+            }
+            else
+            {
+                IDLabel.Text = "ID";
+                this.id = 0;
+                isNewEntry = true;
+
+                model = modelText.Text;
+                owner = ownerText.Text;
+                plate = plateText.Text;
+                entry = entryText.Text;
+                status = statusLabel.Text;
+                dateIssued.Text = DateTime.Now.ToShortDateString();
+                dateIssuedValue = DateTime.Now.ToShortDateString();
+                ownerDetails = ownerDetailsText.Text;
+
+                
+            }
 
             size = new Size(900, 55);
         }
@@ -76,7 +80,7 @@ namespace RevVise1.Forms.Views
         {
             SuspendLayout();
             modelText.Visible = true;
-            contactText.Visible = true;
+            ownerText.Visible = true;
             plateText.Visible = true;
             entryText.Visible = true;
 
@@ -89,7 +93,7 @@ namespace RevVise1.Forms.Views
         private void showTextLabel()
         {
             modelLabel.Visible = true;
-            contactLabel.Visible = true;
+            ownerLabel.Visible = true;
             plateLabel.Visible = true;
             entryTitle.Visible = true;
 
@@ -101,7 +105,7 @@ namespace RevVise1.Forms.Views
         {
             SuspendLayout();
             modelText.Hide();
-            contactText.Hide();
+            ownerText.Hide();
             plateText.Hide();
             entryText.Hide();
 
@@ -115,7 +119,7 @@ namespace RevVise1.Forms.Views
         private void hideTextLabel()
         {
             modelLabel.Hide();
-            contactLabel.Hide();
+            ownerLabel.Hide();
             plateLabel.Hide();
             entryTitle.Hide();
 
@@ -123,32 +127,32 @@ namespace RevVise1.Forms.Views
 
         }
 
-        private void saveTexts()
+        private void saveTexts(bool isNewEntry = false )
         {
             modelLabel.Text = modelText.Text;
-            contactLabel.Text = contactText.Text;
+            ownerLabel.Text = ownerText.Text;
             plateLabel.Text = plateText.Text;
             entryLabel.Text = entryText.Text;
             ownerDetailsLabel.Text = ownerDetailsText.Text;
         }
         //sql commands
-        private void addEntry(int id, string model, string contact, string plate, string entry, string status, string dateIssuedValue)
+        private void addEntry(string model, string contact, string plate, string entry, string status, string dateIssuedValue, string ownerDetails)
         {
-            SQL = "INSERT INTO tbl_motor(motor_id,motor_model,motor_owner,motor_plate,motor_entry,motor_status,motor_dateIssued) " +
-                "VALUES('" + id + "','" + model + "','" + contact + "','" + plate + "','" + entry + "','" + status + "','" + dateIssuedValue + "')";
+            SQL = "INSERT INTO tbl_motor(motor_model,motor_owner,motor_plate,motor_entry,motor_status,motor_dateissued,motor_ownerdetails,user_id) " +
+                 $"VALUES('{model}','{contact}','{plate}','{entry}','{status}','{dateIssuedValue}','{ownerDetails}','{userId}')";
             db.SQLManager(SQL);
+            isNewEntry = false;
         }
-
-        private void updateEntry(int id, string model, string contact, string plate, string entry, string status, string dateIssuedValue, string dateResolvedValue)
+        private void updateEntry(int id, string model, string contact, string plate, string entry, string status, string dateIssuedValue, string dateResolvedValue, string ownerDetails)
         {
             SQL = $"UPDATE tbl_motor SET " +
-                $"motor_model='{model}',motor_owner='{contact}',motor_plate='{plate}',motor_entry='{entry}',motor_status='{status}',motor_dateIssued='{dateIssuedValue}',motor_dateResolved='{dateResolvedValue}'" +
-                $"WHERE motor_id='{id}'";
+                $"motor_model='{model}',motor_owner='{contact}',motor_plate='{plate}',motor_entry='{entry}',motor_status='{status}',motor_dateIssued='{dateIssuedValue}',motor_dateResolved='{dateResolvedValue}',motor_ownerDetails='{ownerDetails}'" +
+                $"WHERE motor_id='{id}' AND user_id='{userId}'";
             db.SQLManager(SQL);
         }
         private void deleteEntry(int id)
         {
-            SQL = $"DELETE FROM tbl_motor WHERE motor_id='{id}'";
+            SQL = $"DELETE FROM tbl_motor WHERE motor_id='{id}' AND user_id='{userId}'";
             db.SQLManager(SQL);
         }
         private void Edit_Click(object sender, EventArgs e)// saving
@@ -160,7 +164,6 @@ namespace RevVise1.Forms.Views
                 hideTextLabel();
                 showTextBox();
 
-
                 itemExpand2 = true;
             }
             else
@@ -168,18 +171,16 @@ namespace RevVise1.Forms.Views
                 this.Size = size;
                 editButton.Text = "Edit";
 
+                if (isNewEntry) {
+                    addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
+                    saveTexts(true); 
+                }
+                else 
+                {
+                    updateEntry(id, modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, dateResolved.Text, ownerDetailsText.Text);
+                    saveTexts();
+                }
 
-                saveTexts();
-
-                id = Int32.Parse(IDLabel.Text);
-                model = modelText.Text;
-                contact = contactText.Text;
-                plate = plateText.Text;
-                entry = entryText.Text;
-                status = statusLabel.Text;
-                dateIssuedValue = dateIssued.Text;
-                dateResolvedValue = dateResolved.Text;
-                updateEntry(id, model, contact, plate, entry, status, dateIssuedValue, dateResolvedValue);
                 hideTextBox();
                 showTextLabel();
 
@@ -264,6 +265,7 @@ namespace RevVise1.Forms.Views
 
         }
 
+        //textbox placeholders
         private void modelClick(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(modelText.Text) || modelText.Text.Equals("Model"))
@@ -272,17 +274,18 @@ namespace RevVise1.Forms.Views
             }
         }
 
-        private void contactClick(object sender, EventArgs e)
+        private void ownerClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(contactText.Text) || contactText.Text.Equals("Contact"))
+            if (string.IsNullOrWhiteSpace(ownerText.Text) || ownerText.Text.Equals("Owner"))
             {
-                contactText.Text = "";
+                ownerText.Text = "";
             }
         }
 
         private void plateClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(plateText.Text) || plateText.Text.Equals("Plate No.")) {
+            if (string.IsNullOrWhiteSpace(plateText.Text) || plateText.Text.Equals("Plate No."))
+            {
                 plateText.Text = "";
             }
         }
@@ -295,17 +298,25 @@ namespace RevVise1.Forms.Views
             }
         }
 
-        //setter getter
+        private void ownerDetailsClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ownerDetailsText.Text) || ownerDetailsText.Text.Equals("Owner Details"));
+            {
+                entryText.Text = "";
+            }
+        }
+
+        //setter getter for preload
         public string Model
         {
             get { return modelText.Text; }
             set { modelText.Text = value; modelLabel.Text = value; }
         }
 
-        public string Contact
+        public string Owner
         {
-            get { return contactText.Text; }
-            set { contactText.Text = value; contactLabel.Text = value; }
+            get { return ownerText.Text; }
+            set { ownerText.Text = value; ownerLabel.Text = value; }
         }
 
         public string Plate
@@ -336,6 +347,12 @@ namespace RevVise1.Forms.Views
         {
             get { return dateResolved.Text; }
             set { dateResolved.Text = value; }
+        }
+
+        public string OwnerDetails
+        {
+            get { return ownerDetailsText.Text; }
+            set { ownerDetailsText.Text = value; ownerDetailsLabel.Text = value; }
         }
     }
 }

@@ -42,7 +42,7 @@ namespace RevVise1
             dbConn.Close();
         }
 
-        public DataTable getData(String query) 
+        public DataTable getData(String query) // data retrieval
         {
             DataTable dt = new DataTable();
             MySqlConnection conn = new MySqlConnection(strConn + "db_revapp");
@@ -62,6 +62,35 @@ namespace RevVise1
             return dt;
         }
 
+        public bool dbLogin(string username, string password) // authentication
+        {
+            dbConn = new MySqlConnection(strConn + "db_revapp");
+            dbConn.Open();
+            string sql = "SELECT user_id, username, role FROM tbl_users WHERE username=@username AND password=@password";
+            dbCommand = new MySqlCommand(sql, dbConn);
+            dbCommand.Parameters.AddWithValue("@username", username);
+            dbCommand.Parameters.AddWithValue("@password", password);
+            var reader = dbCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                int userId = reader.GetInt32("user_id");
+                string role = reader.GetString("role");
+                Session.startSession(userId, username, role);
+                dbConn.Close();
+                return true;
+            }
+            dbConn.Close();
+            return false;
+        }
+        public DataRow GetUser(string username, string password)
+        {
+            string sql = $"SELECT user_id, username, role FROM tbl_users WHERE username = '{username}' AND password = '{password}'";
+            DataTable dt = getData(sql);
 
+            if (dt.Rows.Count > 0)
+                return dt.Rows[0]; // returns first matched user
+            else
+                return null; // no user found
+        }
     }
 }
