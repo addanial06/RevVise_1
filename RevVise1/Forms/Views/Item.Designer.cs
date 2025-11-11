@@ -124,46 +124,53 @@
             // modelText
             // 
             modelText.Anchor = AnchorStyles.None;
-            modelText.BackColor = SystemColors.InactiveCaption;
+            modelText.BackColor = SystemColors.Menu;
             modelText.BorderStyle = BorderStyle.FixedSingle;
             modelText.Location = new Point(64, 10);
             modelText.Name = "modelText";
             modelText.Size = new Size(100, 29);
             modelText.TabIndex = 5;
+            modelText.Text = "Model";
             modelText.Visible = false;
+            modelText.Click += modelClick;
             // 
             // contactText
             // 
             contactText.Anchor = AnchorStyles.None;
-            contactText.BackColor = SystemColors.InactiveCaption;
+            contactText.BackColor = SystemColors.Menu;
             contactText.BorderStyle = BorderStyle.FixedSingle;
             contactText.Location = new Point(169, 10);
             contactText.Name = "contactText";
             contactText.Size = new Size(100, 29);
             contactText.TabIndex = 6;
+            contactText.Text = "Contact";
             contactText.Visible = false;
+            contactText.Click += contactClick;
             // 
             // plateText
             // 
             plateText.Anchor = AnchorStyles.None;
-            plateText.BackColor = SystemColors.InactiveCaption;
+            plateText.BackColor = SystemColors.Menu;
             plateText.BorderStyle = BorderStyle.FixedSingle;
             plateText.Location = new Point(275, 10);
             plateText.Name = "plateText";
             plateText.Size = new Size(100, 29);
             plateText.TabIndex = 7;
+            plateText.Text = "Plate No.";
             plateText.Visible = false;
+            plateText.Click += plateClick;
             // 
             // entryText
             // 
-            entryText.BackColor = SystemColors.InactiveCaption;
+            entryText.BackColor = SystemColors.Menu;
             entryText.BorderStyle = BorderStyle.FixedSingle;
             entryText.Location = new Point(3, 3);
             entryText.Name = "entryText";
             entryText.Size = new Size(500, 169);
             entryText.TabIndex = 8;
-            entryText.Text = "";
+            entryText.Text = "Entry";
             entryText.Visible = false;
+            entryText.Click += entryClick;
             // 
             // entryLabel
             // 
@@ -178,6 +185,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 84.55556F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.4444447F));
@@ -271,12 +279,13 @@
             // ownerDetailsText
             // 
             ownerDetailsText.Anchor = AnchorStyles.None;
-            ownerDetailsText.BackColor = SystemColors.InactiveCaption;
+            ownerDetailsText.BackColor = SystemColors.Menu;
             ownerDetailsText.BorderStyle = BorderStyle.FixedSingle;
             ownerDetailsText.Location = new Point(381, 10);
             ownerDetailsText.Name = "ownerDetailsText";
             ownerDetailsText.Size = new Size(127, 29);
             ownerDetailsText.TabIndex = 13;
+            ownerDetailsText.Text = "Owner Details";
             ownerDetailsText.Visible = false;
             // 
             // statusLabel

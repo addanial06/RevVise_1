@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 
 namespace RevVise1
@@ -31,6 +32,36 @@ namespace RevVise1
             MessageBox.Show("Connection Successful");
             dbConn.Close();
         }
+
+        public void SQLManager(String strQuery) // execute query
+        {
+            dbConn = new MySqlConnection(strConn + "db_revapp");
+            dbConn.Open();
+            dbCommand = new MySqlCommand(strQuery, dbConn);
+            dbCommand.ExecuteNonQuery();
+            dbConn.Close();
+        }
+
+        public DataTable getData(String query) 
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection conn = new MySqlConnection(strConn + "db_revapp");
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
 
     }
 }
