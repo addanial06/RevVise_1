@@ -43,14 +43,14 @@ namespace RevVise1.Forms.Views
             if (isAdmin)
             {
                 adminUserRegisteredText.Text = getDataCount("username","tbl_users");
-                adminTotalMotorText.Text = getDataCount("motor_id","tbl_motor");
-                adminTotalResolvedText.Text = getDataCount("motor_id", "tbl_motor","WHERE motor_status='Resolved'");
-                adminTotalUnresolvedText.Text = getDataCount("motor_id", "tbl_motor","WHERE motor_status='unresolved'");
+                adminTotalVehicleText.Text = getDataCount("vehicle_id","tbl_vehicle");
+                adminTotalResolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle","WHERE vehicle_status='Resolved'");
+                adminTotalUnresolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle","WHERE vehicle_status='unresolved'");
                 loadCbBox();
             }
-            userMotorRegisteredText.Text = getDataCount("motor_id","tbl_motor",$"WHERE user_id='{Session.UserID}'");
-            userResolvedText.Text = getDataCount("motor_id","tbl_motor",$"WHERE motor_status='Resolved' AND user_id='{Session.UserID}'");
-            userUnresolvedText.Text = getDataCount("motor_id","tbl_motor",$"WHERE  motor_status='Unresolved' AND user_id='{Session.UserID}'");
+            userVehicleRegisteredText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE user_id='{Session.UserID}'");
+            userResolvedText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE vehicle_status='Resolved' AND user_id='{Session.UserID}'");
+            userUnresolvedText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE  vehicle_status='Unresolved' AND user_id='{Session.UserID}'");
         }
 
         private void hideAdminControls()
@@ -132,14 +132,14 @@ namespace RevVise1.Forms.Views
             }
         }
 
-        private void userResetMotorDataButton_Click(object sender, EventArgs e)
+        private void userResetVehicleDataButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete all your motors?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes) 
+            if (MessageBox.Show("Are you sure you want to delete all your vehicles?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes) 
             {
-                String query = $"DELETE FROM tbl_motor WHERE user_id=@id";
-                logger.log($"User \"{Session.Username}\" motor database cleared.");
+                String query = $"DELETE FROM tbl_vehicle WHERE user_id=@id";
+                logger.log($"User \"{Session.Username}\" vehicle database cleared.");
                 db.SQLManager(query, new Dictionary<string, object> { { "@id", Session.UserID } });
-                MessageBox.Show("All user motorcycle data cleared.");
+                MessageBox.Show("All user vehiclecycle data cleared.");
                 loadStats(true);
             }
         }
@@ -148,7 +148,7 @@ namespace RevVise1.Forms.Views
         {
             if (MessageBox.Show("Are you sure you want to delete your account? This cannot be undone.", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                String mquery = $"DELETE FROM tbl_motor WHERE user_id=@id";
+                String mquery = $"DELETE FROM tbl_vehicle WHERE user_id=@id";
                 db.SQLManager(mquery, new Dictionary<string, object> { { "@id", Session.UserID } });
                 String query = $"DELETE FROM tbl_users WHERE user_id=@id";
                 logger.log($"User \"{Session.Username}\" deleted.");
@@ -192,7 +192,7 @@ namespace RevVise1.Forms.Views
                 {
                     String query = $"UPDATE tbl_users SET note='Notes go here' WHERE user_id = @id";
                     db.SQLManager(query, new Dictionary<string, object> { { "@id", getUserID() } });
-                    String mquery = $"DELETE FROM tbl_motor WHERE user_id = @id";
+                    String mquery = $"DELETE FROM tbl_vehicle WHERE user_id = @id";
                     db.SQLManager(mquery, new Dictionary<string, object> { { "@id", getUserID() } });
                     logger.log($"User \"{userComboBox.SelectedItem.ToString()}\" data cleared.");
                     MessageBox.Show("All user data cleared.");
@@ -210,7 +210,7 @@ namespace RevVise1.Forms.Views
             {
                 if (MessageBox.Show("Are you sure you want to delete user data?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    String mquery = $"DELETE FROM tbl_motor WHERE user_id = @id";
+                    String mquery = $"DELETE FROM tbl_vehicle WHERE user_id = @id";
                     db.SQLManager(mquery, new Dictionary<string, object> { { "@id", getUserID() } });
                     logger.log($"User \"{userComboBox.SelectedItem.ToString()}\" deleted.");
                     String query = $"DELETE FROM tbl_users WHERE user_id = @id";
@@ -220,15 +220,15 @@ namespace RevVise1.Forms.Views
                 }
             }
         }
-        private void adminResetMotorDatabaseButton_Click(object sender, EventArgs e)
+        private void adminResetVehicleDatabaseButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete all motor data?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete all vehicle data?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                String query = $"DELETE FROM tbl_motor";
+                String query = $"DELETE FROM tbl_vehicle";
                 db.SQLManager(query);
-                MessageBox.Show("Motor database cleared.");
+                MessageBox.Show("Vehicle database cleared.");
                 loadStats(true);
-                logger.log("All motor database cleared.");
+                logger.log("All vehicle database cleared.");
             }
         }
 
@@ -251,7 +251,7 @@ namespace RevVise1.Forms.Views
             {
                 String mquery = $"DELETE FROM tbl_users WHERE user_id !='1'";
                 db.SQLManager(mquery);
-                String nquery = $"DELETE FROM tbl_motor";
+                String nquery = $"DELETE FROM tbl_vehicle";
                 db.SQLManager(nquery);
                 String query = $"DELETE FROM tbl_logs";
                 db.SQLManager(query);

@@ -493,15 +493,15 @@
             // 
             // userResetVehicleDataButton
             // 
-            userResetMotorDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            userResetMotorDataButton.ForeColor = SystemColors.ControlText;
-            userResetMotorDataButton.Location = new Point(3, 32);
-            userResetMotorDataButton.Name = "userResetMotorDataButton";
-            userResetMotorDataButton.Size = new Size(118, 23);
-            userResetMotorDataButton.TabIndex = 0;
-            userResetMotorDataButton.Text = "Reset Motor Data";
-            userResetMotorDataButton.UseVisualStyleBackColor = true;
-            userResetMotorDataButton.Click += userResetMotorDataButton_Click;
+            userResetVehicleDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userResetVehicleDataButton.ForeColor = SystemColors.ControlText;
+            userResetVehicleDataButton.Location = new Point(3, 32);
+            userResetVehicleDataButton.Name = "userResetVehicleDataButton";
+            userResetVehicleDataButton.Size = new Size(118, 23);
+            userResetVehicleDataButton.TabIndex = 0;
+            userResetVehicleDataButton.Text = "Reset Vehicle Data";
+            userResetVehicleDataButton.UseVisualStyleBackColor = true;
+            userResetVehicleDataButton.Click += userResetVehicleDataButton_Click;
             // 
             // label5
             // 
@@ -742,13 +742,13 @@
             // 
             // adminResetVehicleDatabaseButton
             // 
-            adminResetMotorDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            adminResetMotorDatabaseButton.Location = new Point(3, 38);
-            adminResetMotorDatabaseButton.Name = "adminResetMotorDatabaseButton";
-            adminResetMotorDatabaseButton.Size = new Size(245, 23);
-            adminResetMotorDatabaseButton.TabIndex = 3;
-            adminResetMotorDatabaseButton.Text = "Reset Motor Database";
-            adminResetMotorDatabaseButton.UseVisualStyleBackColor = true;
+            adminResetVehicleDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            adminResetVehicleDatabaseButton.Location = new Point(3, 38);
+            adminResetVehicleDatabaseButton.Name = "adminResetVehicleDatabaseButton";
+            adminResetVehicleDatabaseButton.Size = new Size(245, 23);
+            adminResetVehicleDatabaseButton.TabIndex = 3;
+            adminResetVehicleDatabaseButton.Text = "Reset Vehicle Database";
+            adminResetVehicleDatabaseButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 

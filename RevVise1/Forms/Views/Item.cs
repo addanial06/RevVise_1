@@ -174,9 +174,9 @@ namespace RevVise1.Forms.Views
                 {
                     addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
                     saveTexts(true);
-                    logger.log($"Added motor {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
-                    DataTable dt = db.getData("SELECT motor_id FROM tbl_motor ORDER BY motor_id DESC");
-                    IDLabel.Text = dt.Rows[0]["motor_id"].ToString();
+                    logger.log($"Added vehicle {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
+                    DataTable dt = db.getData("SELECT vehicle_id FROM tbl_vehicle ORDER BY vehicle_id DESC");
+                    IDLabel.Text = dt.Rows[0]["vehicle_id"].ToString();
                 }
                 else
                 {
