@@ -27,7 +27,7 @@ namespace RevVise1.Forms.Views
             this.Parent.Controls.Remove(this);
             this.Dispose();
         }
-        private bool userExists(String username) 
+        private bool userExists(String username)
         {
             String query = "SELECT COUNT(*) FROM tbl_users WHERE username = @username";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -47,7 +47,7 @@ namespace RevVise1.Forms.Views
                 {
                     MessageBox.Show("Username already exists. Please choose a different username.");
                 }
-                else 
+                else
                 {
                     String query = "INSERT INTO tbl_users(username,password) VALUES(@username,@password)";
                     Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -57,7 +57,35 @@ namespace RevVise1.Forms.Views
                         };
                     db.SQLManager(query, parameters);
                     logger.log($"New account {usernameText.Text} created.");
+
+                    MessageBox.Show("Account created successfully.");
+                    this.Parent.Controls.Remove(this);
+                    this.Dispose();
                 }
+            }
+        }
+
+        private void usernameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                passwordText.Focus();
+            }
+        }
+
+        private void passwordText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                passwordText2.Focus();
+            }
+        }
+
+        private void passwordText2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                createAccButton.PerformClick();
             }
         }
     }

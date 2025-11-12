@@ -43,13 +43,7 @@
             resolveButton = new Button();
             deleteButton = new Button();
             tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            dateResolved = new Label();
-            dateIssued = new Label();
-            dateIssuedLabel = new Label();
-            dateResolvedLabel = new Label();
+            panel9 = new Panel();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel4 = new Panel();
             panel1 = new Panel();
@@ -60,15 +54,18 @@
             ownerDetailsText = new TextBox();
             panel8 = new Panel();
             statusLabel = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            dateResolved = new Label();
+            dateIssued = new Label();
+            dateIssuedLabel = new Label();
+            dateResolvedLabel = new Label();
             entryTitle = new Label();
             fontDialog1 = new FontDialog();
-            panel9 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -76,6 +73,9 @@
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // IDLabel
@@ -148,6 +148,7 @@
             modelText.Text = "Model";
             modelText.Visible = false;
             modelText.Click += modelClick;
+            modelText.KeyPress += modelText_KeyPress;
             // 
             // ownerText
             // 
@@ -161,6 +162,7 @@
             ownerText.Text = "Owner";
             ownerText.Visible = false;
             ownerText.Click += ownerClick;
+            ownerText.KeyPress += ownerText_KeyPress;
             // 
             // plateText
             // 
@@ -174,6 +176,7 @@
             plateText.Text = "Plate No.";
             plateText.Visible = false;
             plateText.Click += plateClick;
+            plateText.KeyPress += plateText_KeyPress;
             // 
             // entryText
             // 
@@ -187,6 +190,7 @@
             entryText.Text = "Entry";
             entryText.Visible = false;
             entryText.Click += entryClick;
+            entryText.KeyPress += entryText_KeyPress;
             // 
             // entryLabel
             // 
@@ -271,81 +275,14 @@
             tableLayoutPanel3.Size = new Size(794, 259);
             tableLayoutPanel3.TabIndex = 1;
             // 
-            // tableLayoutPanel4
+            // panel9
             // 
-            tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.125F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.875F));
-            tableLayoutPanel4.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel4.Controls.Add(panel3, 1, 0);
-            tableLayoutPanel4.Location = new Point(3, 73);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.Padding = new Padding(0, 20, 0, 0);
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(788, 183);
-            tableLayoutPanel4.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BorderStyle = BorderStyle.Fixed3D;
-            panel2.Controls.Add(entryText);
-            panel2.Controls.Add(entryLabel);
-            panel2.Location = new Point(4, 24);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(497, 155);
-            panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.Controls.Add(dateResolved);
-            panel3.Controls.Add(dateIssued);
-            panel3.Controls.Add(dateIssuedLabel);
-            panel3.Controls.Add(dateResolvedLabel);
-            panel3.Location = new Point(508, 24);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(276, 155);
-            panel3.TabIndex = 1;
-            // 
-            // dateResolved
-            // 
-            dateResolved.AutoSize = true;
-            dateResolved.Location = new Point(0, 104);
-            dateResolved.Name = "dateResolved";
-            dateResolved.Size = new Size(89, 21);
-            dateResolved.TabIndex = 0;
-            dateResolved.Text = "Unresolved";
-            // 
-            // dateIssued
-            // 
-            dateIssued.AutoSize = true;
-            dateIssued.Location = new Point(0, 21);
-            dateIssued.Name = "dateIssued";
-            dateIssued.Size = new Size(52, 21);
-            dateIssued.TabIndex = 13;
-            dateIssued.Text = "label1";
-            // 
-            // dateIssuedLabel
-            // 
-            dateIssuedLabel.AutoSize = true;
-            dateIssuedLabel.Location = new Point(0, 0);
-            dateIssuedLabel.Name = "dateIssuedLabel";
-            dateIssuedLabel.Size = new Size(93, 21);
-            dateIssuedLabel.TabIndex = 13;
-            dateIssuedLabel.Text = "Date Issued:";
-            // 
-            // dateResolvedLabel
-            // 
-            dateResolvedLabel.AutoSize = true;
-            dateResolvedLabel.Location = new Point(0, 83);
-            dateResolvedLabel.Name = "dateResolvedLabel";
-            dateResolvedLabel.Size = new Size(112, 21);
-            dateResolvedLabel.TabIndex = 13;
-            dateResolvedLabel.Text = "Date Resolved:";
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel9.BackColor = Color.WhiteSmoke;
+            panel9.Location = new Point(3, 53);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(788, 3);
+            panel9.TabIndex = 13;
             // 
             // tableLayoutPanel5
             // 
@@ -445,6 +382,7 @@
             ownerDetailsText.Text = "Owner Details";
             ownerDetailsText.Visible = false;
             ownerDetailsText.Click += ownerDetailsClick;
+            ownerDetailsText.KeyPress += ownerDetailsText_KeyPress;
             // 
             // panel8
             // 
@@ -465,6 +403,82 @@
             statusLabel.TabIndex = 13;
             statusLabel.Text = "Unresolved";
             // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.125F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.875F));
+            tableLayoutPanel4.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel4.Controls.Add(panel3, 1, 0);
+            tableLayoutPanel4.Location = new Point(3, 73);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.Padding = new Padding(0, 20, 0, 0);
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.Size = new Size(788, 183);
+            tableLayoutPanel4.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BorderStyle = BorderStyle.Fixed3D;
+            panel2.Controls.Add(entryText);
+            panel2.Controls.Add(entryLabel);
+            panel2.Location = new Point(4, 24);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(497, 155);
+            panel2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(dateResolved);
+            panel3.Controls.Add(dateIssued);
+            panel3.Controls.Add(dateIssuedLabel);
+            panel3.Controls.Add(dateResolvedLabel);
+            panel3.Location = new Point(508, 24);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(276, 155);
+            panel3.TabIndex = 1;
+            // 
+            // dateResolved
+            // 
+            dateResolved.AutoSize = true;
+            dateResolved.Location = new Point(0, 104);
+            dateResolved.Name = "dateResolved";
+            dateResolved.Size = new Size(89, 21);
+            dateResolved.TabIndex = 0;
+            dateResolved.Text = "Unresolved";
+            // 
+            // dateIssued
+            // 
+            dateIssued.AutoSize = true;
+            dateIssued.Location = new Point(0, 21);
+            dateIssued.Name = "dateIssued";
+            dateIssued.Size = new Size(52, 21);
+            dateIssued.TabIndex = 13;
+            dateIssued.Text = "label1";
+            // 
+            // dateIssuedLabel
+            // 
+            dateIssuedLabel.AutoSize = true;
+            dateIssuedLabel.Location = new Point(0, 0);
+            dateIssuedLabel.Name = "dateIssuedLabel";
+            dateIssuedLabel.Size = new Size(93, 21);
+            dateIssuedLabel.TabIndex = 13;
+            dateIssuedLabel.Text = "Date Issued:";
+            // 
+            // dateResolvedLabel
+            // 
+            dateResolvedLabel.AutoSize = true;
+            dateResolvedLabel.Location = new Point(0, 83);
+            dateResolvedLabel.Name = "dateResolvedLabel";
+            dateResolvedLabel.Size = new Size(112, 21);
+            dateResolvedLabel.TabIndex = 13;
+            dateResolvedLabel.Text = "Date Resolved:";
+            // 
             // entryTitle
             // 
             entryTitle.AutoSize = true;
@@ -476,15 +490,6 @@
             entryTitle.TabIndex = 12;
             entryTitle.Text = "Entry:";
             entryTitle.Visible = false;
-            // 
-            // panel9
-            // 
-            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel9.BackColor = Color.WhiteSmoke;
-            panel9.Location = new Point(3, 53);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(788, 3);
-            panel9.TabIndex = 13;
             // 
             // Item
             // 
@@ -503,11 +508,6 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel4.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -522,6 +522,11 @@
             panel7.PerformLayout();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
