@@ -34,6 +34,7 @@
             usernameText = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
+            button1 = new Button();
             createAccLinkLabel = new LinkLabel();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -101,13 +102,14 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(697, 292);
+            tableLayoutPanel1.Size = new Size(697, 254);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.DimGray;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(createAccLinkLabel);
             panel1.Controls.Add(LogoText);
             panel1.Controls.Add(loginButton);
@@ -116,8 +118,19 @@
             panel1.Location = new Point(380, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(317, 292);
+            panel1.Size = new Size(317, 254);
             panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(274, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(23, 23);
+            button1.TabIndex = 5;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // createAccLinkLabel
             // 
@@ -139,7 +152,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(380, 292);
+            panel2.Size = new Size(380, 254);
             panel2.TabIndex = 1;
             // 
             // pictureBox1
@@ -157,13 +170,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(681, 285);
+            ClientSize = new Size(681, 247);
             Controls.Add(tableLayoutPanel1);
             MaximizeBox = false;
-            MaximumSize = new Size(697, 324);
+            MaximumSize = new Size(697, 286);
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
-            MinimumSize = new Size(697, 324);
+            MinimumSize = new Size(697, 286);
             Name = "AuthForm";
             ShowIcon = false;
             Text = "RevVise App";
@@ -186,5 +199,6 @@
         private Panel panel2;
         private LinkLabel createAccLinkLabel;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }

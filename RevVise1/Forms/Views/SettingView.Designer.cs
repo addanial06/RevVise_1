@@ -156,8 +156,8 @@
             tableLayoutPanel3.Margin = new Padding(0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.22034F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 66.77966F));
             tableLayoutPanel3.Size = new Size(235, 590);
             tableLayoutPanel3.TabIndex = 0;
             // 
@@ -169,7 +169,7 @@
             userStatsPanel.Controls.Add(tableLayoutPanel13);
             userStatsPanel.Location = new Point(3, 3);
             userStatsPanel.Name = "userStatsPanel";
-            userStatsPanel.Size = new Size(229, 289);
+            userStatsPanel.Size = new Size(229, 190);
             userStatsPanel.TabIndex = 0;
             // 
             // tableLayoutPanel13
@@ -193,7 +193,7 @@
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel13.Size = new Size(219, 279);
+            tableLayoutPanel13.Size = new Size(219, 180);
             tableLayoutPanel13.TabIndex = 0;
             // 
             // label8
@@ -265,9 +265,9 @@
             adminStatsPanel.BackColor = SystemColors.ControlLight;
             adminStatsPanel.BorderStyle = BorderStyle.Fixed3D;
             adminStatsPanel.Controls.Add(tableLayoutPanel14);
-            adminStatsPanel.Location = new Point(3, 298);
+            adminStatsPanel.Location = new Point(3, 199);
             adminStatsPanel.Name = "adminStatsPanel";
-            adminStatsPanel.Size = new Size(229, 289);
+            adminStatsPanel.Size = new Size(229, 388);
             adminStatsPanel.TabIndex = 1;
             // 
             // tableLayoutPanel14
@@ -293,7 +293,7 @@
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel14.Size = new Size(219, 279);
+            tableLayoutPanel14.Size = new Size(219, 378);
             tableLayoutPanel14.TabIndex = 1;
             // 
             // adminTotalUnresolvedText
@@ -478,6 +478,7 @@
             userChangePasswordButton.TabIndex = 1;
             userChangePasswordButton.Text = "Change Password";
             userChangePasswordButton.UseVisualStyleBackColor = true;
+            userChangePasswordButton.Click += userChangePasswordButton_Click;
             // 
             // userDeleteUserButton
             // 
@@ -488,17 +489,19 @@
             userDeleteUserButton.TabIndex = 2;
             userDeleteUserButton.Text = "Delete User";
             userDeleteUserButton.UseVisualStyleBackColor = true;
+            userDeleteUserButton.Click += userDeleteUserButton_Click;
             // 
             // userResetVehicleDataButton
             // 
-            userResetVehicleDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            userResetVehicleDataButton.ForeColor = SystemColors.ControlText;
-            userResetVehicleDataButton.Location = new Point(3, 32);
-            userResetVehicleDataButton.Name = "userResetVehicleDataButton";
-            userResetVehicleDataButton.Size = new Size(118, 23);
-            userResetVehicleDataButton.TabIndex = 0;
-            userResetVehicleDataButton.Text = "Reset Vehicle Data";
-            userResetVehicleDataButton.UseVisualStyleBackColor = true;
+            userResetMotorDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userResetMotorDataButton.ForeColor = SystemColors.ControlText;
+            userResetMotorDataButton.Location = new Point(3, 32);
+            userResetMotorDataButton.Name = "userResetMotorDataButton";
+            userResetMotorDataButton.Size = new Size(118, 23);
+            userResetMotorDataButton.TabIndex = 0;
+            userResetMotorDataButton.Text = "Reset Motor Data";
+            userResetMotorDataButton.UseVisualStyleBackColor = true;
+            userResetMotorDataButton.Click += userResetMotorDataButton_Click;
             // 
             // label5
             // 
@@ -606,6 +609,7 @@
             // 
             // userComboBox
             // 
+            userComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             userComboBox.FormattingEnabled = true;
             userComboBox.Location = new Point(207, 3);
             userComboBox.Name = "userComboBox";
@@ -639,8 +643,9 @@
             adminDeleteUserButton.Name = "adminDeleteUserButton";
             adminDeleteUserButton.Size = new Size(198, 23);
             adminDeleteUserButton.TabIndex = 2;
-            adminDeleteUserButton.Text = "Delete User";
+            adminDeleteUserButton.Text = "Delete Selected User";
             adminDeleteUserButton.UseVisualStyleBackColor = true;
+            adminDeleteUserButton.Click += adminDeleteUserButton_Click;
             // 
             // adminResetUserPassButton
             // 
@@ -651,6 +656,7 @@
             adminResetUserPassButton.TabIndex = 1;
             adminResetUserPassButton.Text = "Reset Password";
             adminResetUserPassButton.UseVisualStyleBackColor = true;
+            adminResetUserPassButton.Click += adminResetUserPassButton_Click;
             // 
             // adminClearUserButton
             // 
@@ -660,8 +666,9 @@
             adminClearUserButton.Name = "adminClearUserButton";
             adminClearUserButton.Size = new Size(198, 23);
             adminClearUserButton.TabIndex = 0;
-            adminClearUserButton.Text = "Clear User Data";
+            adminClearUserButton.Text = "Clear Selected User Data";
             adminClearUserButton.UseVisualStyleBackColor = true;
+            adminClearUserButton.Click += adminClearUserButton_Click;
             // 
             // label3
             // 
@@ -707,6 +714,7 @@
             adminClearDatabaseButton.TabIndex = 5;
             adminClearDatabaseButton.Text = "Clear Database";
             adminClearDatabaseButton.UseVisualStyleBackColor = true;
+            adminClearDatabaseButton.Click += adminClearDatabaseButton_Click;
             // 
             // adminResetLogDatabaseButton
             // 
@@ -717,6 +725,7 @@
             adminResetLogDatabaseButton.TabIndex = 4;
             adminResetLogDatabaseButton.Text = "Reset Log Database";
             adminResetLogDatabaseButton.UseVisualStyleBackColor = true;
+            adminResetLogDatabaseButton.Click += adminResetLogDatabaseButton_Click;
             // 
             // label4
             // 
@@ -733,13 +742,13 @@
             // 
             // adminResetVehicleDatabaseButton
             // 
-            adminResetVehicleDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            adminResetVehicleDatabaseButton.Location = new Point(3, 38);
-            adminResetVehicleDatabaseButton.Name = "adminResetVehicleDatabaseButton";
-            adminResetVehicleDatabaseButton.Size = new Size(245, 23);
-            adminResetVehicleDatabaseButton.TabIndex = 3;
-            adminResetVehicleDatabaseButton.Text = "Reset Vehicle Database";
-            adminResetVehicleDatabaseButton.UseVisualStyleBackColor = true;
+            adminResetMotorDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            adminResetMotorDatabaseButton.Location = new Point(3, 38);
+            adminResetMotorDatabaseButton.Name = "adminResetMotorDatabaseButton";
+            adminResetMotorDatabaseButton.Size = new Size(245, 23);
+            adminResetMotorDatabaseButton.TabIndex = 3;
+            adminResetMotorDatabaseButton.Text = "Reset Motor Database";
+            adminResetMotorDatabaseButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
