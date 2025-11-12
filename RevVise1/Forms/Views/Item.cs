@@ -175,6 +175,8 @@ namespace RevVise1.Forms.Views
                     addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
                     saveTexts(true);
                     logger.log($"Added motor {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
+                    DataTable dt = db.getData("SELECT motor_id FROM tbl_motor ORDER BY motor_id DESC");
+                    IDLabel.Text = dt.Rows[0]["motor_id"].ToString();
                 }
                 else
                 {
@@ -182,8 +184,6 @@ namespace RevVise1.Forms.Views
                     string oldOwner = ownerLabel.Text;
                     string oldPlate = plateLabel.Text;
                     string oldStatus = statusLabel.Text;
-
-
 
                     updateEntry(id, modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, dateResolved.Text, ownerDetailsText.Text);
                     saveTexts();

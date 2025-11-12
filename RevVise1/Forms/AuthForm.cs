@@ -19,6 +19,7 @@ namespace RevVise1.Forms
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.None;
             //MessageBox.Show("Running");
         }
 
@@ -65,6 +66,11 @@ namespace RevVise1.Forms
             {
                 loginClick(sender, e);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
