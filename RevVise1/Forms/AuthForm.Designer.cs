@@ -49,7 +49,7 @@
             loginButton.Location = new Point(21, 166);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(86, 27);
-            loginButton.TabIndex = 0;
+            loginButton.TabIndex = 2;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
             loginButton.Click += loginClick;
@@ -76,7 +76,7 @@
             passwordText.PasswordChar = '*';
             passwordText.PlaceholderText = "Password";
             passwordText.Size = new Size(195, 23);
-            passwordText.TabIndex = 3;
+            passwordText.TabIndex = 1;
             passwordText.KeyPress += passwordText_KeyPress;
             // 
             // usernameText
@@ -86,7 +86,7 @@
             usernameText.Name = "usernameText";
             usernameText.PlaceholderText = "Username";
             usernameText.Size = new Size(195, 23);
-            usernameText.TabIndex = 2;
+            usernameText.TabIndex = 0;
             usernameText.KeyPress += usernameText_KeyPress;
             // 
             // tableLayoutPanel1
@@ -126,7 +126,7 @@
             createAccLinkLabel.Location = new Point(206, 247);
             createAccLinkLabel.Name = "createAccLinkLabel";
             createAccLinkLabel.Size = new Size(89, 15);
-            createAccLinkLabel.TabIndex = 4;
+            createAccLinkLabel.TabIndex = 3;
             createAccLinkLabel.TabStop = true;
             createAccLinkLabel.Text = "Create Account";
             createAccLinkLabel.LinkClicked += createAccLinkLabel_LinkClicked;

@@ -19,8 +19,13 @@ namespace RevVise1.Forms
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-           // MessageBox.Show("Running");
-            
+            // MessageBox.Show("Running");
+
+            this.Shown += AuthForm_Shown;
+        }
+        public void AuthForm_Shown(object sender, EventArgs e)
+        {
+            usernameText.Focus(); 
         }
 
         private void loginClick(object sender, EventArgs e)
@@ -50,6 +55,8 @@ namespace RevVise1.Forms
             panel1.Controls.Add(view);
             panel1.ScrollControlIntoView(view);
             view.BringToFront();
+            view.Focus();
+
         }
 
         private void usernameText_KeyPress(object sender, KeyPressEventArgs e)

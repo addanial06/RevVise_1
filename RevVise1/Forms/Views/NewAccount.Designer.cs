@@ -42,7 +42,7 @@
             createAccButton.Location = new Point(18, 195);
             createAccButton.Name = "createAccButton";
             createAccButton.Size = new Size(111, 27);
-            createAccButton.TabIndex = 4;
+            createAccButton.TabIndex = 3;
             createAccButton.Text = "Create Account";
             createAccButton.UseVisualStyleBackColor = true;
             createAccButton.Click += createAccButton_Click;
@@ -54,7 +54,7 @@
             usernameText.Name = "usernameText";
             usernameText.PlaceholderText = "Username";
             usernameText.Size = new Size(195, 23);
-            usernameText.TabIndex = 5;
+            usernameText.TabIndex = 0;
             usernameText.KeyPress += usernameText_KeyPress;
             // 
             // passwordText
@@ -65,13 +65,14 @@
             passwordText.PasswordChar = '*';
             passwordText.PlaceholderText = "Password";
             passwordText.Size = new Size(195, 23);
-            passwordText.TabIndex = 6;
+            passwordText.TabIndex = 1;
             passwordText.KeyPress += passwordText_KeyPress;
             // 
             // LogoText
             // 
             LogoText.Anchor = AnchorStyles.Top;
             LogoText.AutoSize = true;
+            LogoText.Enabled = false;
             LogoText.FlatStyle = FlatStyle.Popup;
             LogoText.Font = new Font("Segoe UI Semibold", 27.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             LogoText.ForeColor = Color.FromArgb(210, 210, 210);
@@ -79,7 +80,7 @@
             LogoText.Margin = new Padding(0, 70, 3, 0);
             LogoText.Name = "LogoText";
             LogoText.Size = new Size(243, 50);
-            LogoText.TabIndex = 7;
+            LogoText.TabIndex = 0;
             LogoText.Text = "New Account";
             // 
             // passwordText2
@@ -90,7 +91,7 @@
             passwordText2.PasswordChar = '*';
             passwordText2.PlaceholderText = "Confirm Password";
             passwordText2.Size = new Size(195, 23);
-            passwordText2.TabIndex = 8;
+            passwordText2.TabIndex = 2;
             passwordText2.KeyPress += passwordText2_KeyPress;
             // 
             // backtoLoginLink
@@ -100,7 +101,7 @@
             backtoLoginLink.Location = new Point(206, 247);
             backtoLoginLink.Name = "backtoLoginLink";
             backtoLoginLink.Size = new Size(76, 15);
-            backtoLoginLink.TabIndex = 9;
+            backtoLoginLink.TabIndex = 4;
             backtoLoginLink.TabStop = true;
             backtoLoginLink.Text = "Back to login";
             backtoLoginLink.LinkClicked += backtoLoginLink_LinkClicked;

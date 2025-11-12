@@ -20,6 +20,7 @@ namespace RevVise1.Forms.Views
         public NewAccount()
         {
             InitializeComponent();
+            usernameText.Focus();
         }
 
         private void backtoLoginLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
