@@ -12,7 +12,7 @@ namespace RevVise1
         private String source;
         private String user;
         private int userID;
-        public Logger(String source,String username) 
+        public Logger(String source = "System", String username = "")
         {
             this.source = source;
             this.user = username;
@@ -21,10 +21,12 @@ namespace RevVise1
         }
         public void log(String action)
         {
-            string sql = "INSERT INTO tbl_logs (log_date, log_source, log_action, user, user_id) " +
-                         "VALUES (NOW(), @source, @action, @user, @userID)";
+            if (source.Equals("System")) // to be used for system generated logs
+            {
+                string sql = "INSERT INTO tbl_logs (log_date, log_source, log_action, user, user_id) " +
+             "VALUES (NOW(), @source, @action, 'System', '0')";
 
-            var parameters = new Dictionary<string, object>()
+                var parameters = new Dictionary<string, object>()
             {
                 { "@source", source },
                 { "@action", action },
@@ -32,8 +34,23 @@ namespace RevVise1
                 { "@userID", userID }
             };
 
-            db.SQLManager(sql, parameters);
-        }
+                db.SQLManager(sql, parameters);
+            }
+            else
+            {
+                string sql = "INSERT INTO tbl_logs (log_date, log_source, log_action, user, user_id) " +
+                 "VALUES (NOW(), @source, @action, @user, @userID)";
 
+                var parameters = new Dictionary<string, object>()
+            {
+                { "@source", source },
+                { "@action", action },
+                { "@user", user },
+                { "@userID", userID }
+            };
+
+                db.SQLManager(sql, parameters);
+            }
+        }
     }
 }

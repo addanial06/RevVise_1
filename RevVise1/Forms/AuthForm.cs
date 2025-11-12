@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RevVise1.Forms.Views;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RevVise1.Forms
@@ -42,7 +43,16 @@ namespace RevVise1.Forms
                 MessageBox.Show("Login Failed.");
                 Program.isAuthenticated = false;
             }
-            
+
+        }
+
+        private void createAccLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserControl view = new NewAccount();
+            view.Dock = DockStyle.Top;
+            panel1.Controls.Add(view);
+            panel1.ScrollControlIntoView(view);
+            view.BringToFront();
         }
     }
 }

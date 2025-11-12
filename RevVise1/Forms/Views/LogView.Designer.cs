@@ -31,7 +31,6 @@
             dashboardLabel = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             systemDataGridView = new DataGridView();
-            button1 = new Button();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)systemDataGridView).BeginInit();
             SuspendLayout();
@@ -41,7 +40,7 @@
             dashboardLabel.AutoSize = true;
             dashboardLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboardLabel.ForeColor = Color.DarkGray;
-            dashboardLabel.Location = new Point(4, 22);
+            dashboardLabel.Location = new Point(4, 1);
             dashboardLabel.Name = "dashboardLabel";
             dashboardLabel.Size = new Size(290, 65);
             dashboardLabel.TabIndex = 0;
@@ -56,17 +55,14 @@
             tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Controls.Add(dashboardLabel, 0, 1);
-            tableLayoutPanel2.Controls.Add(systemDataGridView, 0, 2);
-            tableLayoutPanel2.Controls.Add(button1, 0, 0);
+            tableLayoutPanel2.Controls.Add(dashboardLabel, 0, 0);
+            tableLayoutPanel2.Controls.Add(systemDataGridView, 0, 1);
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 84F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 104F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(937, 655);
             tableLayoutPanel2.TabIndex = 1;
             // 
@@ -76,21 +72,12 @@
             systemDataGridView.BackgroundColor = Color.Gainsboro;
             systemDataGridView.BorderStyle = BorderStyle.None;
             systemDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            systemDataGridView.Location = new Point(6, 112);
+            systemDataGridView.Location = new Point(6, 91);
             systemDataGridView.Margin = new Padding(5);
             systemDataGridView.Name = "systemDataGridView";
-            systemDataGridView.Size = new Size(925, 537);
+            systemDataGridView.Size = new Size(925, 558);
             systemDataGridView.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(4, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 14);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            systemDataGridView.CellContentDoubleClick += cellDoubleClick;
             // 
             // LogView
             // 
@@ -110,6 +97,5 @@
         private Label dashboardLabel;
         private TableLayoutPanel tableLayoutPanel2;
         private DataGridView systemDataGridView;
-        private Button button1;
     }
 }

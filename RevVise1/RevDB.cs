@@ -63,8 +63,32 @@ namespace RevVise1
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                dbCommand = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(dbCommand);
+                da.Fill(dt);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable getData(String query, Dictionary<string, object> parameters) // data retrieval with parameters
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection conn = new MySqlConnection(strConn + "db_revapp");
+
+            try
+            {
+                conn.Open();
+                dbCommand = new MySqlCommand(query, conn);
+                foreach (var param in parameters)
+                {
+                    dbCommand.Parameters.AddWithValue(param.Key, param.Value);
+                }
+                MySqlDataAdapter da = new MySqlDataAdapter(dbCommand);
                 da.Fill(dt);
             }
             finally

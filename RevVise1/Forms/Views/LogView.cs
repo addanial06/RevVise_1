@@ -16,7 +16,23 @@ namespace RevVise1.Forms.Views
         public LogView()
         {
             InitializeComponent();
-            loadlogs();
+            loadLogs();
+        }
+        private void cellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignore header
+            DataGridViewRow row = systemDataGridView.Rows[e.RowIndex];
+
+            if (row.Height == 25) // default height
+            {
+                row.Height = 100; // expand to show full content
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.True;
+            }
+            else
+            {
+                row.Height = 25; // collapse
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.False;
+            }
         }
         DataGridViewCellStyle style = new DataGridViewCellStyle()
         {
@@ -25,7 +41,7 @@ namespace RevVise1.Forms.Views
             SelectionBackColor = Color.FromArgb(180, 180, 180),
             SelectionForeColor = Color.FromArgb(60, 60, 60),
             Font = new Font("Segoe UI", 9, FontStyle.Regular),
-            WrapMode = DataGridViewTriState.True,
+            WrapMode = DataGridViewTriState.False,
             Alignment = DataGridViewContentAlignment.MiddleLeft
         };
 
@@ -36,7 +52,7 @@ namespace RevVise1.Forms.Views
             Font = new Font("Segoe UI", 9, FontStyle.Bold),
             Alignment = DataGridViewContentAlignment.MiddleCenter
         };
-        private void loadlogs() 
+        private void loadLogs() 
         {
             String query;
             if (Session.Role == "Admin")

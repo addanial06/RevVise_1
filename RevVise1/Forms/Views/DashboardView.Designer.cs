@@ -327,6 +327,7 @@ namespace RevVise1.Forms.Views
             resolvedDataView.Name = "resolvedDataView";
             resolvedDataView.Size = new Size(446, 117);
             resolvedDataView.TabIndex = 3;
+            resolvedDataView.CellContentDoubleClick += cellDoubleClick2;
             // 
             // welcomeDashboard
             // 
@@ -442,11 +443,13 @@ namespace RevVise1.Forms.Views
             recentGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             recentGridView.BackgroundColor = Color.FromArgb(118, 103, 118);
             recentGridView.BorderStyle = BorderStyle.Fixed3D;
+            recentGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             recentGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             recentGridView.Location = new Point(3, 40);
             recentGridView.Name = "recentGridView";
             recentGridView.Size = new Size(441, 434);
             recentGridView.TabIndex = 2;
+            recentGridView.CellContentDoubleClick += cellDoubleClick1;
             // 
             // DashboardView
             // 

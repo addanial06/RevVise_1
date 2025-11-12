@@ -22,8 +22,42 @@ namespace RevVise1.Forms.Views
         public DashboardView()
         {
             InitializeComponent();
-            LoadDashboardData();
-            LoadPieChart();
+            loadDashboardData();
+            loadPieChart();
+            loadRecentActivity();
+        }
+
+        private void cellDoubleClick1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignore header
+            DataGridViewRow row = recentGridView.Rows[e.RowIndex];
+
+            if (row.Height == 25) // default height
+            {
+                row.Height = 100; // expand to show full content
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.True;
+            }
+            else
+            {
+                row.Height = 25; // collapse
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.False;
+            }
+        }
+        private void cellDoubleClick2(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignore header
+            DataGridViewRow row = resolvedDataView.Rows[e.RowIndex];
+
+            if (row.Height == 25) // default height
+            {
+                row.Height = 100; // expand to show full content
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.True;
+            }
+            else
+            {
+                row.Height = 25; // collapse
+                row.Cells[e.ColumnIndex].Style.WrapMode = DataGridViewTriState.False;
+            }
         }
 
         DataGridViewCellStyle style = new DataGridViewCellStyle()
@@ -33,7 +67,7 @@ namespace RevVise1.Forms.Views
             SelectionBackColor = SystemColors.ScrollBar,
             SelectionForeColor = SystemColors.HighlightText,
             Font = new Font("Segoe UI", 9, FontStyle.Regular),
-            WrapMode = DataGridViewTriState.True,
+            WrapMode = DataGridViewTriState.False,
             Alignment = DataGridViewContentAlignment.MiddleLeft
         };
 
@@ -74,7 +108,7 @@ namespace RevVise1.Forms.Views
 
 
         }
-        private void LoadDashboardData()
+        private void loadDashboardData()
         {
             loadResolvedCases();
             welcomeDashboard.Text = $"Welcome, {Session.Username}.";
@@ -139,7 +173,7 @@ namespace RevVise1.Forms.Views
             DataTable dtUnresolvedMotor = db.getData(sql("unresolved"));
             return dtUnresolvedMotor.Rows[0]["total"].ToString();
         }
-        private void LoadPieChart()
+        private void loadPieChart()
         {
             statusChart.Series.Clear();
             statusChart.Titles.Clear();
@@ -186,6 +220,38 @@ namespace RevVise1.Forms.Views
 
 
             statusChart.Series.Add(series);
+        }
+        private void loadRecentActivity()
+        {
+            String query;
+            if (Session.Role == "Admin")
+            {
+                query = $"SELECT log_date as 'Date'," +
+                        $"log_source as 'Source' ," +
+                        $"log_action as 'Action'," +
+                        $"user as 'User'" +
+                        $"FROM tbl_logs WHERE log_source LIKE '%Catalog%' ORDER BY log_date DESC";
+            }
+            else
+            {
+                query = $"SELECT log_date as 'Date'," +
+                        $"log_source as 'Source'," +
+                        $"log_action as 'Action'" +
+                        $"FROM tbl_logs WHERE user_id={Session.UserID} AND log_source LIKE '%Catalog%' ORDER BY log_date DESC ";
+            }
+            DataTable dt = db.getData(query);
+            recentGridView.DataSource = dt;
+            recentGridView.Columns["Date"].Width = 120;
+            recentGridView.Columns["Source"].Width = 100;
+            recentGridView.Columns["Action"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            recentGridView.DefaultCellStyle = style;
+            recentGridView.ColumnHeadersDefaultCellStyle = headerStyle;
+            recentGridView.EnableHeadersVisualStyles = false;
+            recentGridView.ReadOnly = true;
+            recentGridView.AllowUserToAddRows = false;
+            recentGridView.AllowUserToDeleteRows = false;
+            recentGridView.RowHeadersVisible = false;
+            recentGridView.DefaultCellStyle = style;
         }
     }
 }
