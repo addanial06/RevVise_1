@@ -16,9 +16,9 @@ namespace RevVise1.Forms.Views
     public partial class DashboardView : UserControl
     {
         RevDB db = new RevDB();
-        String totalMotor;
-        String resolvedMotor;
-        String unresolvedMotor;
+        String totalVehicle;
+        String resolvedVehicle;
+        String unresolvedVehicle;
         public DashboardView()
         {
             InitializeComponent();
@@ -83,16 +83,16 @@ namespace RevVise1.Forms.Views
             String query;
             if (Session.Role == "Admin")
             {
-                query = $"SELECT motor_id AS ID, motor_model AS Model, motor_owner AS Owner, motor_plate AS Plate, motor_dateResolved AS 'Date Resolved' " +
-                $"FROM tbl_motor WHERE motor_status = 'Resolved'" +
-                $"ORDER BY motor_dateResolved DESC";
+                query = $"SELECT vehicle_id AS ID, vehicle_model AS Model, vehicle_owner AS Owner, vehicle_plate AS Plate, vehicle_dateResolved AS 'Date Resolved' " +
+                $"FROM tbl_vehicle WHERE vehicle_status = 'Resolved'" +
+                $"ORDER BY vehicle_dateResolved DESC";
 
             }
             else 
             {
-                query = $"SELECT motor_id AS ID, motor_model AS Model, motor_owner AS Owner, motor_plate AS Plate, motor_dateResolved AS 'Date Resolved' " +
-                $"FROM tbl_motor WHERE motor_status = 'Resolved' AND user_id = '{Session.UserID}' " +
-                $"ORDER BY motor_dateResolved DESC";
+                query = $"SELECT vehicle_id AS ID, vehicle_model AS Model, vehicle_owner AS Owner, vehicle_plate AS Plate, vehicle_dateResolved AS 'Date Resolved' " +
+                $"FROM tbl_vehicle WHERE vehicle_status = 'Resolved' AND user_id = '{Session.UserID}' " +
+                $"ORDER BY vehicle_dateResolved DESC";
             }
             DataTable dt = db.getData(query);
 
@@ -112,10 +112,10 @@ namespace RevVise1.Forms.Views
         {
             loadResolvedCases();
             welcomeDashboard.Text = $"Welcome, {Session.Username}.";
-            descDashboard.Text = $"Here's an overview of your motor repairs.";
-            totalMotorLabel.Text = getTotalMotor();
-            resolvedMotorLabel.Text = getResolvedMotor();
-            unresolvedMotorLabel.Text = getUnresolvedMotor();
+            descDashboard.Text = $"Here's an overview of your vehicle repairs.";
+            totalVehicleLabel.Text = getTotalVehicle();
+            resolvedVehicleLabel.Text = getResolvedVehicle();
+            unresolvedVehicleLabel.Text = getUnresolvedVehicle();
         }
         private String sql(String query)
         {
@@ -125,13 +125,13 @@ namespace RevVise1.Forms.Views
                 switch (query)
                 {
                     case "total":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle"; return sql;
                         break;
                     case "resolved":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor WHERE motor_status = 'Resolved'"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle WHERE vehicle_status = 'Resolved'"; return sql;
                         break;
                     case "unresolved":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor WHERE motor_status = 'Unresolved'"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle WHERE vehicle_status = 'Unresolved'"; return sql;
                         break;
                     default:
                         sql = ""; return sql;
@@ -143,13 +143,13 @@ namespace RevVise1.Forms.Views
                 switch (query)
                 {
                     case "total":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor WHERE user_id = '{Session.UserID}'"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle WHERE user_id = '{Session.UserID}'"; return sql;
                         break;
                     case "resolved":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor WHERE motor_status = 'Resolved' AND user_id='{Session.UserID}'"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle WHERE vehicle_status = 'Resolved' AND user_id='{Session.UserID}'"; return sql;
                         break;
                     case "unresolved":
-                        sql = $"SELECT COUNT(*) AS total FROM tbl_motor WHERE motor_status = 'Unresolved' AND user_id='{Session.UserID}'"; return sql;
+                        sql = $"SELECT COUNT(*) AS total FROM tbl_vehicle WHERE vehicle_status = 'Unresolved' AND user_id='{Session.UserID}'"; return sql;
                         break;
                     default:
                         sql = ""; return sql;
@@ -158,20 +158,20 @@ namespace RevVise1.Forms.Views
             }
 
         }
-        public String getTotalMotor()
+        public String getTotalVehicle()
         {
-            DataTable dtTotalMotor = db.getData(sql("total"));
-            return dtTotalMotor.Rows[0]["total"].ToString();
+            DataTable dtTotalVehicle = db.getData(sql("total"));
+            return dtTotalVehicle.Rows[0]["total"].ToString();
         }
-        private String getResolvedMotor()
+        private String getResolvedVehicle()
         {
-            DataTable dtResolvedMotor = db.getData(sql("resolved"));
-            return dtResolvedMotor.Rows[0]["total"].ToString();
+            DataTable dtResolvedVehicle = db.getData(sql("resolved"));
+            return dtResolvedVehicle.Rows[0]["total"].ToString();
         }
-        private String getUnresolvedMotor()
+        private String getUnresolvedVehicle()
         {
-            DataTable dtUnresolvedMotor = db.getData(sql("unresolved"));
-            return dtUnresolvedMotor.Rows[0]["total"].ToString();
+            DataTable dtUnresolvedVehicle = db.getData(sql("unresolved"));
+            return dtUnresolvedVehicle.Rows[0]["total"].ToString();
         }
         private void loadPieChart()
         {
@@ -206,8 +206,8 @@ namespace RevVise1.Forms.Views
             series["PieLabelStyle"] = "Outside";
             series["PieStartAngle"] = "270";
 
-            int resolved = int.Parse(getResolvedMotor());
-            int unresolved = int.Parse(getUnresolvedMotor());
+            int resolved = int.Parse(getResolvedVehicle());
+            int unresolved = int.Parse(getUnresolvedVehicle());
 
             series.Points.AddXY("Resolved", resolved);
             series.Points.AddXY("Unresolved", unresolved);

@@ -36,8 +36,11 @@
             panel1 = new Panel();
             createAccLinkLabel = new LinkLabel();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // loginButton
@@ -132,11 +135,23 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
             panel2.Size = new Size(380, 292);
             panel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Right;
+            pictureBox1.Image = Properties.Resources.placeholder;
+            pictureBox1.Location = new Point(20, 55);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(343, 170);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // AuthForm
             // 
@@ -155,6 +170,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -168,5 +185,6 @@
         private Panel panel1;
         private Panel panel2;
         private LinkLabel createAccLinkLabel;
+        private PictureBox pictureBox1;
     }
 }

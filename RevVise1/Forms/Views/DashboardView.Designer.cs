@@ -39,13 +39,13 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel10 = new TableLayoutPanel();
-            totalMotorLabel = new Label();
+            totalVehicleLabel = new Label();
             label9 = new Label();
             tableLayoutPanel9 = new TableLayoutPanel();
-            resolvedMotorLabel = new Label();
+            resolvedVehicleLabel = new Label();
             label8 = new Label();
             tableLayoutPanel8 = new TableLayoutPanel();
-            unresolvedMotorLabel = new Label();
+            unresolvedVehicleLabel = new Label();
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
@@ -147,7 +147,7 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel10.BackColor = Color.FromArgb(115, 91, 115);
             tableLayoutPanel10.ColumnCount = 1;
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Controls.Add(totalMotorLabel, 0, 1);
+            tableLayoutPanel10.Controls.Add(totalVehicleLabel, 0, 1);
             tableLayoutPanel10.Controls.Add(label9, 0, 0);
             tableLayoutPanel10.Location = new Point(3, 3);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -157,17 +157,17 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel10.Size = new Size(299, 101);
             tableLayoutPanel10.TabIndex = 5;
             // 
-            // totalMotorLabel
+            // totalVehicleLabel
             // 
-            totalMotorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            totalMotorLabel.AutoSize = true;
-            totalMotorLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            totalMotorLabel.ForeColor = SystemColors.Control;
-            totalMotorLabel.Location = new Point(204, 56);
-            totalMotorLabel.Name = "totalMotorLabel";
-            totalMotorLabel.Size = new Size(92, 45);
-            totalMotorLabel.TabIndex = 2;
-            totalMotorLabel.Text = "1000";
+            totalVehicleLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            totalVehicleLabel.AutoSize = true;
+            totalVehicleLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            totalVehicleLabel.ForeColor = SystemColors.Control;
+            totalVehicleLabel.Location = new Point(204, 56);
+            totalVehicleLabel.Name = "totalVehicleLabel";
+            totalVehicleLabel.Size = new Size(92, 45);
+            totalVehicleLabel.TabIndex = 2;
+            totalVehicleLabel.Text = "1000";
             // 
             // label9
             // 
@@ -178,7 +178,7 @@ namespace RevVise1.Forms.Views
             label9.Name = "label9";
             label9.Size = new Size(274, 32);
             label9.TabIndex = 1;
-            label9.Text = "Total Motors Registered";
+            label9.Text = "Total Vehicles Registered";
             // 
             // tableLayoutPanel9
             // 
@@ -186,7 +186,7 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel9.BackColor = Color.FromArgb(125, 109, 125);
             tableLayoutPanel9.ColumnCount = 1;
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Controls.Add(resolvedMotorLabel, 0, 1);
+            tableLayoutPanel9.Controls.Add(resolvedVehicleLabel, 0, 1);
             tableLayoutPanel9.Controls.Add(label8, 0, 0);
             tableLayoutPanel9.Location = new Point(613, 3);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -196,17 +196,17 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel9.Size = new Size(301, 101);
             tableLayoutPanel9.TabIndex = 4;
             // 
-            // resolvedMotorLabel
+            // resolvedVehicleLabel
             // 
-            resolvedMotorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            resolvedMotorLabel.AutoSize = true;
-            resolvedMotorLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            resolvedMotorLabel.ForeColor = SystemColors.Control;
-            resolvedMotorLabel.Location = new Point(206, 56);
-            resolvedMotorLabel.Name = "resolvedMotorLabel";
-            resolvedMotorLabel.Size = new Size(92, 45);
-            resolvedMotorLabel.TabIndex = 2;
-            resolvedMotorLabel.Text = "1000";
+            resolvedVehicleLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            resolvedVehicleLabel.AutoSize = true;
+            resolvedVehicleLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            resolvedVehicleLabel.ForeColor = SystemColors.Control;
+            resolvedVehicleLabel.Location = new Point(206, 56);
+            resolvedVehicleLabel.Name = "resolvedVehicleLabel";
+            resolvedVehicleLabel.Size = new Size(92, 45);
+            resolvedVehicleLabel.TabIndex = 2;
+            resolvedVehicleLabel.Text = "1000";
             // 
             // label8
             // 
@@ -225,7 +225,7 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel8.BackColor = Color.FromArgb(115, 91, 115);
             tableLayoutPanel8.ColumnCount = 1;
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Controls.Add(unresolvedMotorLabel, 0, 1);
+            tableLayoutPanel8.Controls.Add(unresolvedVehicleLabel, 0, 1);
             tableLayoutPanel8.Controls.Add(label1, 0, 0);
             tableLayoutPanel8.Location = new Point(308, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -235,17 +235,17 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel8.Size = new Size(299, 101);
             tableLayoutPanel8.TabIndex = 3;
             // 
-            // unresolvedMotorLabel
+            // unresolvedVehicleLabel
             // 
-            unresolvedMotorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            unresolvedMotorLabel.AutoSize = true;
-            unresolvedMotorLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            unresolvedMotorLabel.ForeColor = SystemColors.Control;
-            unresolvedMotorLabel.Location = new Point(204, 56);
-            unresolvedMotorLabel.Name = "unresolvedMotorLabel";
-            unresolvedMotorLabel.Size = new Size(92, 45);
-            unresolvedMotorLabel.TabIndex = 2;
-            unresolvedMotorLabel.Text = "1000";
+            unresolvedVehicleLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            unresolvedVehicleLabel.AutoSize = true;
+            unresolvedVehicleLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            unresolvedVehicleLabel.ForeColor = SystemColors.Control;
+            unresolvedVehicleLabel.Location = new Point(204, 56);
+            unresolvedVehicleLabel.Name = "unresolvedVehicleLabel";
+            unresolvedVehicleLabel.Size = new Size(92, 45);
+            unresolvedVehicleLabel.TabIndex = 2;
+            unresolvedVehicleLabel.Text = "1000";
             // 
             // label1
             // 
@@ -503,14 +503,14 @@ namespace RevVise1.Forms.Views
         private TableLayoutPanel tableLayoutPanel7;
         private Label label5;
         private TableLayoutPanel tableLayoutPanel8;
-        private Label unresolvedMotorLabel;
+        private Label unresolvedVehicleLabel;
         private Label label6;
         private TableLayoutPanel tableLayoutPanel10;
-        private Label totalMotorLabel;
+        private Label totalVehicleLabel;
         private Label descDashboard;
         private Label label9;
         private TableLayoutPanel tableLayoutPanel9;
-        private Label resolvedMotorLabel;
+        private Label resolvedVehicleLabel;
         private Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart statusChart;
         private TableLayoutPanel tableLayoutPanel11;

@@ -19,7 +19,8 @@ namespace RevVise1.Forms
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //MessageBox.Show("Running");
+           // MessageBox.Show("Running");
+            
         }
 
         private void loginClick(object sender, EventArgs e)

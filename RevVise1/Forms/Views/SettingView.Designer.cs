@@ -37,7 +37,7 @@
             label8 = new Label();
             label6 = new Label();
             label7 = new Label();
-            userMotorRegisteredText = new Label();
+            userVehicleRegisteredText = new Label();
             userResolvedText = new Label();
             userUnresolvedText = new Label();
             adminStatsPanel = new Panel();
@@ -46,7 +46,7 @@
             adminUserRegisteredText = new Label();
             adminTotalResolvedText = new Label();
             label10 = new Label();
-            adminTotalMotorText = new Label();
+            adminTotalVehicleText = new Label();
             label12 = new Label();
             label11 = new Label();
             label9 = new Label();
@@ -58,7 +58,7 @@
             label13 = new Label();
             userChangePasswordButton = new Button();
             userDeleteUserButton = new Button();
-            userResetMotorDataButton = new Button();
+            userResetVehicleDataButton = new Button();
             label5 = new Label();
             label14 = new Label();
             adminPanel = new Panel();
@@ -76,7 +76,7 @@
             adminClearDatabaseButton = new Button();
             adminResetLogDatabaseButton = new Button();
             label4 = new Label();
-            adminResetMotorDatabaseButton = new Button();
+            adminResetVehicleDatabaseButton = new Button();
             label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -181,7 +181,7 @@
             tableLayoutPanel13.Controls.Add(label8, 0, 2);
             tableLayoutPanel13.Controls.Add(label6, 0, 0);
             tableLayoutPanel13.Controls.Add(label7, 0, 1);
-            tableLayoutPanel13.Controls.Add(userMotorRegisteredText, 1, 0);
+            tableLayoutPanel13.Controls.Add(userVehicleRegisteredText, 1, 0);
             tableLayoutPanel13.Controls.Add(userResolvedText, 1, 1);
             tableLayoutPanel13.Controls.Add(userUnresolvedText, 1, 2);
             tableLayoutPanel13.Location = new Point(3, 3);
@@ -216,7 +216,7 @@
             label6.Name = "label6";
             label6.Size = new Size(133, 15);
             label6.TabIndex = 0;
-            label6.Text = "Motorcycles Registered:";
+            label6.Text = "Vehicles Registered:";
             // 
             // label7
             // 
@@ -229,15 +229,15 @@
             label7.TabIndex = 1;
             label7.Text = "Resolved Cases:";
             // 
-            // userMotorRegisteredText
+            // userVehicleRegisteredText
             // 
-            userMotorRegisteredText.AutoSize = true;
-            userMotorRegisteredText.ForeColor = SystemColors.ControlLight;
-            userMotorRegisteredText.Location = new Point(171, 0);
-            userMotorRegisteredText.Name = "userMotorRegisteredText";
-            userMotorRegisteredText.Size = new Size(13, 15);
-            userMotorRegisteredText.TabIndex = 3;
-            userMotorRegisteredText.Text = "0";
+            userVehicleRegisteredText.AutoSize = true;
+            userVehicleRegisteredText.ForeColor = SystemColors.ControlLight;
+            userVehicleRegisteredText.Location = new Point(171, 0);
+            userVehicleRegisteredText.Name = "userVehicleRegisteredText";
+            userVehicleRegisteredText.Size = new Size(13, 15);
+            userVehicleRegisteredText.TabIndex = 3;
+            userVehicleRegisteredText.Text = "0";
             // 
             // userResolvedText
             // 
@@ -280,7 +280,7 @@
             tableLayoutPanel14.Controls.Add(adminUserRegisteredText, 1, 0);
             tableLayoutPanel14.Controls.Add(adminTotalResolvedText, 1, 2);
             tableLayoutPanel14.Controls.Add(label10, 0, 3);
-            tableLayoutPanel14.Controls.Add(adminTotalMotorText, 1, 1);
+            tableLayoutPanel14.Controls.Add(adminTotalVehicleText, 1, 1);
             tableLayoutPanel14.Controls.Add(label12, 0, 2);
             tableLayoutPanel14.Controls.Add(label11, 0, 1);
             tableLayoutPanel14.Controls.Add(label9, 0, 0);
@@ -337,15 +337,15 @@
             label10.TabIndex = 2;
             label10.Text = "Total Unresolved Cases:";
             // 
-            // adminTotalMotorText
+            // adminTotalVehicleText
             // 
-            adminTotalMotorText.AutoSize = true;
-            adminTotalMotorText.ForeColor = SystemColors.ControlDarkDark;
-            adminTotalMotorText.Location = new Point(171, 20);
-            adminTotalMotorText.Name = "adminTotalMotorText";
-            adminTotalMotorText.Size = new Size(13, 15);
-            adminTotalMotorText.TabIndex = 8;
-            adminTotalMotorText.Text = "0";
+            adminTotalVehicleText.AutoSize = true;
+            adminTotalVehicleText.ForeColor = SystemColors.ControlDarkDark;
+            adminTotalVehicleText.Location = new Point(171, 20);
+            adminTotalVehicleText.Name = "adminTotalVehicleText";
+            adminTotalVehicleText.Size = new Size(13, 15);
+            adminTotalVehicleText.TabIndex = 8;
+            adminTotalVehicleText.Text = "0";
             // 
             // label12
             // 
@@ -367,7 +367,7 @@
             label11.Name = "label11";
             label11.Size = new Size(162, 15);
             label11.TabIndex = 0;
-            label11.Text = "Total Motorcycles Registered:";
+            label11.Text = "Total Vehicles Registered:";
             // 
             // label9
             // 
@@ -443,7 +443,7 @@
             tableLayoutPanel5.Controls.Add(label13, 1, 1);
             tableLayoutPanel5.Controls.Add(userChangePasswordButton, 0, 0);
             tableLayoutPanel5.Controls.Add(userDeleteUserButton, 0, 4);
-            tableLayoutPanel5.Controls.Add(userResetMotorDataButton, 0, 1);
+            tableLayoutPanel5.Controls.Add(userResetVehicleDataButton, 0, 1);
             tableLayoutPanel5.Controls.Add(label5, 1, 0);
             tableLayoutPanel5.Controls.Add(label14, 1, 4);
             tableLayoutPanel5.Location = new Point(3, 38);
@@ -466,7 +466,7 @@
             label13.Name = "label13";
             label13.Size = new Size(178, 29);
             label13.TabIndex = 4;
-            label13.Text = "Reset your motorcycle database.";
+            label13.Text = "Reset your vehicle database.";
             label13.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // userChangePasswordButton
@@ -489,16 +489,16 @@
             userDeleteUserButton.Text = "Delete User";
             userDeleteUserButton.UseVisualStyleBackColor = true;
             // 
-            // userResetMotorDataButton
+            // userResetVehicleDataButton
             // 
-            userResetMotorDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            userResetMotorDataButton.ForeColor = SystemColors.ControlText;
-            userResetMotorDataButton.Location = new Point(3, 32);
-            userResetMotorDataButton.Name = "userResetMotorDataButton";
-            userResetMotorDataButton.Size = new Size(118, 23);
-            userResetMotorDataButton.TabIndex = 0;
-            userResetMotorDataButton.Text = "Reset Motor Data";
-            userResetMotorDataButton.UseVisualStyleBackColor = true;
+            userResetVehicleDataButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userResetVehicleDataButton.ForeColor = SystemColors.ControlText;
+            userResetVehicleDataButton.Location = new Point(3, 32);
+            userResetVehicleDataButton.Name = "userResetVehicleDataButton";
+            userResetVehicleDataButton.Size = new Size(118, 23);
+            userResetVehicleDataButton.TabIndex = 0;
+            userResetVehicleDataButton.Text = "Reset Vehicle Data";
+            userResetVehicleDataButton.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -685,7 +685,7 @@
             tableLayoutPanel9.Controls.Add(adminClearDatabaseButton, 0, 5);
             tableLayoutPanel9.Controls.Add(adminResetLogDatabaseButton, 0, 2);
             tableLayoutPanel9.Controls.Add(label4, 0, 0);
-            tableLayoutPanel9.Controls.Add(adminResetMotorDatabaseButton, 0, 1);
+            tableLayoutPanel9.Controls.Add(adminResetVehicleDatabaseButton, 0, 1);
             tableLayoutPanel9.Location = new Point(417, 3);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 6;
@@ -731,15 +731,15 @@
             label4.Text = "Modify Database";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // adminResetMotorDatabaseButton
+            // adminResetVehicleDatabaseButton
             // 
-            adminResetMotorDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            adminResetMotorDatabaseButton.Location = new Point(3, 38);
-            adminResetMotorDatabaseButton.Name = "adminResetMotorDatabaseButton";
-            adminResetMotorDatabaseButton.Size = new Size(245, 23);
-            adminResetMotorDatabaseButton.TabIndex = 3;
-            adminResetMotorDatabaseButton.Text = "Reset Motor Database";
-            adminResetMotorDatabaseButton.UseVisualStyleBackColor = true;
+            adminResetVehicleDatabaseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            adminResetVehicleDatabaseButton.Location = new Point(3, 38);
+            adminResetVehicleDatabaseButton.Name = "adminResetVehicleDatabaseButton";
+            adminResetVehicleDatabaseButton.Size = new Size(245, 23);
+            adminResetVehicleDatabaseButton.TabIndex = 3;
+            adminResetVehicleDatabaseButton.Text = "Reset Vehicle Database";
+            adminResetVehicleDatabaseButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -803,11 +803,11 @@
         private Label label1;
         private Label label2;
         private TableLayoutPanel tableLayoutPanel5;
-        private Button userResetMotorDataButton;
+        private Button userResetVehicleDataButton;
         private Button userChangePasswordButton;
         private Button userDeleteUserButton;
         private Button adminResetUserPassButton;
-        private Button adminResetMotorDatabaseButton;
+        private Button adminResetVehicleDatabaseButton;
         private Button adminResetLogDatabaseButton;
         private Button adminDeleteUserButton;
         private Button adminClearUserButton;
@@ -833,13 +833,13 @@
         private Label label12;
         private Label label11;
         private Label label9;
-        private Label userMotorRegisteredText;
+        private Label userVehicleRegisteredText;
         private Label userResolvedText;
         private Label userUnresolvedText;
         private Label adminTotalUnresolvedText;
         private Label adminUserRegisteredText;
         private Label adminTotalResolvedText;
-        private Label adminTotalMotorText;
+        private Label adminTotalVehicleText;
         private Label label13;
         private Label label5;
         private Label label14;

@@ -30,7 +30,7 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel10 = new TableLayoutPanel();
-            totalMotorLabel = new Label();
+            totalVehicleLabel = new Label();
             label9 = new Label();
             panel2 = new Panel();
             sortStrip = new MenuStrip();
@@ -105,7 +105,7 @@
             tableLayoutPanel10.BackColor = Color.FromArgb(115, 91, 115);
             tableLayoutPanel10.ColumnCount = 1;
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Controls.Add(totalMotorLabel, 0, 1);
+            tableLayoutPanel10.Controls.Add(totalVehicleLabel, 0, 1);
             tableLayoutPanel10.Controls.Add(label9, 0, 0);
             tableLayoutPanel10.Location = new Point(632, 0);
             tableLayoutPanel10.Margin = new Padding(0);
@@ -116,17 +116,17 @@
             tableLayoutPanel10.Size = new Size(299, 150);
             tableLayoutPanel10.TabIndex = 6;
             // 
-            // totalMotorLabel
+            // totalVehicleLabel
             // 
-            totalMotorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            totalMotorLabel.AutoSize = true;
-            totalMotorLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            totalMotorLabel.ForeColor = SystemColors.Control;
-            totalMotorLabel.Location = new Point(204, 105);
-            totalMotorLabel.Name = "totalMotorLabel";
-            totalMotorLabel.Size = new Size(92, 45);
-            totalMotorLabel.TabIndex = 2;
-            totalMotorLabel.Text = "1000";
+            totalVehicleLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            totalVehicleLabel.AutoSize = true;
+            totalVehicleLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            totalVehicleLabel.ForeColor = SystemColors.Control;
+            totalVehicleLabel.Location = new Point(204, 105);
+            totalVehicleLabel.Name = "totalVehicleLabel";
+            totalVehicleLabel.Size = new Size(92, 45);
+            totalVehicleLabel.TabIndex = 2;
+            totalVehicleLabel.Text = "1000";
             // 
             // label9
             // 
@@ -137,7 +137,7 @@
             label9.Name = "label9";
             label9.Size = new Size(274, 32);
             label9.TabIndex = 1;
-            label9.Text = "Total Motors Registered";
+            label9.Text = "Total Vehicles Registered";
             // 
             // panel2
             // 
@@ -579,7 +579,7 @@
         private Panel panel11;
         private Button statusSort;
         private TableLayoutPanel tableLayoutPanel10;
-        private Label totalMotorLabel;
+        private Label totalVehicleLabel;
         private Label label9;
         private ToolStripMenuItem ownerDetailsToolStripMenuItem;
     }

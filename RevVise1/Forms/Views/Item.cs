@@ -135,21 +135,21 @@ namespace RevVise1.Forms.Views
         //sql commands
         private void addEntry(string model, string contact, string plate, string entry, string status, string dateIssuedValue, string ownerDetails)
         {
-            SQL = "INSERT INTO tbl_motor(motor_model,motor_owner,motor_plate,motor_entry,motor_status,motor_dateissued,motor_ownerdetails,user_id) " +
+            SQL = "INSERT INTO tbl_vehicle(vehicle_model,vehicle_owner,vehicle_plate,vehicle_entry,vehicle_status,vehicle_dateissued,vehicle_ownerdetails,user_id) " +
                  $"VALUES('{model}','{contact}','{plate}','{entry}','{status}','{dateIssuedValue}','{ownerDetails}','{userId}')";
             db.SQLManager(SQL);
             isNewEntry = false;
         }
         private void updateEntry(int id, string model, string contact, string plate, string entry, string status, string dateIssuedValue, string dateResolvedValue, string ownerDetails)
         {
-            SQL = $"UPDATE tbl_motor SET " +
-                $"motor_model='{model}',motor_owner='{contact}',motor_plate='{plate}',motor_entry='{entry}',motor_status='{status}',motor_dateIssued='{dateIssuedValue}',motor_dateResolved='{dateResolvedValue}',motor_ownerDetails='{ownerDetails}'" +
-                $"WHERE motor_id='{id}' AND user_id='{userId}'";
+            SQL = $"UPDATE tbl_vehicle SET " +
+                $"vehicle_model='{model}',vehicle_owner='{contact}',vehicle_plate='{plate}',vehicle_entry='{entry}',vehicle_status='{status}',vehicle_dateIssued='{dateIssuedValue}',vehicle_dateResolved='{dateResolvedValue}',vehicle_ownerDetails='{ownerDetails}'" +
+                $"WHERE vehicle_id='{id}' AND user_id='{userId}'";
             db.SQLManager(SQL);
         }
         private void deleteEntry(int id)
         {
-            SQL = $"DELETE FROM tbl_motor WHERE motor_id='{id}' AND user_id='{userId}'";
+            SQL = $"DELETE FROM tbl_vehicle WHERE vehicle_id='{id}' AND user_id='{userId}'";
             db.SQLManager(SQL);
         }
         private void Edit_Click(object sender, EventArgs e)// saving
@@ -174,7 +174,7 @@ namespace RevVise1.Forms.Views
                 {
                     addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
                     saveTexts(true);
-                    logger.log($"Added motor {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
+                    logger.log($"Added vehicle {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
                 }
                 else
                 {
@@ -187,7 +187,7 @@ namespace RevVise1.Forms.Views
 
                     updateEntry(id, modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, dateResolved.Text, ownerDetailsText.Text);
                     saveTexts();
-                    logger.log($"Updated motor id={id} | Model: '{oldModel}' -> '{modelLabel.Text}', Owner: '{oldOwner}' -> '{ownerLabel.Text}', Plate: '{oldPlate}' -> '{plateLabel.Text}', Status: '{oldStatus}' -> '{statusLabel.Text}'");
+                    logger.log($"Updated vehicle id={id} | Model: '{oldModel}' -> '{modelLabel.Text}', Owner: '{oldOwner}' -> '{ownerLabel.Text}', Plate: '{oldPlate}' -> '{plateLabel.Text}', Status: '{oldStatus}' -> '{statusLabel.Text}'");
                 }
 
                 hideTextBox();
@@ -205,7 +205,7 @@ namespace RevVise1.Forms.Views
             if (!isNewEntry)
             {
                 id = Int32.Parse(IDLabel.Text);
-                logger.log($"Deleted motor id = {id}, Model = {modelText.Text}.");
+                logger.log($"Deleted vehicle id = {id}, Model = {modelText.Text}.");
                 this.Dispose();
                 deleteEntry(id);
             }

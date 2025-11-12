@@ -19,7 +19,7 @@ namespace RevVise1.Forms.Views
             DashboardView dv = new DashboardView();
             InitializeComponent();
             panel1.AutoScroll = true;
-            totalMotorLabel.Text = dv.getTotalMotor();
+            totalVehicleLabel.Text = dv.getTotalVehicle();
             preload();
         }
         private void ShowView(UserControl view)
@@ -31,16 +31,16 @@ namespace RevVise1.Forms.Views
 
         private Item loadItem(DataRow row, bool isPreload = false)
         {
-            int id = Convert.ToInt32(row["motor_id"]);
+            int id = Convert.ToInt32(row["vehicle_id"]);
             Item item = new Item(id, isPreload);
-            item.Model = row["motor_model"].ToString();
-            item.Owner = row["motor_owner"].ToString();
-            item.Plate = row["motor_plate"].ToString();
-            item.Entry = row["motor_entry"].ToString();
-            item.Status = row["motor_status"].ToString();
-            item.DateIssued = row["motor_dateIssued"].ToString();
-            item.DateResolved = row["motor_dateResolved"].ToString();
-            item.OwnerDetails = row["motor_ownerDetails"].ToString();
+            item.Model = row["vehicle_model"].ToString();
+            item.Owner = row["vehicle_owner"].ToString();
+            item.Plate = row["vehicle_plate"].ToString();
+            item.Entry = row["vehicle_entry"].ToString();
+            item.Status = row["vehicle_status"].ToString();
+            item.DateIssued = row["vehicle_dateIssued"].ToString();
+            item.DateResolved = row["vehicle_dateResolved"].ToString();
+            item.OwnerDetails = row["vehicle_ownerDetails"].ToString();
             return item;
         }
         private void resetView()
@@ -54,11 +54,11 @@ namespace RevVise1.Forms.Views
             DataTable dt;
             if (Session.Role == "Admin")
             {
-                dt = db.getData($"SELECT * FROM tbl_motor ORDER BY motor_id ASC");
+                dt = db.getData($"SELECT * FROM tbl_vehicle ORDER BY vehicle_id ASC");
             }
             else
             {
-                dt = db.getData($"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'ORDER BY motor_id ASC");
+                dt = db.getData($"SELECT * FROM tbl_vehicle WHERE user_id='{Session.UserID}'ORDER BY vehicle_id ASC");
             }
             foreach (DataRow row in dt.Rows)
             {
@@ -67,37 +67,32 @@ namespace RevVise1.Forms.Views
             }
         }
 
-        private void sortBy(string order, string motorDB, string filter = "")
+        private void sortBy(string order, string vehicleDB, string filter = "")
         {
             string query;
             panel1.Controls.Clear();
             if (Session.Role == "Admin")
             {
-                query = $"SELECT * FROM tbl_motor";
+                query = $"SELECT * FROM tbl_vehicle";
             }
             else
             {
-                query = $"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'";
+                query = $"SELECT * FROM tbl_vehicle WHERE user_id='{Session.UserID}'";
             }
             if (!string.IsNullOrEmpty(filter))
             {
                 query += $" AND (" +
-                         $"motor_model LIKE '%{filter}%' OR " +
-                         $"motor_owner LIKE '%{filter}%' OR " +
-                         $"motor_plate LIKE '%{filter}%')";
+                         $"vehicle_model LIKE '%{filter}%' OR " +
+                         $"vehicle_owner LIKE '%{filter}%' OR " +
+                         $"vehicle_plate LIKE '%{filter}%')";
             }
-            query += $" ORDER BY {motorDB} {order}";
+            query += $" ORDER BY {vehicleDB} {order}";
             DataTable dt = db.getData(query);
             foreach (DataRow row in dt.Rows)
             {
                 Item item = loadItem(row, true);
                 ShowView(item);
             }
-        }
-
-        private void sortBy(string order, string motorDB)
-        {
-            sortBy(order, motorDB, "");
         }
 
         private void changeOrder()
@@ -116,7 +111,7 @@ namespace RevVise1.Forms.Views
 
 
         // Buttons And Menu Items Below
-        string motorDB = "motor_id";
+        string vehicleDB = "vehicle_id";
         string order = "ASC";
         string filter = "";
 
@@ -125,7 +120,7 @@ namespace RevVise1.Forms.Views
             Item item = new Item();
             ShowView(item);
             item.Size = new Size(900, 55);
-            logger.log("Added new motor entry form.");
+            logger.log("Added new vehicle entry form.");
         }
 
         // Sort by ID Ascending/Descending
@@ -135,13 +130,13 @@ namespace RevVise1.Forms.Views
             {
                 sortStrip2.Items[0].Text = "Descending";
                 order = "DESC";
-                sortBy(order, motorDB, filter);
+                sortBy(order, vehicleDB, filter);
             }
             else
             {
                 sortStrip2.Items[0].Text = "Ascending";
                 order = "ASC";
-                sortBy(order, motorDB, filter);
+                sortBy(order, vehicleDB, filter);
             }
         }
 
@@ -149,89 +144,89 @@ namespace RevVise1.Forms.Views
         private void iDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "ID";
-            motorDB = "motor_id";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_id";
+            sortBy(order, vehicleDB, filter);
         }
 
         private void modelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Model";
-            motorDB = "motor_model";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_model";
+            sortBy(order, vehicleDB, filter);
         }
 
         private void ownerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Owner";
-            motorDB = "motor_owner";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_owner";
+            sortBy(order, vehicleDB, filter);
         }
 
         private void plateStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Plate";
-            motorDB = "motor_plate";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_plate";
+            sortBy(order, vehicleDB, filter);
         }
         private void ownerDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Owner Details";
-            motorDB = "motor_ownerDetails";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_ownerDetails";
+            sortBy(order, vehicleDB, filter);
         }
 
         private void resolvedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Status";
-            motorDB = "motor_status";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_status";
+            sortBy(order, vehicleDB, filter);
         }
 
         private void idSort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "ID";
-            motorDB = "motor_id";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_id";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
         private void modelSort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Model";
-            motorDB = "motor_model";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_model";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
         private void ownerSort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Owner";
-            motorDB = "motor_owner";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_owner";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
         private void plateSort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Plate";
-            motorDB = "motor_plate";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_plate";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
         private void statusSort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Status";
-            motorDB = "motor_status";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_status";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
         private void owner2Sort_Click(object sender, EventArgs e)
         {
             sortStrip.Items[0].Text = "Owner Details";
-            motorDB = "motor_ownerDetails";
-            sortBy(order, motorDB, filter);
+            vehicleDB = "vehicle_ownerDetails";
+            sortBy(order, vehicleDB, filter);
             changeOrder();
         }
 
@@ -247,7 +242,7 @@ namespace RevVise1.Forms.Views
                 else
                 {
                     filter = searchBox.Text.Trim();
-                    sortBy(order, motorDB, filter);
+                    sortBy(order, vehicleDB, filter);
                 }
             }
         }
