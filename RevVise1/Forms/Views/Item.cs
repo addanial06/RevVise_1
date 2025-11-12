@@ -199,11 +199,13 @@ namespace RevVise1.Forms.Views
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            id = Int32.Parse(IDLabel.Text);
-            logger.log($"Deleted motor id = {id}, Model = {modelText.Text}.");
+            if (!isNewEntry) {
+                id = Int32.Parse(IDLabel.Text);
+                logger.log($"Deleted motor id = {id}, Model = {modelText.Text}.");
+                this.Dispose();
+                deleteEntry(id);
+            }
             this.Dispose();
-            deleteEntry(id);
-
         }
 
         private void hover(object sender, EventArgs e)
