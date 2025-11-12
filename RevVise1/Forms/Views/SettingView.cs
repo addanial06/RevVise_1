@@ -12,14 +12,10 @@ namespace RevVise1.Forms.Views
 {
     public partial class SettingView : UserControl
     {
+        RevDB db = new RevDB();
         public SettingView()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
