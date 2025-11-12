@@ -18,12 +18,8 @@ namespace RevVise1.Forms
         public AuthForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             //MessageBox.Show("Running");
-        }
-
-        private void Authentication_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void loginClick(object sender, EventArgs e)

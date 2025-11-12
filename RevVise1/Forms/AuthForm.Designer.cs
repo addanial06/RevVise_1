@@ -64,7 +64,6 @@
             LogoText.Size = new Size(162, 50);
             LogoText.TabIndex = 1;
             LogoText.Text = "Rev Vise";
-            LogoText.Click += Authentication_Click;
             // 
             // passwordText
             // 
