@@ -182,7 +182,7 @@
             entryText.BorderStyle = BorderStyle.FixedSingle;
             entryText.Location = new Point(-2, -1);
             entryText.Name = "entryText";
-            entryText.Size = new Size(500, 174);
+            entryText.Size = new Size(500, 159);
             entryText.TabIndex = 8;
             entryText.Text = "Entry";
             entryText.Visible = false;
@@ -258,14 +258,16 @@
             // 
             tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel3.ColumnCount = 1;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 1);
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(panel9, 0, 1);
             tableLayoutPanel3.Controls.Add(tableLayoutPanel5, 0, 0);
+            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 2);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 21.2355213F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 78.76448F));
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 21.2364769F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 78.76353F));
             tableLayoutPanel3.Size = new Size(794, 259);
             tableLayoutPanel3.TabIndex = 1;
             // 
@@ -278,12 +280,12 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.875F));
             tableLayoutPanel4.Controls.Add(panel2, 0, 0);
             tableLayoutPanel4.Controls.Add(panel3, 1, 0);
-            tableLayoutPanel4.Location = new Point(3, 58);
+            tableLayoutPanel4.Location = new Point(3, 73);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.Padding = new Padding(0, 20, 0, 0);
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(788, 198);
+            tableLayoutPanel4.Size = new Size(788, 183);
             tableLayoutPanel4.TabIndex = 10;
             // 
             // panel2
@@ -294,7 +296,7 @@
             panel2.Controls.Add(entryLabel);
             panel2.Location = new Point(4, 24);
             panel2.Name = "panel2";
-            panel2.Size = new Size(497, 170);
+            panel2.Size = new Size(497, 155);
             panel2.TabIndex = 0;
             // 
             // panel3
@@ -306,7 +308,7 @@
             panel3.Controls.Add(dateResolvedLabel);
             panel3.Location = new Point(508, 24);
             panel3.Name = "panel3";
-            panel3.Size = new Size(276, 170);
+            panel3.Size = new Size(276, 155);
             panel3.TabIndex = 1;
             // 
             // dateResolved
@@ -477,10 +479,11 @@
             // 
             // panel9
             // 
+            panel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel9.BackColor = Color.WhiteSmoke;
-            panel9.Location = new Point(8, 55);
+            panel9.Location = new Point(3, 53);
             panel9.Name = "panel9";
-            panel9.Size = new Size(782, 3);
+            panel9.Size = new Size(788, 3);
             panel9.TabIndex = 13;
             // 
             // Item
@@ -488,7 +491,6 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(panel9);
             Controls.Add(entryTitle);
             Controls.Add(tableLayoutPanel1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);

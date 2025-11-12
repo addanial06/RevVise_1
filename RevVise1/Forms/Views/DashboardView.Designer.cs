@@ -30,6 +30,7 @@ namespace RevVise1.Forms.Views
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -47,15 +48,18 @@ namespace RevVise1.Forms.Views
             unresolvedMotorLabel = new Label();
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
-            panel4 = new Panel();
-            tableLayoutPanel6 = new TableLayoutPanel();
-            dataGridView1 = new DataGridView();
-            label4 = new Label();
             tableLayoutPanel5 = new TableLayoutPanel();
-            panel1 = new Panel();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            resolvedDataView = new DataGridView();
+            welcomeDashboard = new Label();
+            descDashboard = new Label();
             tableLayoutPanel7 = new TableLayoutPanel();
             label3 = new Label();
             statusChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panel4 = new Panel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            label4 = new Label();
+            recentGridView = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -63,17 +67,19 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
-            panel4.SuspendLayout();
-            tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)resolvedDataView).BeginInit();
             tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)statusChart).BeginInit();
+            panel4.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)recentGridView).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 514F));
@@ -258,8 +264,8 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Controls.Add(panel4, 0, 0);
-            tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 1, 0);
+            tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 0);
+            tableLayoutPanel4.Controls.Add(panel4, 1, 0);
             tableLayoutPanel4.Location = new Point(3, 113);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -268,77 +274,84 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel4.Size = new Size(917, 473);
             tableLayoutPanel4.TabIndex = 2;
             // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.FromArgb(128, 113, 128);
-            panel4.Controls.Add(tableLayoutPanel6);
-            panel4.Location = new Point(3, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(452, 467);
-            panel4.TabIndex = 2;
-            // 
-            // tableLayoutPanel6
-            // 
-            tableLayoutPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel6.ColumnCount = 1;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Controls.Add(dataGridView1, 0, 1);
-            tableLayoutPanel6.Controls.Add(label4, 0, 0);
-            tableLayoutPanel6.Location = new Point(3, 3);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 2;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 440F));
-            tableLayoutPanel6.Size = new Size(446, 461);
-            tableLayoutPanel6.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = Color.Silver;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 40);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(440, 434);
-            dataGridView1.TabIndex = 2;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(230, 230, 230);
-            label4.Location = new Point(3, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(193, 32);
-            label4.TabIndex = 1;
-            label4.Text = "Recent Activities";
-            // 
             // tableLayoutPanel5
             // 
             tableLayoutPanel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(panel1, 0, 1);
-            tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 0, 0);
-            tableLayoutPanel5.Location = new Point(458, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel11, 0, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 0, 1);
+            tableLayoutPanel5.Location = new Point(0, 0);
             tableLayoutPanel5.Margin = new Padding(0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 52.3622055F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 47.6377945F));
-            tableLayoutPanel5.Size = new Size(459, 473);
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 42.4947128F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 57.5052872F));
+            tableLayoutPanel5.Size = new Size(458, 473);
             tableLayoutPanel5.TabIndex = 3;
             // 
-            // panel1
+            // tableLayoutPanel11
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.Transparent;
-            panel1.Location = new Point(0, 247);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(459, 226);
-            panel1.TabIndex = 0;
+            tableLayoutPanel11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel11.BackColor = Color.FromArgb(128, 113, 128);
+            tableLayoutPanel11.ColumnCount = 1;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.Controls.Add(resolvedDataView, 0, 2);
+            tableLayoutPanel11.Controls.Add(welcomeDashboard, 0, 0);
+            tableLayoutPanel11.Controls.Add(descDashboard, 0, 1);
+            tableLayoutPanel11.Location = new Point(3, 3);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 3;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.Size = new Size(452, 195);
+            tableLayoutPanel11.TabIndex = 2;
+            // 
+            // resolvedDataView
+            // 
+            resolvedDataView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            resolvedDataView.BackgroundColor = Color.FromArgb(118, 103, 118);
+            resolvedDataView.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(118, 103, 118);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(230, 230, 230);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            resolvedDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            resolvedDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resolvedDataView.GridColor = Color.FromArgb(128, 113, 128);
+            resolvedDataView.Location = new Point(3, 75);
+            resolvedDataView.Name = "resolvedDataView";
+            resolvedDataView.Size = new Size(446, 117);
+            resolvedDataView.TabIndex = 3;
+            // 
+            // welcomeDashboard
+            // 
+            welcomeDashboard.AutoSize = true;
+            welcomeDashboard.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeDashboard.ForeColor = Color.FromArgb(230, 230, 230);
+            welcomeDashboard.Location = new Point(3, 0);
+            welcomeDashboard.Name = "welcomeDashboard";
+            welcomeDashboard.Size = new Size(59, 32);
+            welcomeDashboard.TabIndex = 1;
+            welcomeDashboard.Text = "Text";
+            welcomeDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // descDashboard
+            // 
+            descDashboard.AutoSize = true;
+            descDashboard.BackColor = Color.FromArgb(128, 113, 128);
+            descDashboard.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            descDashboard.ForeColor = SystemColors.ScrollBar;
+            descDashboard.Location = new Point(3, 36);
+            descDashboard.Name = "descDashboard";
+            descDashboard.Size = new Size(46, 25);
+            descDashboard.TabIndex = 2;
+            descDashboard.Text = "Text";
+            descDashboard.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel7
             // 
@@ -348,12 +361,12 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel7.Controls.Add(label3, 0, 0);
             tableLayoutPanel7.Controls.Add(statusChart, 0, 1);
-            tableLayoutPanel7.Location = new Point(3, 3);
+            tableLayoutPanel7.Location = new Point(3, 204);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(453, 241);
+            tableLayoutPanel7.Size = new Size(452, 266);
             tableLayoutPanel7.TabIndex = 1;
             // 
             // label3
@@ -383,9 +396,57 @@ namespace RevVise1.Forms.Views
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             statusChart.Series.Add(series1);
-            statusChart.Size = new Size(447, 199);
+            statusChart.Size = new Size(446, 224);
             statusChart.TabIndex = 2;
             statusChart.Text = "chart1";
+            // 
+            // panel4
+            // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel4.BackColor = Color.FromArgb(128, 113, 128);
+            panel4.Controls.Add(tableLayoutPanel6);
+            panel4.Location = new Point(461, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(453, 467);
+            panel4.TabIndex = 2;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Controls.Add(label4, 0, 0);
+            tableLayoutPanel6.Controls.Add(recentGridView, 0, 1);
+            tableLayoutPanel6.Location = new Point(3, 3);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 2;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 440F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel6.Size = new Size(447, 461);
+            tableLayoutPanel6.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(230, 230, 230);
+            label4.Location = new Point(3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(193, 32);
+            label4.TabIndex = 1;
+            label4.Text = "Recent Activities";
+            // 
+            // recentGridView
+            // 
+            recentGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            recentGridView.BackgroundColor = Color.FromArgb(118, 103, 118);
+            recentGridView.BorderStyle = BorderStyle.Fixed3D;
+            recentGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            recentGridView.Location = new Point(3, 40);
+            recentGridView.Name = "recentGridView";
+            recentGridView.Size = new Size(441, 434);
+            recentGridView.TabIndex = 2;
             // 
             // DashboardView
             // 
@@ -405,14 +466,17 @@ namespace RevVise1.Forms.Views
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel8.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            tableLayoutPanel6.ResumeLayout(false);
-            tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)resolvedDataView).EndInit();
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)statusChart).EndInit();
+            panel4.ResumeLayout(false);
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)recentGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -423,7 +487,6 @@ namespace RevVise1.Forms.Views
         private Label dashboardLabel;
         private Button button1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel1;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel totalEntriesPanel;
         private Label totalRegisteredLabel;
@@ -434,7 +497,6 @@ namespace RevVise1.Forms.Views
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel6;
         private TableLayoutPanel tableLayoutPanel5;
-        private DataGridView dataGridView1;
         private TableLayoutPanel tableLayoutPanel7;
         private Label label5;
         private TableLayoutPanel tableLayoutPanel8;
@@ -442,11 +504,15 @@ namespace RevVise1.Forms.Views
         private Label label6;
         private TableLayoutPanel tableLayoutPanel10;
         private Label totalMotorLabel;
-        private Label label2;
+        private Label descDashboard;
         private Label label9;
         private TableLayoutPanel tableLayoutPanel9;
         private Label resolvedMotorLabel;
         private Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart statusChart;
+        private TableLayoutPanel tableLayoutPanel11;
+        private Label welcomeDashboard;
+        private DataGridView resolvedDataView;
+        private DataGridView recentGridView;
     }
 }

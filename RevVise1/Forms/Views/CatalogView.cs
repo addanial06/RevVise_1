@@ -13,12 +13,13 @@ namespace RevVise1.Forms.Views
     public partial class CatalogView : UserControl
     {
         RevDB db = new RevDB();
+        Logger logger = new Logger("Catalog", Session.Username);
         public CatalogView()
         {
+            DashboardView dv = new DashboardView();
             InitializeComponent();
             panel1.AutoScroll = true;
-            //panel1.AutoScrollMargin = new Size(0, 20);
-
+            totalMotorLabel.Text = dv.getTotalMotor() ;
             preload();
         }
         private void ShowView(UserControl view)
@@ -27,34 +28,57 @@ namespace RevVise1.Forms.Views
             panel1.Controls.Add(view);
             panel1.ScrollControlIntoView(view);
         }
-
+        
+        private Item loadItem(DataRow row,bool isPreload = false) 
+        {
+            int id = Convert.ToInt32(row["motor_id"]);
+            Item item = new Item(id,isPreload);
+            item.Model = row["motor_model"].ToString();
+            item.Owner = row["motor_owner"].ToString();
+            item.Plate = row["motor_plate"].ToString();
+            item.Entry = row["motor_entry"].ToString();
+            item.Status = row["motor_status"].ToString();
+            item.DateIssued = row["motor_dateIssued"].ToString();
+            item.DateResolved = row["motor_dateResolved"].ToString();
+            item.OwnerDetails = row["motor_ownerDetails"].ToString();
+            return item;
+        }
+        private void resetView()
+        {
+            filter = "";
+            panel1.Controls.Clear();
+            preload();
+        }
         private void preload()
         {
-            DataTable dt = db.getData($"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'ORDER BY motor_id ASC");
-
+            DataTable dt;
+            if (Session.Role == "Admin")
+            {
+                dt = db.getData($"SELECT * FROM tbl_motor ORDER BY motor_id ASC");
+            }
+            else 
+            {
+                dt = db.getData($"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'ORDER BY motor_id ASC");
+            }
             foreach (DataRow row in dt.Rows)
             {
-                int id = Convert.ToInt32(row["motor_id"]);
-
-                Item item = new Item(id, true);
-
-                item.Model = row["motor_model"].ToString();
-                item.Owner = row["motor_owner"].ToString();
-                item.Plate = row["motor_plate"].ToString();
-                item.Entry = row["motor_entry"].ToString();
-                item.Status = row["motor_status"].ToString();
-                item.DateIssued = row["motor_dateIssued"].ToString();
-                item.DateResolved = row["motor_dateResolved"].ToString();
-                item.OwnerDetails = row["motor_ownerDetails"].ToString();
-
+                Item item = loadItem(row,true);
                 ShowView(item);
             }
         }
 
         private void sortBy(string order, string motorDB, string filter = "")
         {
-            string query = $"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'";
-
+            string query;
+            panel1.Controls.Clear();
+            if (Session.Role == "Admin") 
+            {
+                query = $"SELECT * FROM tbl_motor";
+            }
+            else
+            {
+                query = $"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'";
+            }
             if (!string.IsNullOrEmpty(filter))
             {
                 query += $" AND (" +
@@ -62,26 +86,11 @@ namespace RevVise1.Forms.Views
                          $"motor_owner LIKE '%{filter}%' OR " +
                          $"motor_plate LIKE '%{filter}%')";
             }
-
             query += $" ORDER BY {motorDB} {order}";
-
             DataTable dt = db.getData(query);
-            panel1.Controls.Clear();
-
             foreach (DataRow row in dt.Rows)
             {
-                int id = Convert.ToInt32(row["motor_id"]);
-
-                Item item = new Item(id, true);
-                item.Model = row["motor_model"].ToString();
-                item.Owner = row["motor_owner"].ToString();
-                item.Plate = row["motor_plate"].ToString();
-                item.Entry = row["motor_entry"].ToString();
-                item.Status = row["motor_status"].ToString();
-                item.DateIssued = row["motor_dateIssued"].ToString();
-                item.DateResolved = row["motor_dateResolved"].ToString();
-                item.OwnerDetails = row["motor_ownerDetails"].ToString();
-
+                Item item = loadItem(row,true);
                 ShowView(item);
             }
         }
@@ -116,6 +125,7 @@ namespace RevVise1.Forms.Views
             Item item = new Item();
             ShowView(item);
             item.Size = new Size(900, 55);
+            logger.log("Added new motor entry form.");
         }
 
         // Sort by ID Ascending/Descending
@@ -218,7 +228,7 @@ namespace RevVise1.Forms.Views
                 e.SuppressKeyPress = true; // stop beep
                 if (string.IsNullOrWhiteSpace(searchBox.Text))
                 {
-                    preload();
+                    resetView();
                 }
                 else
                 {
@@ -227,6 +237,5 @@ namespace RevVise1.Forms.Views
                 }
             }
         }
-
     }
 }

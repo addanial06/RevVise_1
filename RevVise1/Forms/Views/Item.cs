@@ -14,6 +14,7 @@ namespace RevVise1.Forms.Views
     public partial class Item : UserControl
     {
         RevDB db = new RevDB();
+        Logger logger = new Logger("CatalogItem", Session.Username);
 
         private Size size;
         bool itemExpand = false;
@@ -169,12 +170,21 @@ namespace RevVise1.Forms.Views
 
                 if (isNewEntry) {
                     addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
-                    saveTexts(true); 
+                    saveTexts(true);
+                    logger.log($"Added motor {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
                 }
                 else 
                 {
+                    string oldModel = modelLabel.Text;
+                    string oldOwner = ownerLabel.Text;
+                    string oldPlate = plateLabel.Text;
+                    string oldStatus = statusLabel.Text;
+
+                    
+
                     updateEntry(id, modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, dateResolved.Text, ownerDetailsText.Text);
                     saveTexts();
+                    logger.log($"Updated motor id={id} | Model: '{oldModel}' -> '{modelLabel.Text}', Owner: '{oldOwner}' -> '{ownerLabel.Text}', Plate: '{oldPlate}' -> '{plateLabel.Text}', Status: '{oldStatus}' -> '{statusLabel.Text}'");
                 }
 
                 hideTextBox();
@@ -190,8 +200,10 @@ namespace RevVise1.Forms.Views
         private void Delete_Click(object sender, EventArgs e)
         {
             id = Int32.Parse(IDLabel.Text);
+            logger.log($"Deleted motor id = {id}, Model = {modelText.Text}.");
             this.Dispose();
             deleteEntry(id);
+
         }
 
         private void hover(object sender, EventArgs e)

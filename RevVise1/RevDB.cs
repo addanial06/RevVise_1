@@ -42,6 +42,19 @@ namespace RevVise1
             dbConn.Close();
         }
 
+        public void SQLManager(string strQuery, Dictionary<string, object> parameters)
+        {
+            dbConn = new MySqlConnection(strConn + "db_revapp");
+            dbConn.Open();
+            dbCommand = new MySqlCommand(strQuery, dbConn);
+            foreach (var param in parameters)
+            {
+                dbCommand.Parameters.AddWithValue(param.Key, param.Value);
+            }
+            dbCommand.ExecuteNonQuery();
+            dbConn.Close();
+        }
+
         public DataTable getData(String query) // data retrieval
         {
             DataTable dt = new DataTable();

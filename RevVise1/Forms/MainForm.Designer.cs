@@ -32,6 +32,9 @@
             logView = new Button();
             catalogView = new Button();
             dashboardView = new Button();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            notesTextBox = new TextBox();
+            label1 = new Label();
             logoutButton = new Button();
             contentPanel = new Panel();
             headerPanel.SuspendLayout();
@@ -40,6 +43,7 @@
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // headerPanel
@@ -143,11 +147,12 @@
             tableLayoutPanel1.Controls.Add(logView, 0, 3);
             tableLayoutPanel1.Controls.Add(catalogView, 0, 2);
             tableLayoutPanel1.Controls.Add(dashboardView, 0, 1);
-            tableLayoutPanel1.Controls.Add(logoutButton, 0, 7);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 6);
+            tableLayoutPanel1.Controls.Add(logoutButton, 0, 8);
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 8;
+            tableLayoutPanel1.RowCount = 9;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
@@ -155,6 +160,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel1.Size = new Size(245, 709);
             tableLayoutPanel1.TabIndex = 0;
@@ -243,6 +249,50 @@
             dashboardView.UseVisualStyleBackColor = false;
             dashboardView.Click += dashboardView_Click;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel2.BackColor = Color.FromArgb(100, 100, 120);
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(notesTextBox, 0, 1);
+            tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Location = new Point(3, 268);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 6.845238F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 93.15476F));
+            tableLayoutPanel2.Size = new Size(239, 336);
+            tableLayoutPanel2.TabIndex = 6;
+            // 
+            // notesTextBox
+            // 
+            notesTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            notesTextBox.BackColor = Color.FromArgb(100, 100, 120);
+            notesTextBox.BorderStyle = BorderStyle.FixedSingle;
+            notesTextBox.ForeColor = SystemColors.ScrollBar;
+            notesTextBox.Location = new Point(3, 26);
+            notesTextBox.Multiline = true;
+            notesTextBox.Name = "notesTextBox";
+            notesTextBox.ScrollBars = ScrollBars.Horizontal;
+            notesTextBox.Size = new Size(233, 307);
+            notesTextBox.TabIndex = 5;
+            notesTextBox.Text = "Notes go here";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Control;
+            label1.ImageAlign = ContentAlignment.BottomCenter;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(233, 23);
+            label1.TabIndex = 6;
+            label1.Text = "Notes";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // logoutButton
             // 
             logoutButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -271,7 +321,7 @@
             contentPanel.Location = new Point(0, 0);
             contentPanel.Margin = new Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(957, 709);
+            contentPanel.Size = new Size(945, 709);
             contentPanel.TabIndex = 0;
             // 
             // MainForm
@@ -293,6 +343,8 @@
             splitContainer1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
         #endregion
@@ -301,5 +353,8 @@
         private Panel contentPanel;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnClose;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TextBox notesTextBox;
+        private Label label1;
     }
 }

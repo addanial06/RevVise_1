@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            totalMotorLabel = new Label();
+            label9 = new Label();
             panel2 = new Panel();
             sortStrip = new MenuStrip();
             sortByToolStripMenuItem = new ToolStripMenuItem();
@@ -64,6 +67,7 @@
             panel11 = new Panel();
             statusSort = new Button();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
             panel2.SuspendLayout();
             sortStrip.SuspendLayout();
             panel5.SuspendLayout();
@@ -85,6 +89,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 632F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 246F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel10, 1, 0);
             tableLayoutPanel1.Controls.Add(panel2);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,6 +97,46 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(931, 150);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel10.BackColor = Color.FromArgb(115, 91, 115);
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.Controls.Add(totalMotorLabel, 0, 1);
+            tableLayoutPanel10.Controls.Add(label9, 0, 0);
+            tableLayoutPanel10.Location = new Point(632, 0);
+            tableLayoutPanel10.Margin = new Padding(0);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.Size = new Size(299, 150);
+            tableLayoutPanel10.TabIndex = 6;
+            // 
+            // totalMotorLabel
+            // 
+            totalMotorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            totalMotorLabel.AutoSize = true;
+            totalMotorLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            totalMotorLabel.ForeColor = SystemColors.Control;
+            totalMotorLabel.Location = new Point(204, 105);
+            totalMotorLabel.Name = "totalMotorLabel";
+            totalMotorLabel.Size = new Size(92, 45);
+            totalMotorLabel.TabIndex = 2;
+            totalMotorLabel.Text = "1000";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(230, 230, 230);
+            label9.Location = new Point(3, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(274, 32);
+            label9.TabIndex = 1;
+            label9.Text = "Total Motors Registered";
             // 
             // panel2
             // 
@@ -429,7 +474,7 @@
             owner2Sort.Name = "owner2Sort";
             owner2Sort.Size = new Size(151, 25);
             owner2Sort.TabIndex = 1;
-            owner2Sort.Text = "Owner2";
+            owner2Sort.Text = "Owner Details";
             owner2Sort.TextAlign = ContentAlignment.MiddleLeft;
             owner2Sort.UseVisualStyleBackColor = false;
             // 
@@ -464,6 +509,8 @@
             Name = "CatalogView";
             Size = new Size(937, 655);
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             sortStrip.ResumeLayout(false);
@@ -522,5 +569,8 @@
         private Button owner2Sort;
         private Panel panel11;
         private Button statusSort;
+        private TableLayoutPanel tableLayoutPanel10;
+        private Label totalMotorLabel;
+        private Label label9;
     }
 }
