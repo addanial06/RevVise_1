@@ -214,7 +214,7 @@
             label6.ForeColor = SystemColors.ControlLight;
             label6.Location = new Point(3, 0);
             label6.Name = "label6";
-            label6.Size = new Size(133, 15);
+            label6.Size = new Size(110, 15);
             label6.TabIndex = 0;
             label6.Text = "Vehicles Registered:";
             // 
@@ -365,7 +365,7 @@
             label11.ForeColor = SystemColors.ControlDarkDark;
             label11.Location = new Point(3, 20);
             label11.Name = "label11";
-            label11.Size = new Size(162, 15);
+            label11.Size = new Size(139, 15);
             label11.TabIndex = 0;
             label11.Text = "Total Vehicles Registered:";
             // 
@@ -464,7 +464,7 @@
             label13.ForeColor = SystemColors.ControlDark;
             label13.Location = new Point(127, 29);
             label13.Name = "label13";
-            label13.Size = new Size(178, 29);
+            label13.Size = new Size(155, 29);
             label13.TabIndex = 4;
             label13.Text = "Reset your vehicle database.";
             label13.TextAlign = ContentAlignment.MiddleLeft;
@@ -749,6 +749,7 @@
             adminResetVehicleDatabaseButton.TabIndex = 3;
             adminResetVehicleDatabaseButton.Text = "Reset Vehicle Database";
             adminResetVehicleDatabaseButton.UseVisualStyleBackColor = true;
+            adminResetVehicleDatabaseButton.Click += adminResetVehicleDatabaseButton_Click;
             // 
             // label2
             // 
