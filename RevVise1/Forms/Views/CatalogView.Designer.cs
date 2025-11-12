@@ -39,6 +39,7 @@
             modelToolStripMenuItem = new ToolStripMenuItem();
             ownerToolStripMenuItem = new ToolStripMenuItem();
             plateStripMenuItem = new ToolStripMenuItem();
+            ownerDetailsToolStripMenuItem = new ToolStripMenuItem();
             resolvedToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
@@ -161,7 +162,7 @@
             sortStrip.BackColor = Color.LightGray;
             sortStrip.Dock = DockStyle.None;
             sortStrip.Items.AddRange(new ToolStripItem[] { sortByToolStripMenuItem, toolStripMenuItem4, toolStripMenuItem5 });
-            sortStrip.Location = new Point(541, 88);
+            sortStrip.Location = new Point(525, 88);
             sortStrip.Name = "sortStrip";
             sortStrip.Size = new Size(62, 24);
             sortStrip.TabIndex = 0;
@@ -169,7 +170,7 @@
             // 
             // sortByToolStripMenuItem
             // 
-            sortByToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iDToolStripMenuItem, modelToolStripMenuItem, ownerToolStripMenuItem, plateStripMenuItem, resolvedToolStripMenuItem });
+            sortByToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iDToolStripMenuItem, modelToolStripMenuItem, ownerToolStripMenuItem, plateStripMenuItem, ownerDetailsToolStripMenuItem, resolvedToolStripMenuItem });
             sortByToolStripMenuItem.Name = "sortByToolStripMenuItem";
             sortByToolStripMenuItem.Size = new Size(30, 20);
             sortByToolStripMenuItem.Text = "ID";
@@ -177,35 +178,42 @@
             // iDToolStripMenuItem
             // 
             iDToolStripMenuItem.Name = "iDToolStripMenuItem";
-            iDToolStripMenuItem.Size = new Size(122, 22);
+            iDToolStripMenuItem.Size = new Size(180, 22);
             iDToolStripMenuItem.Text = "ID";
             iDToolStripMenuItem.Click += iDToolStripMenuItem_Click;
             // 
             // modelToolStripMenuItem
             // 
             modelToolStripMenuItem.Name = "modelToolStripMenuItem";
-            modelToolStripMenuItem.Size = new Size(122, 22);
+            modelToolStripMenuItem.Size = new Size(180, 22);
             modelToolStripMenuItem.Text = "Model";
             modelToolStripMenuItem.Click += modelToolStripMenuItem_Click;
             // 
             // ownerToolStripMenuItem
             // 
             ownerToolStripMenuItem.Name = "ownerToolStripMenuItem";
-            ownerToolStripMenuItem.Size = new Size(122, 22);
+            ownerToolStripMenuItem.Size = new Size(180, 22);
             ownerToolStripMenuItem.Text = "Owner";
             ownerToolStripMenuItem.Click += ownerToolStripMenuItem_Click;
             // 
             // plateStripMenuItem
             // 
             plateStripMenuItem.Name = "plateStripMenuItem";
-            plateStripMenuItem.Size = new Size(122, 22);
+            plateStripMenuItem.Size = new Size(180, 22);
             plateStripMenuItem.Text = "Plate No.";
             plateStripMenuItem.Click += plateStripMenuItem_Click;
+            // 
+            // ownerDetailsToolStripMenuItem
+            // 
+            ownerDetailsToolStripMenuItem.Name = "ownerDetailsToolStripMenuItem";
+            ownerDetailsToolStripMenuItem.Size = new Size(180, 22);
+            ownerDetailsToolStripMenuItem.Text = "Owner Details";
+            ownerDetailsToolStripMenuItem.Click += ownerDetailsToolStripMenuItem_Click;
             // 
             // resolvedToolStripMenuItem
             // 
             resolvedToolStripMenuItem.Name = "resolvedToolStripMenuItem";
-            resolvedToolStripMenuItem.Size = new Size(122, 22);
+            resolvedToolStripMenuItem.Size = new Size(180, 22);
             resolvedToolStripMenuItem.Text = "Resolved";
             resolvedToolStripMenuItem.Click += resolvedToolStripMenuItem_Click;
             // 
@@ -248,7 +256,7 @@
             sortStrip2.BackgroundImageLayout = ImageLayout.None;
             sortStrip2.Dock = DockStyle.None;
             sortStrip2.Items.AddRange(new ToolStripItem[] { sortStripMenu });
-            sortStrip2.Location = new Point(303, 0);
+            sortStrip2.Location = new Point(290, 0);
             sortStrip2.Name = "sortStrip2";
             sortStrip2.Size = new Size(83, 24);
             sortStrip2.TabIndex = 0;
@@ -477,6 +485,7 @@
             owner2Sort.Text = "Owner Details";
             owner2Sort.TextAlign = ContentAlignment.MiddleLeft;
             owner2Sort.UseVisualStyleBackColor = false;
+            owner2Sort.Click += owner2Sort_Click;
             // 
             // panel11
             // 
@@ -572,5 +581,6 @@
         private TableLayoutPanel tableLayoutPanel10;
         private Label totalMotorLabel;
         private Label label9;
+        private ToolStripMenuItem ownerDetailsToolStripMenuItem;
     }
 }

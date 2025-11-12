@@ -19,7 +19,7 @@ namespace RevVise1.Forms.Views
             DashboardView dv = new DashboardView();
             InitializeComponent();
             panel1.AutoScroll = true;
-            totalMotorLabel.Text = dv.getTotalMotor() ;
+            totalMotorLabel.Text = dv.getTotalMotor();
             preload();
         }
         private void ShowView(UserControl view)
@@ -28,11 +28,11 @@ namespace RevVise1.Forms.Views
             panel1.Controls.Add(view);
             panel1.ScrollControlIntoView(view);
         }
-        
-        private Item loadItem(DataRow row,bool isPreload = false) 
+
+        private Item loadItem(DataRow row, bool isPreload = false)
         {
             int id = Convert.ToInt32(row["motor_id"]);
-            Item item = new Item(id,isPreload);
+            Item item = new Item(id, isPreload);
             item.Model = row["motor_model"].ToString();
             item.Owner = row["motor_owner"].ToString();
             item.Plate = row["motor_plate"].ToString();
@@ -56,13 +56,13 @@ namespace RevVise1.Forms.Views
             {
                 dt = db.getData($"SELECT * FROM tbl_motor ORDER BY motor_id ASC");
             }
-            else 
+            else
             {
                 dt = db.getData($"SELECT * FROM tbl_motor WHERE user_id='{Session.UserID}'ORDER BY motor_id ASC");
             }
             foreach (DataRow row in dt.Rows)
             {
-                Item item = loadItem(row,true);
+                Item item = loadItem(row, true);
                 ShowView(item);
             }
         }
@@ -71,7 +71,7 @@ namespace RevVise1.Forms.Views
         {
             string query;
             panel1.Controls.Clear();
-            if (Session.Role == "Admin") 
+            if (Session.Role == "Admin")
             {
                 query = $"SELECT * FROM tbl_motor";
             }
@@ -90,7 +90,7 @@ namespace RevVise1.Forms.Views
             DataTable dt = db.getData(query);
             foreach (DataRow row in dt.Rows)
             {
-                Item item = loadItem(row,true);
+                Item item = loadItem(row, true);
                 ShowView(item);
             }
         }
@@ -173,6 +173,12 @@ namespace RevVise1.Forms.Views
             motorDB = "motor_plate";
             sortBy(order, motorDB, filter);
         }
+        private void ownerDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sortStrip.Items[0].Text = "Owner Details";
+            motorDB = "motor_ownerDetails";
+            sortBy(order, motorDB, filter);
+        }
 
         private void resolvedToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -221,6 +227,14 @@ namespace RevVise1.Forms.Views
             changeOrder();
         }
 
+        private void owner2Sort_Click(object sender, EventArgs e)
+        {
+            sortStrip.Items[0].Text = "Owner Details";
+            motorDB = "motor_ownerDetails";
+            sortBy(order, motorDB, filter);
+            changeOrder();
+        }
+
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -237,5 +251,6 @@ namespace RevVise1.Forms.Views
                 }
             }
         }
+
     }
 }
