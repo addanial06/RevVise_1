@@ -72,7 +72,7 @@ namespace RevVise1.Forms.Views
                 dateIssuedValue = DateTime.Now.ToShortDateString();
                 ownerDetails = ownerDetailsText.Text;
 
-                
+
             }
 
             size = new Size(900, 55);
@@ -124,7 +124,7 @@ namespace RevVise1.Forms.Views
 
         }
 
-        private void saveTexts(bool isNewEntry = false )
+        private void saveTexts(bool isNewEntry = false)
         {
             modelLabel.Text = modelText.Text;
             ownerLabel.Text = ownerText.Text;
@@ -162,25 +162,28 @@ namespace RevVise1.Forms.Views
                 showTextBox();
 
                 itemExpand2 = true;
+
+                modelText.Focus();
             }
             else
             {
                 this.Size = size;
                 editButton.Text = "Edit";
 
-                if (isNewEntry) {
+                if (isNewEntry)
+                {
                     addEntry(modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, ownerDetailsText.Text);
                     saveTexts(true);
                     logger.log($"Added motor {modelLabel.Text}, {ownerLabel.Text},{plateLabel.Text}.");
                 }
-                else 
+                else
                 {
                     string oldModel = modelLabel.Text;
                     string oldOwner = ownerLabel.Text;
                     string oldPlate = plateLabel.Text;
                     string oldStatus = statusLabel.Text;
 
-                    
+
 
                     updateEntry(id, modelText.Text, ownerText.Text, plateText.Text, entryText.Text, statusLabel.Text, dateIssued.Text, dateResolved.Text, ownerDetailsText.Text);
                     saveTexts();
@@ -199,7 +202,8 @@ namespace RevVise1.Forms.Views
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (!isNewEntry) {
+            if (!isNewEntry)
+            {
                 id = Int32.Parse(IDLabel.Text);
                 logger.log($"Deleted motor id = {id}, Model = {modelText.Text}.");
                 this.Dispose();
@@ -306,9 +310,49 @@ namespace RevVise1.Forms.Views
 
         private void ownerDetailsClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ownerDetailsText.Text) || ownerDetailsText.Text.Equals("Owner Details"));
+            if (string.IsNullOrWhiteSpace(ownerDetailsText.Text) || ownerDetailsText.Text.Equals("Owner Details")) ;
             {
                 entryText.Text = "";
+            }
+        }
+
+        private void modelText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ownerText.Focus();
+            }
+        }
+
+        private void ownerText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                plateText.Focus();
+            }
+        }
+
+        private void plateText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ownerDetailsText.Focus();
+            }
+        }
+
+        private void ownerDetailsText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                entryText.Focus();
+            }
+        }
+
+        private void entryText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                editButton.Focus();
             }
         }
 

@@ -75,6 +75,7 @@
             passwordText.PlaceholderText = "Password";
             passwordText.Size = new Size(195, 23);
             passwordText.TabIndex = 3;
+            passwordText.KeyPress += passwordText_KeyPress;
             // 
             // usernameText
             // 
@@ -84,6 +85,7 @@
             usernameText.PlaceholderText = "Username";
             usernameText.Size = new Size(195, 23);
             usernameText.TabIndex = 2;
+            usernameText.KeyPress += usernameText_KeyPress;
             // 
             // tableLayoutPanel1
             // 
@@ -144,8 +146,10 @@
             ClientSize = new Size(681, 285);
             Controls.Add(tableLayoutPanel1);
             MaximizeBox = false;
+            MaximumSize = new Size(697, 324);
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
+            MinimumSize = new Size(697, 324);
             Name = "AuthForm";
             ShowIcon = false;
             Text = "RevVise App";

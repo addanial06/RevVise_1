@@ -55,6 +55,7 @@
             usernameText.PlaceholderText = "Username";
             usernameText.Size = new Size(195, 23);
             usernameText.TabIndex = 5;
+            usernameText.KeyPress += usernameText_KeyPress;
             // 
             // passwordText
             // 
@@ -65,6 +66,7 @@
             passwordText.PlaceholderText = "Password";
             passwordText.Size = new Size(195, 23);
             passwordText.TabIndex = 6;
+            passwordText.KeyPress += passwordText_KeyPress;
             // 
             // LogoText
             // 
@@ -89,6 +91,7 @@
             passwordText2.PlaceholderText = "Confirm Password";
             passwordText2.Size = new Size(195, 23);
             passwordText2.TabIndex = 8;
+            passwordText2.KeyPress += passwordText2_KeyPress;
             // 
             // backtoLoginLink
             // 
