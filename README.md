@@ -1,5 +1,5 @@
 # RevVise
-RevVise is a lightweight desktop application desgined to help users and administrators manage vehicle repair records effectively. It provides a simple system for users to track, sort, and update vehicle cases while keeping logs for accountability. This app aims to streamline vehicle maintenance tracking for individual users and administrators, providing an efficient tool for everyday use.
+RevVise is a lightweight desktop application designed to help users and administrators manage vehicle repair records effectively. It provides a simple system for users to track, sort, and update vehicle cases while keeping logs for accountability. This app aims to streamline vehicle maintenance tracking for individual users and administrators, providing an efficient tool for everyday use.
 
 ### Key Functions:
 #### Vehicle Catalog Management:
