@@ -25,7 +25,7 @@ RevVise is a lightweight desktop application designed to help users and administ
 
 
 # Installations
-- Install Visual Studio
+- Install Visual Studio (optional)
 - Install XAMPP on C:\ :
   https://www.apachefriends.org/download.html   
 
