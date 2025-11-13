@@ -78,6 +78,7 @@
             label4 = new Label();
             adminResetVehicleDatabaseButton = new Button();
             label2 = new Label();
+            exportDBButton = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -284,15 +285,17 @@
             tableLayoutPanel14.Controls.Add(label12, 0, 2);
             tableLayoutPanel14.Controls.Add(label11, 0, 1);
             tableLayoutPanel14.Controls.Add(label9, 0, 0);
+            tableLayoutPanel14.Controls.Add(exportDBButton, 0, 6);
             tableLayoutPanel14.Location = new Point(3, 3);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
-            tableLayoutPanel14.RowCount = 6;
+            tableLayoutPanel14.RowCount = 7;
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
             tableLayoutPanel14.Size = new Size(219, 378);
             tableLayoutPanel14.TabIndex = 1;
             // 
@@ -764,6 +767,17 @@
             label2.Text = "Admin Settings";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // exportDBButton
+            // 
+            exportDBButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            exportDBButton.Location = new Point(3, 345);
+            exportDBButton.Name = "exportDBButton";
+            exportDBButton.Size = new Size(162, 23);
+            exportDBButton.TabIndex = 10;
+            exportDBButton.Text = "Export Database";
+            exportDBButton.UseVisualStyleBackColor = true;
+            exportDBButton.Click += exportDBButton_Click;
+            // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -853,5 +867,6 @@
         private Label label13;
         private Label label5;
         private Label label14;
+        private Button exportDBButton;
     }
 }

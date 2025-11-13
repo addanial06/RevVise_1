@@ -32,9 +32,9 @@ namespace RevVise1.Forms.Views
             }
 
         }
-        private String getDataCount(String type, String table, String extraQuery = "") 
+        private String getDataCount(String type, String table, String extraQuery = "")
         {
-            String query = $"SELECT COUNT(*) AS {type} FROM {table} "+extraQuery;
+            String query = $"SELECT COUNT(*) AS {type} FROM {table} " + extraQuery;
             DataTable dt = db.getData(query);
             return dt.Rows[0][type].ToString();
         }
@@ -42,15 +42,15 @@ namespace RevVise1.Forms.Views
         {
             if (isAdmin)
             {
-                adminUserRegisteredText.Text = getDataCount("username","tbl_users");
-                adminTotalVehicleText.Text = getDataCount("vehicle_id","tbl_vehicle");
-                adminTotalResolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle","WHERE vehicle_status='Resolved'");
-                adminTotalUnresolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle","WHERE vehicle_status='unresolved'");
+                adminUserRegisteredText.Text = getDataCount("username", "tbl_users");
+                adminTotalVehicleText.Text = getDataCount("vehicle_id", "tbl_vehicle");
+                adminTotalResolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle", "WHERE vehicle_status='Resolved'");
+                adminTotalUnresolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle", "WHERE vehicle_status='unresolved'");
                 loadCbBox();
             }
-            userVehicleRegisteredText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE user_id='{Session.UserID}'");
-            userResolvedText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE vehicle_status='Resolved' AND user_id='{Session.UserID}'");
-            userUnresolvedText.Text = getDataCount("vehicle_id","tbl_vehicle",$"WHERE  vehicle_status='Unresolved' AND user_id='{Session.UserID}'");
+            userVehicleRegisteredText.Text = getDataCount("vehicle_id", "tbl_vehicle", $"WHERE user_id='{Session.UserID}'");
+            userResolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle", $"WHERE vehicle_status='Resolved' AND user_id='{Session.UserID}'");
+            userUnresolvedText.Text = getDataCount("vehicle_id", "tbl_vehicle", $"WHERE  vehicle_status='Unresolved' AND user_id='{Session.UserID}'");
         }
 
         private void hideAdminControls()
@@ -61,7 +61,7 @@ namespace RevVise1.Forms.Views
             adminStatsPanel.Enabled = false;
         }
 
-        private void loadCbBox() 
+        private void loadCbBox()
         {
             userComboBox.Items.Clear();
             String query = $"SELECT username FROM tbl_users ORDER BY user_id ASC";
@@ -71,14 +71,14 @@ namespace RevVise1.Forms.Views
             foreach (DataRow row in dt.Rows)
             {
                 String user = row["username"].ToString();
-                if (!user.Equals("Admin",StringComparison.OrdinalIgnoreCase)) 
+                if (!user.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                 {
                     userComboBox.Items.Add(row["username"].ToString());
                 }
             }
         }
         //button control helpers
-        private void changePassword() 
+        private void changePassword()
         {
             string newPass = Microsoft.VisualBasic.Interaction.InputBox("Enter new password:", "Change Password");
             if (!String.IsNullOrEmpty(newPass))
@@ -105,7 +105,7 @@ namespace RevVise1.Forms.Views
             }
         }
 
-        private String getUserID() 
+        private String getUserID()
         {
             DataTable dt = db.getData("SELECT user_id FROM tbl_users WHERE username=@username", new Dictionary<string, object> { { "@username", userComboBox.SelectedItem.ToString() } });
             return dt.Rows[0]["user_id"].ToString(); ;
@@ -125,7 +125,7 @@ namespace RevVise1.Forms.Views
                 MessageBox.Show("Old password is incorrect.");
                 return;
             }
-            else 
+            else
             {
                 logger.log("User changed password.");
                 changePassword();
@@ -134,7 +134,7 @@ namespace RevVise1.Forms.Views
 
         private void userResetVehicleDataButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete all your vehicles?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes) 
+            if (MessageBox.Show("Are you sure you want to delete all your vehicles?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 String query = $"DELETE FROM tbl_vehicle WHERE user_id=@id";
                 logger.log($"User \"{Session.Username}\" vehicle database cleared.");
@@ -170,7 +170,7 @@ namespace RevVise1.Forms.Views
             {
                 MessageBox.Show("Select a user.");
             }
-            else 
+            else
             {
                 DataTable dt = db.getData(query, new Dictionary<string, object> { { "@username", userComboBox.SelectedItem.ToString() } });
                 String id = dt.Rows[0]["user_id"].ToString();
@@ -259,6 +259,12 @@ namespace RevVise1.Forms.Views
                 loadStats(true);
                 logger.log("Database cleared.");
             }
+        }
+
+        private void exportDBButton_Click(object sender, EventArgs e)
+        {
+            db.exportDB();
+            logger.log("Database exported.");
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,6 +129,74 @@ namespace RevVise1
                 return dt.Rows[0]; // returns first matched user
             else
                 return null; // no user found
+        }
+
+        public void exportDB()
+        {
+            string exeFolder = AppDomain.CurrentDomain.BaseDirectory;
+            string exportFolder = Path.Combine(exeFolder, "Exports");
+            Directory.CreateDirectory(exportFolder);
+
+            string backupFile = Path.Combine(exportFolder, $"db_revapp_{DateTime.Now:yyyyMMdd_HHmmss}.sql");
+
+            string mysqldumpPath = FindMySqlDump();
+            if (mysqldumpPath == null)
+            {
+                MessageBox.Show("Could not find mysqldump.exe.");
+                return;
+            }
+
+            string dbName = "db_revapp";
+            string username = "root";
+            string password = "";
+
+            string args = $"--user={username} --password={password} --databases {dbName} --result-file=\"{backupFile}\" --routines --events";
+
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = mysqldumpPath,
+                    Arguments = args,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using (Process prcs = Process.Start(psi))
+                    prcs.WaitForExit();
+
+                MessageBox.Show($"Database exported successfully!\n{backupFile}");
+                Process.Start("explorer.exe", exportFolder);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting database: {ex.Message}");
+            }
+        }
+        private string FindMySqlDump()
+        {
+            string[] commonPaths =
+            {
+                @"C:\xampp\mysql\bin\mysqldump.exe",
+                @"D:\xampp\mysql\bin\mysqldump.exe",
+                @"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump.exe",
+                @"C:\Program Files (x86)\MySQL\MySQL Server 8.0\bin\mysqldump.exe"
+            };
+
+            foreach (string path in commonPaths)
+                if (File.Exists(path)) return path;
+
+            string pathEnv = Environment.GetEnvironmentVariable("PATH");
+            if (!string.IsNullOrEmpty(pathEnv))
+            {
+                foreach (string dir in pathEnv.Split(';'))
+                {
+                    string candidate = Path.Combine(dir.Trim(), "mysqldump.exe");
+                    if (File.Exists(candidate)) return candidate;
+                }
+            }
+
+            return null;
         }
     }
 }

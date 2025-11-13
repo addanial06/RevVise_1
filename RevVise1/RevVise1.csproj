@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Exports\**" />
+    <EmbeddedResource Remove="Exports\**" />
+    <None Remove="Exports\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Forms\Views\AddVehicle.cs" />
     <Compile Remove="Forms\Views\AddVehicle.Designer.cs" />
   </ItemGroup>
